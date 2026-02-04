@@ -1,0 +1,109 @@
+[
+    {
+        "id": "module_00",
+        "title": "Início",
+        "icon": "🏠",
+        "locked": false,
+        "hidden": true,
+        "pages": [
+            "module_00/index.html"
+        ]
+    },
+    {
+        "id": "module_01",
+        "title": "Conceitualização",
+        "icon": "🧠",
+        "locked": false,
+        "pages": [
+            "module_01/01_intro.html",
+            "module_01/02_definitions.html",
+            "module_01/03_categories.html",
+            "module_01/04_motivations.html",
+            "module_01/05_conspiracy.html",
+            "module_01/06_summary.html",
+            "module_01/07_quiz.html",
+            "module_01/08_conclusion.html"
+        ]
+    },
+    {
+        "id": "module_02",
+        "title": "Panorama Histórico",
+        "icon": "📜",
+        "locked": true,
+        "pages": [
+            "module_02/01_intro.html",
+            "module_02/02_evolution.html",
+            "module_02/03_case_vaccines.html",
+            "module_02/04_case_climate.html",
+            "module_02/05_case_flatearth.html",
+            "module_02/06_summary.html",
+            "module_02/07_conclusion.html"
+        ]
+    },
+    {
+        "id": "module_03",
+        "title": "Impactos Reais",
+        "icon": "📊",
+        "locked": true,
+        "pages": [
+            "module_03/01_intro.html",
+            "module_03/02_trends.html",
+            "module_03/03_health.html",
+            "module_03/04_science.html",
+            "module_03/05_society.html",
+            "module_03/06_conspiracy.html",
+            "module_03/07_datalab.html",
+            "module_03/08_summary.html",
+            "module_03/09_conclusion.html"
+        ]
+    },
+    {
+        "id": "module_04",
+        "title": "Verificação",
+        "icon": "🔍",
+        "locked": true,
+        "pages": [
+            "verify_01.html",
+            "verify_02.html",
+            "verify_03.html",
+            "verify_04.html",
+            "verify_05.html"
+        ]
+    },
+    {
+        "id": "module_05",
+        "title": "Futuro (IA)",
+        "icon": "🤖",
+        "locked": true,
+        "pages": [
+            "future_01.html",
+            "future_02.html",
+            "future_03.html",
+            "future_04.html",
+            "future_05.html"
+        ]
+    },
+    {
+        "id": "module_06",
+        "title": "Caça Fakes",
+        "icon": "🕵️",
+        "locked": true,
+        "type": "game",
+        "pages": [
+            "game_intro.html",
+            "game_stage_1.html",
+            "game_stage_2.html",
+            "game_result.html"
+        ]
+    },
+    {
+        "id": "module_07",
+        "title": "Indica",
+        "icon": "🔗",
+        "locked": true,
+        "pages": [
+            "links.html",
+            "credits.html"
+        ]
+    }
+]

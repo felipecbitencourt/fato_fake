@@ -1,0 +1,150 @@
+<div class="content-container">
+    <!-- Page Header -->
+    <div class="page-header-section">
+        <span class="module-badge">Módulo 3</span>
+        <h1>Impactos Reais</h1>
+        <p class="page-subtitle">Como a desinformação afeta a sociedade, a saúde e a democracia</p>
+    </div>
+
+    <!-- Welcome Section -->
+    <section class="content-section">
+        <div class="section-intro">
+            <div class="intro-icon">📊</div>
+            <div class="intro-content">
+                <h2>A Verdade em Números</h2>
+                <p>
+                    Neste módulo, sairemos da teoria para a prática. Vamos analisar dados reais que mostram como
+                    a desinformação moldou eventos históricos recentes no Brasil e no mundo. Você verá como
+                    rumores online têm consequências offline tangíveis.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- What You'll Learn -->
+    <section class="content-section">
+        <h2>O Que Você Vai Analisar</h2>
+        <div class="vertical-cards-list">
+            <div class="vertical-card">
+                <div class="vertical-card-number">01</div>
+                <div class="vertical-card-content">
+                    <h3>Tendências de Busca</h3>
+                    <p>
+                        Acompanhe a explosão do termo "fake news" e como ele se correlaciona com momentos
+                        de crise política e social no Brasil.
+                    </p>
+                </div>
+                <div class="vertical-card-icon">📈</div>
+            </div>
+
+            <div class="vertical-card">
+                <div class="vertical-card-number">02</div>
+                <div class="vertical-card-content">
+                    <h3>Saúde Pública</h3>
+                    <p>
+                        Veja a relação inversa entre a busca por teorias da conspiração sobre vacinas e
+                        a queda na cobertura vacinal de doenças como o Sarampo.
+                    </p>
+                </div>
+                <div class="vertical-card-icon">🚑</div>
+            </div>
+
+            <div class="vertical-card">
+                <div class="vertical-card-number">03</div>
+                <div class="vertical-card-content">
+                    <h3>Laboratório de Dados</h3>
+                    <p>
+                        Uma experiência interativa onde você poderá explorar diferentes cenários (eleições,
+                        fofocas, saúde) e ver como a desinformação se espalha em cada um.
+                    </p>
+                </div>
+                <div class="vertical-card-icon">🔬</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <div class="page-cta">
+        <div class="cta-content">
+            <h3>Preparado para os dados?</h3>
+            <p>Os números não mentem. Vamos ver o que eles têm a dizer.</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* Estilos herdados de module3.css e app.css */
+    /* Adicionando estilos específicos que podem faltar */
+    .section-intro {
+        display: flex;
+        gap: 25px;
+        align-items: flex-start;
+        background: linear-gradient(135deg, #f8f9fa, #ffffff);
+        padding: 30px;
+        border-radius: 16px;
+        border-left: 5px solid #E53935;
+        /* Module 3 Primary Color */
+    }
+
+    .intro-icon {
+        font-size: 2.5rem;
+        background: rgba(229, 57, 53, 0.1);
+        width: 70px;
+        height: 70px;
+        line-height: 70px;
+        text-align: center;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .vertical-cards-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .vertical-card {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+        padding: 28px;
+        background: linear-gradient(145deg, #ffffff, #fafafa);
+        border-radius: 16px;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+        transition: all 0.3s ease;
+    }
+
+    .vertical-card:hover {
+        transform: translateX(8px);
+        box-shadow: 0 10px 30px rgba(229, 57, 53, 0.1);
+        border-color: rgba(229, 57, 53, 0.2);
+    }
+
+    .vertical-card-number {
+        font-size: 2rem;
+        font-weight: 900;
+        color: rgba(229, 57, 53, 0.2);
+        min-width: 60px;
+    }
+
+    .vertical-card-icon {
+        font-size: 2rem;
+        background: rgba(229, 57, 53, 0.08);
+        width: 60px;
+        height: 60px;
+        line-height: 60px;
+        text-align: center;
+        border-radius: 12px;
+        flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+
+        .section-intro,
+        .vertical-card {
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+</style>

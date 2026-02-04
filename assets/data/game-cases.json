@@ -1,0 +1,226 @@
+{
+    "cases": [
+        {
+            "id": 1,
+            "title": "Estudo sobre Vacinas",
+            "content": "URGENTE: Estudo de Oxford confirma ligação entre vacinas e autismo em crianças. Médicos alertam pais!",
+            "source": "WhatsApp viral",
+            "shares": "150.000",
+            "correct": {
+                "type": "disinformation",
+                "category": 7,
+                "severity": 7,
+                "motivation": "political"
+            },
+            "explanation": {
+                "type": "Este é um exemplo clássico de DESINFORMAÇÃO porque foi criado intencionalmente para causar dano - neste caso, desencorajar a vacinação. O estudo mencionado não existe.",
+                "category": "Trata-se de CONTEÚDO FABRICADO (tipo 7) porque é uma informação 100% inventada. Não há nenhum estudo de Oxford com essas conclusões - é pura ficção criada para parecer credível.",
+                "severity": "Gravidade MÁXIMA (7) porque pode causar mortes ao desencorajar a vacinação de crianças contra doenças graves.",
+                "motivation": "A motivação é POLÍTICA, pois movimentos antivacina frequentemente têm agendas ideológicas e buscam desacreditar autoridades de saúde."
+            }
+        },
+        {
+            "id": 2,
+            "title": "Foto de Manifestação",
+            "content": "AGORA: Milhares protestam contra o governo no Congresso Nacional! O povo acordou!",
+            "source": "Twitter/X",
+            "shares": "45.000",
+            "imageNote": "Foto real de manifestação de 2015",
+            "correct": {
+                "type": "misinformation",
+                "category": 4,
+                "severity": 4,
+                "motivation": "bad_journalism"
+            },
+            "explanation": {
+                "type": "É INFORMAÇÃO FALSA (Mis-information) porque quem compartilhou provavelmente acreditava ser atual. A foto é real, mas foi tirada em 2015 - não há intenção maliciosa evidente.",
+                "category": "É CONTEXTO FALSO (tipo 4) porque o conteúdo (a foto) é genuíno, mas está sendo apresentado com informações contextuais falsas sobre quando e por que foi tirado.",
+                "severity": "Gravidade MÉDIA (4) porque distorce a percepção da realidade política atual, mas a foto em si é verdadeira.",
+                "motivation": "Provavelmente JORNALISMO RUIM - falta de verificação antes de compartilhar, pressa para 'dar o furo'."
+            }
+        },
+        {
+            "id": 3,
+            "title": "Manchete Clickbait",
+            "content": "Você NÃO vai acreditar no que este médico descobriu sobre café! Indústria tenta esconder há anos!",
+            "source": "Site de notícias",
+            "shares": "28.000",
+            "correct": {
+                "type": "misinformation",
+                "category": 2,
+                "severity": 2,
+                "motivation": "economic"
+            },
+            "explanation": {
+                "type": "É INFORMAÇÃO FALSA porque o título exagera enormemente o conteúdo real do artigo. Não há intenção de causar dano social, apenas de gerar cliques.",
+                "category": "É CONEXÃO FALSA (tipo 2) porque o título sensacionalista não corresponde ao conteúdo real - provavelmente o artigo apenas fala sobre benefícios já conhecidos do café.",
+                "severity": "Gravidade BAIXA (2) porque embora seja enganoso, não causa danos sérios à saúde pública ou à democracia.",
+                "motivation": "Motivação ECONÔMICA - o objetivo é gerar cliques para aumentar receita publicitária. Quanto mais sensacionalista, mais dinheiro."
+            }
+        },
+        {
+            "id": 4,
+            "title": "Sátira do Sensacionalista",
+            "content": "Governo anuncia que semana terá 8 dias para aumentar produtividade do brasileiro",
+            "source": "Sensacionalista (compartilhado como real)",
+            "shares": "12.000",
+            "correct": {
+                "type": "misinformation",
+                "category": 1,
+                "severity": 1,
+                "motivation": "provocation"
+            },
+            "explanation": {
+                "type": "É INFORMAÇÃO FALSA porque, embora seja claramente uma piada no contexto original, muitas pessoas compartilharam acreditando ser verdade.",
+                "category": "É SÁTIRA OU PARÓDIA (tipo 1) - o Sensacionalista é um site de humor conhecido. O problema surge quando o conteúdo é tirado do contexto e compartilhado como notícia real.",
+                "severity": "Gravidade MÍNIMA (1) porque foi criado apenas para fazer humor e crítica social, sem intenção de enganar.",
+                "motivation": "PROVOCAÇÃO/Humor - o objetivo original era entretenimento e crítica social bem-humorada."
+            }
+        },
+        {
+            "id": 5,
+            "title": "Vídeo Editado de Político",
+            "content": "VEJA: Candidato admite em vídeo que vai 'acabar com a democracia'. Compartilhe antes que apaguem!",
+            "source": "Grupos de WhatsApp",
+            "shares": "200.000",
+            "imageNote": "Vídeo com cortes e edições",
+            "correct": {
+                "type": "disinformation",
+                "category": 6,
+                "severity": 6,
+                "motivation": "political"
+            },
+            "explanation": {
+                "type": "É DESINFORMAÇÃO porque foi criado com clara intenção de prejudicar um candidato político através de manipulação deliberada.",
+                "category": "É CONTEÚDO MANIPULADO (tipo 6) porque parte de um vídeo real, mas foi editado de forma a distorcer completamente o significado original das palavras.",
+                "severity": "Gravidade ALTA (6) porque pode influenciar eleições e destruir reputações com base em mentiras.",
+                "motivation": "Motivação POLÍTICA evidente - o objetivo é prejudicar um adversário político durante período eleitoral."
+            }
+        },
+        {
+            "id": 6,
+            "title": "Deepfake de Celebridade",
+            "content": "ESCÂNDALO: Vídeo mostra famosa atriz admitindo uso de drogas em festa. Assista antes que removam!",
+            "source": "TikTok/Instagram",
+            "shares": "320.000",
+            "imageNote": "Vídeo gerado por IA (deepfake)",
+            "correct": {
+                "type": "disinformation",
+                "category": 7,
+                "severity": 6,
+                "motivation": "economic"
+            },
+            "explanation": {
+                "type": "É DESINFORMAÇÃO porque foi criado deliberadamente usando IA para difamar a pessoa. Deepfakes são uma forma avançada de manipulação digital.",
+                "category": "É CONTEÚDO FABRICADO (tipo 7) porque o vídeo inteiro foi gerado artificialmente por inteligência artificial. A pessoa nunca disse ou fez o que aparece.",
+                "severity": "Gravidade ALTA (6) porque pode destruir reputações e carreiras, além de normalizar o uso de deepfakes como arma.",
+                "motivation": "Motivação ECONÔMICA - vídeos sensacionalistas de celebridades geram milhões de visualizações e receita publicitária."
+            }
+        },
+        {
+            "id": 7,
+            "title": "Corrente de WhatsApp",
+            "content": "ATENÇÃO: Hackers vão deletar seu WhatsApp amanhã! Encaminhe para 10 pessoas para proteger sua conta. Mensagem do diretor do WhatsApp.",
+            "source": "WhatsApp",
+            "shares": "500.000",
+            "correct": {
+                "type": "misinformation",
+                "category": 5,
+                "severity": 3,
+                "motivation": "provocation"
+            },
+            "explanation": {
+                "type": "É INFORMAÇÃO FALSA porque quem encaminha geralmente acredita estar ajudando os amigos. Não há intenção maliciosa ao compartilhar.",
+                "category": "É CONTEÚDO IMPOSTOR (tipo 5) porque se passa por uma comunicação oficial do WhatsApp, usando falsamente a autoridade da empresa.",
+                "severity": "Gravidade BAIXA (3) porque causa apenas inconveniência e spam, sem danos graves à saúde ou segurança.",
+                "motivation": "PROVOCAÇÃO - muitas correntes são criadas como brincadeira ou experimento social para ver até onde se espalham."
+            }
+        },
+        {
+            "id": 8,
+            "title": "Pseudo-ciência Viral",
+            "content": "Cientistas descobrem que beber água com limão em jejum cura qualquer tipo de câncer. Hospital de Boston confirma!",
+            "source": "Facebook",
+            "shares": "89.000",
+            "correct": {
+                "type": "disinformation",
+                "category": 7,
+                "severity": 7,
+                "motivation": "economic"
+            },
+            "explanation": {
+                "type": "É DESINFORMAÇÃO porque promove tratamentos falsos que podem levar pessoas a abandonar tratamentos médicos legítimos.",
+                "category": "É CONTEÚDO FABRICADO (tipo 7) porque não existe nenhum estudo ou confirmação do Hospital de Boston. A informação é completamente inventada.",
+                "severity": "Gravidade MÁXIMA (7) porque pode levar pacientes de câncer a abandonar quimioterapia e outros tratamentos eficazes, resultando em mortes.",
+                "motivation": "Motivação ECONÔMICA - sites de saúde alternativa e vendedores de produtos naturais lucram com esse tipo de conteúdo."
+            }
+        },
+        {
+            "id": 9,
+            "title": "Teoria da Conspiração",
+            "content": "REVELADO: Fotos da NASA provam que Terra é plana! Cientistas que tentaram revelar a verdade foram silenciados.",
+            "source": "YouTube",
+            "shares": "156.000",
+            "imageNote": "Imagens da NASA editadas",
+            "correct": {
+                "type": "disinformation",
+                "category": 6,
+                "severity": 4,
+                "motivation": "propaganda"
+            },
+            "explanation": {
+                "type": "É DESINFORMAÇÃO porque foi criada intencionalmente para promover uma teoria conspiratória, desacreditando instituições científicas.",
+                "category": "É CONTEÚDO MANIPULADO (tipo 6) porque usa fotos reais da NASA, mas distorce ou edita para 'provar' algo que não existe.",
+                "severity": "Gravidade MÉDIA (4) porque mina a confiança em instituições científicas, mas não causa dano físico direto.",
+                "motivation": "PROPAGANDA - teorias conspiratórias são usadas para criar comunidades engajadas e desacreditar o conhecimento científico estabelecido."
+            }
+        },
+        {
+            "id": 10,
+            "title": "Golpe do PIX",
+            "content": "URGENTE: Banco Central vai taxar PIX a partir de amanhã! Faça transferência agora para conta segura e evite perder dinheiro!",
+            "source": "SMS/WhatsApp",
+            "shares": "75.000",
+            "correct": {
+                "type": "disinformation",
+                "category": 5,
+                "severity": 7,
+                "motivation": "economic"
+            },
+            "explanation": {
+                "type": "É DESINFORMAÇÃO porque foi criada deliberadamente para enganar vítimas e roubar seu dinheiro através de golpe.",
+                "category": "É CONTEÚDO IMPOSTOR (tipo 5) porque se passa por uma comunicação oficial do Banco Central para ganhar credibilidade.",
+                "severity": "Gravidade MÁXIMA (7) porque resulta em perdas financeiras diretas para as vítimas, podendo devastar economicamente famílias inteiras.",
+                "motivation": "Motivação ECONÔMICA direta - criminosos usam fake news como ferramenta para aplicar golpes e roubar dinheiro."
+            }
+        }
+    ],
+    "config": {
+        "pointsPerDimension": 25,
+        "maxPoints": 100,
+        "comboMultiplier": 1.5,
+        "hintsPerGame": 3,
+        "timerEnabled": false,
+        "timerSeconds": 180
+    },
+    "medals": {
+        "bronze": {
+            "min": 60,
+            "max": 74,
+            "emoji": "🥉",
+            "label": "Bronze"
+        },
+        "silver": {
+            "min": 75,
+            "max": 89,
+            "emoji": "🥈",
+            "label": "Prata"
+        },
+        "gold": {
+            "min": 90,
+            "max": 100,
+            "emoji": "🥇",
+            "label": "Ouro"
+        }
+    }
+}

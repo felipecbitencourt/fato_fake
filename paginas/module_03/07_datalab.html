@@ -1,0 +1,99 @@
+<div class="content-container">
+    <header class="page-header-section">
+        <span class="module-badge">Módulo 3</span>
+        <h1>Laboratório de Dados: O Pulso da Mentira</h1>
+        <p class="page-subtitle">Explore interativamente como eventos do mundo real disparam buscas online</p>
+    </header>
+
+    <section class="content-section" style="--decoration-color: rgba(25, 118, 210, 0.05)">
+        <div class="intro-box">
+            <p>
+                Analise os dados você mesmo. Selecione um cenário abaixo para sobrepor a linha do tempo
+                de eventos reais com o volume de buscas no Google.
+            </p>
+        </div>
+
+        <div class="data-lab-controls">
+            <button class="lab-btn active" data-scenario="election" onclick="updateLab('election')">🗳️
+                Eleições</button>
+            <button class="lab-btn" data-scenario="health" onclick="updateLab('health')">🚑 Saúde</button>
+            <button class="lab-btn" data-scenario="celebrity" onclick="updateLab('celebrity')">🌟 Fofocas</button>
+        </div>
+
+        <div class="data-card">
+            <h3>🔬 Painel de Análise</h3>
+            <canvas id="chartLab"></canvas>
+            <div id="lab-insight" class="highlight-text" style="text-align: center; margin-top: 15px;">
+                Selecione um cenário acima para começar.
+            </div>
+            <span class="chart-source"><strong>Nota Técnica:</strong> Simulação baseada em padrões de tráfego de
+                desinformação observados em redes sociais durante eventos críticos (Eleições 2022).</span>
+        </div>
+    </section>
+
+    <!-- Reflection -->
+    <section class="content-section">
+        <div class="highlight-box sabia" style="background: linear-gradient(135deg, #1976D2, #0D47A1);">
+            <div>
+                <h3>🎯 Conclusão dos Dados</h3>
+                <p style="color: white;">
+                    A desinformação não acontece no vácuo. Ela é reativa. Entender esses padrões nos ajuda a prever
+                    (e nos proteger de) futuras ondas de mentiras antes que elas nos atinjam.
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    let labChart = null;
+
+    const scenarios = window.Module3Data.datalab.scenarios;
+
+    window.updateLab = function (scenarioKey) {
+        // Update buttons styling
+        document.querySelectorAll('.lab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelector(`button[data-scenario="${scenarioKey}"]`).classList.add('active');
+
+        // Update Text
+        const scenario = scenarios[scenarioKey];
+        document.getElementById('lab-insight').innerHTML = '💡 ' + scenario.insight;
+
+        // Update Chart
+        if (labChart) {
+            labChart.data.labels = scenario.labels;
+            labChart.data.datasets[0].label = scenario.label;
+            labChart.data.datasets[0].data = scenario.data;
+            labChart.update();
+        }
+    };
+
+    window.initLabChart = function () {
+        if (typeof Chart === 'undefined') return setTimeout(window.initLabChart, 100);
+
+        const canvas = document.getElementById('chartLab');
+        if (!canvas) return;
+
+        labChart = new Chart(canvas, {
+            type: 'line',
+            data: {
+                labels: scenarios.election.labels,
+                datasets: [{
+                    label: scenarios.election.label,
+                    data: scenarios.election.data,
+                    borderColor: '#1976D2',
+                    backgroundColor: 'rgba(25, 118, 210, 0.1)',
+                    fill: true,
+                    tension: 0.3
+                }]
+            },
+            options: {
+                animation: { duration: 1000 }
+            }
+        });
+
+        // Initial set
+        document.getElementById('lab-insight').innerHTML = '💡 ' + scenarios.election.insight;
+    };
+    setTimeout(window.initLabChart, 500);
+</script>

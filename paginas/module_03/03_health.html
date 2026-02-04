@@ -1,0 +1,89 @@
+<div class="content-container">
+    <header class="page-header-section">
+        <span class="module-badge">Módulo 3</span>
+        <h1>Saúde: O Custo da Dúvida</h1>
+        <p class="page-subtitle">Quando um clique pode custar vidas: vacinas e saúde pública</p>
+    </header>
+
+    <!-- Data Section -->
+    <section class="content-section" style="--decoration-color: rgba(229, 57, 53, 0.05)">
+        <div class="intro-box">
+            <p>
+                A desinformação em saúde não é apenas um "erro na internet". Ela tem consequências físicas
+                reais. O gráfico abaixo mostra a correlação entre o aumento das buscas por termos alarmistas
+                e a queda na cobertura vacinal.
+            </p>
+        </div>
+
+        <div class="data-card">
+            <h3>📉 Vacinação vs Medo Online</h3>
+            <canvas id="chartHealth"></canvas>
+            <div class="caption">Comparativo entre buscas por "vacina autismo" e taxas de cobertura de Sarampo.</div>
+            <span class="chart-source"><strong>Fonte:</strong> DATASUS (Cobertura Vacinal Tríplice Viral D1) e Google
+                Trends (Termo 'Vacina Autismo'). Correlação temporal inversa observada entre 2014-2024.</span>
+        </div>
+    </section>
+
+    <!-- Reality Section -->
+    <section class="content-section">
+        <h2>A Realidade nos Hospitais</h2>
+        <div class="story-block danger">
+            <h3>O Retorno do Sarampo</h3>
+            <p>
+                O Brasil havia recebido o certificado de eliminação do sarampo em 2016. Apenas dois anos depois,
+                após campanhas massivas de desinformação, o vírus voltou a circular, causando mortes evitáveis.
+            </p>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section class="content-section">
+        <div class="highlight-box warning">
+            <div>
+                <h3>💡 Análise: A Dúvida como Vírus</h3>
+                <p>
+                    Não é necessário convencer alguém de que a vacina é ruim. Basta semear a <strong>dúvida</strong>.
+                    Se um pai hesita, o vírus ganha tempo.
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    // Placeholder for Health Chart execution
+    window.initHealthChart = function () {
+        if (typeof Chart === 'undefined') return setTimeout(window.initHealthChart, 100);
+
+        const canvas = document.getElementById('chartHealth');
+        if (!canvas) return;
+
+        // Global Data
+        const db = window.Module3Data.health;
+
+        new Chart(canvas, {
+            type: 'line',
+            data: {
+                labels: db.labels,
+                datasets: [{
+                    label: 'Buscas por "vacina riscos" (Google)',
+                    data: db.searches,
+                    borderColor: '#E53935',
+                    yAxisID: 'y'
+                }, {
+                    label: 'Cobertura Vacinal (%)',
+                    data: db.coverage,
+                    borderColor: '#43A047',
+                    yAxisID: 'y1'
+                }]
+            },
+            options: {
+                scales: {
+                    y: { position: 'left', title: { display: true, text: 'Buscas (Volume)' } },
+                    y1: { position: 'right', title: { display: true, text: 'Cobertura (%)' } }
+                }
+            }
+        });
+    };
+    setTimeout(initHealthChart, 500);
+</script>

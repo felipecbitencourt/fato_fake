@@ -1,0 +1,80 @@
+<div class="content-container">
+    <header class="page-header-section">
+        <span class="module-badge">Módulo 3</span>
+        <h1>Sociedade: O Pânico Viral</h1>
+        <p class="page-subtitle">A anatomia de um boato em tempos de crise</p>
+    </header>
+
+    <!-- Data Section -->
+    <section class="content-section" style="--decoration-color: rgba(255, 152, 0, 0.05)">
+        <div class="intro-box">
+            <p>
+                Em momentos de incerteza, buscamos respostas. Se as fontes oficiais demoram, os boatos preenchem
+                o vácuo. Veja como picos de busca por tratamentos milagrosos coincidem com momentos de crise.
+            </p>
+        </div>
+
+        <div class="data-card">
+            <h3>🌩️ Anatomia da Crise</h3>
+            <canvas id="chartSociety"></canvas>
+            <div class="caption">Picos de busca por termos alarmistas durante crises recentes.</div>
+            <span class="chart-source"><strong>Fonte:</strong> Google Trends Brasil. Dados normalizados. O pico de busca
+                por curas milagrosas coincide com o início da pandemia (Mar-Abr 2020).</span>
+        </div>
+    </section>
+
+    <!-- Reality Section -->
+    <section class="content-section">
+        <h2>A Realidade nas Ruas</h2>
+        <div class="story-block danger">
+            <h3>Linchamentos Virtuais e Reais</h3>
+            <p>
+                No Guarujá (2014), um boato de Facebook sobre uma suposta sequestradora de crianças levou ao
+                linchamento de Fabiane Maria de Jesus. Ela era inocente. O boato viral alcançou milhares
+                de pessoas; o desmentido chegou tarde demais.
+            </p>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section class="content-section">
+        <div class="highlight-box warning">
+            <div>
+                <h3>💡 Lei de Brandolini</h3>
+                <p>
+                    "A quantidade de energia necessária para refutar uma bobagem é uma ordem de magnitude maior
+                    que a necessária para produzi-la."
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    window.initSocietyChart = function () {
+        if (typeof Chart === 'undefined') return setTimeout(window.initSocietyChart, 100);
+
+        const canvas = document.getElementById('chartSociety');
+        if (!canvas) return;
+
+        const db = window.Module3Data.society;
+
+        new Chart(canvas, {
+            type: 'bar',
+            data: {
+                labels: db.labels,
+                datasets: [{
+                    label: 'Buscas por "Remédio Milagroso"',
+                    data: db.searches,
+                    backgroundColor: '#FF9800'
+                }]
+            },
+            options: {
+                plugins: {
+                    title: { display: true, text: 'Explosão de Buscas em Março' }
+                }
+            }
+        });
+    };
+    setTimeout(window.initSocietyChart, 500);
+</script>

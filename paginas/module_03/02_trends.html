@@ -1,0 +1,219 @@
+<!-- Chart.js - Visualização de Dados sobre Fake News -->
+<div class="content-container">
+    <header class="page-header-section">
+        <h1>📊 Tendências de Busca: Fake News no Brasil</h1>
+        <p class="page-subtitle">Analise como o interesse pelo tema evoluiu ao longo dos anos</p>
+    </header>
+
+    <section class="content-section">
+        <div class="intro-box">
+            <p>Os gráficos abaixo mostram a evolução do interesse de busca pelos termos <strong>"fake news"</strong> e
+                <strong>"desinformação"</strong> no Brasil. Observe os picos de busca e tente relacioná-los com eventos
+                importantes (eleições, pandemia, escândalos políticos).
+            </p>
+        </div>
+
+        <!-- Gráfico 1: Fake News ao longo do tempo -->
+        <div class="data-card">
+            <h3>🔍 Interesse ao longo do tempo: "fake news"</h3>
+            <canvas id="chartFakeNews"></canvas>
+            <span class="chart-source"><strong>Fonte:</strong> Google Trends Brasil. Dados normalizados (0-100)
+                representando o volume de busca relativo (2015-2024). O pico de 100 em 2018 coincide com as
+                eleições.</span>
+        </div>
+
+        <!-- Gráfico 2: Comparação de termos -->
+        <div class="data-card">
+            <h3>📈 Comparação: "fake news" vs "desinformação"</h3>
+            <canvas id="chartComparison"></canvas>
+            <span class="chart-source"><strong>Fonte:</strong> Google Trends Brasil. Comparativo de volume
+                relativo.</span>
+        </div>
+
+        <!-- Análise contextual -->
+        <div class="story-block info">
+            <h3>🧐 O que podemos observar?</h3>
+            <ul>
+                <li><strong>2018:</strong> Explosão de buscas durante as eleições presidenciais brasileiras</li>
+                <li><strong>2020:</strong> Novo pico durante a pandemia de COVID-19 e desinformação sobre vacinas</li>
+                <li><strong>2022:</strong> Mais um pico em ano eleitoral, confirmando o padrão</li>
+            </ul>
+            <div class="highlight-text" style="color: #333;">
+                💡 <strong>Reflexão:</strong> O interesse por "fake news" aumenta em momentos
+                de tensão política e social. Isso mostra como a desinformação se torna pauta quando
+                decisões importantes estão em jogo.
+            </div>
+        </div>
+
+        <!-- Gráfico 3: Categorias de Fake News -->
+        <div class="data-card">
+            <h3>🎯 Principais Categorias de Desinformação no Brasil</h3>
+            <div style="max-width: 400px; margin: 0 auto;">
+                <canvas id="chartCategories"></canvas>
+            </div>
+            <span class="chart-source"><strong>Fonte:</strong> Pesquisa 'Crença em Fake News' (Fev/2024). Percentual de
+                entrevistados que admitiram acreditar em notícias falsas de cada tema.</span>
+        </div>
+
+        <!-- Atividade de reflexão -->
+        <div class="highlight-box sabia">
+            <div>
+                <h3>✍️ Atividade de Reflexão</h3>
+                <p>Com base nos gráficos apresentados, responda:</p>
+                <ol style="padding-left: 20px; line-height: 1.6;">
+                    <li>Por que você acha que o termo "fake news" ganhou tanta popularidade a partir de 2018?</li>
+                    <li>Qual a diferença entre "fake news" e "desinformação"? Por que um termo é mais buscado que o
+                        outro?</li>
+                    <li>Como você acha que será a tendência nos próximos anos?</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    // Expor a função globalmente para que app.js possa chamá-la
+    window.initCharts = function () {
+        // Verificar se Chart.js está carregado
+        if (typeof Chart === 'undefined') {
+            setTimeout(window.initCharts, 100);
+            return;
+        }
+
+        // Verificar se os canvas existem
+        const canvas1 = document.getElementById('chartFakeNews');
+        const canvas2 = document.getElementById('chartComparison');
+        const canvas3 = document.getElementById('chartCategories');
+
+        if (!canvas1 || !canvas2 || !canvas3) {
+            // setTimeout(window.initCharts, 100); // Removed loop, script execution allows retry if needed but executeScripts handles it
+            return;
+        }
+
+        // Evitar reinicialização se já houver chart
+        if (canvas1.chart) return;
+
+        // Cores do tema
+        const primaryColor = '#E53935';
+        const secondaryColor = '#1976D2';
+
+        // Dados centralizados
+        const db = window.Module3Data.intro;
+
+        // Gráfico 1: Fake News ao longo do tempo
+        new Chart(canvas1, {
+            type: 'line',
+            data: {
+                labels: db.fakeNews.labels,
+                datasets: [{
+                    label: 'Interesse por "fake news"',
+                    data: db.fakeNews.data,
+                    borderColor: primaryColor,
+                    backgroundColor: 'rgba(229, 57, 53, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointRadius: 6,
+                    pointBackgroundColor: primaryColor,
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: true, position: 'top' },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                return 'Interesse relativo: ' + context.raw + '%';
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: { display: true, text: 'Interesse Relativo (%)' }
+                    },
+                    x: {
+                        title: { display: true, text: 'Ano' }
+                    }
+                }
+            }
+        });
+
+        // Gráfico 2: Comparação fake news vs desinformação
+        new Chart(canvas2, {
+            type: 'line',
+            data: {
+                labels: db.fakeNews.labels, // Same labels
+                datasets: [
+                    {
+                        label: '"fake news"',
+                        data: db.comparison.dataFake,
+                        borderColor: primaryColor,
+                        backgroundColor: 'rgba(229, 57, 53, 0.05)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    },
+                    {
+                        label: '"desinformação"',
+                        data: db.comparison.dataDisinfo,
+                        borderColor: secondaryColor,
+                        backgroundColor: 'rgba(25, 118, 210, 0.05)',
+                        borderWidth: 3,
+                        fill: true,
+                        tension: 0.4
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: true, position: 'top' } },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        title: { display: true, text: 'Interesse Relativo (%)' }
+                    }
+                }
+            }
+        });
+
+        // Gráfico 3: Categorias de Fake News (Doughnut)
+        new Chart(canvas3, {
+            type: 'doughnut',
+            data: {
+                labels: db.categories.labels,
+                datasets: [{
+                    data: db.categories.data,
+                    backgroundColor: ['#E53935', '#1976D2', '#9C27B0', '#FF9800', '#43A047', '#757575'],
+                    borderWidth: 2,
+                    borderColor: '#fff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: { display: true, position: 'bottom' },
+                    tooltip: {
+                        callbacks: {
+                            label: function (context) {
+                                return context.label + ': ' + context.raw + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        console.log('Charts initialized successfully!');
+    }
+
+    // Iniciar após pequeno delay para garantir que tudo carregou
+    setTimeout(initCharts, 200);
+</script>

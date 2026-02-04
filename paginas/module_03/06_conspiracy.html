@@ -1,0 +1,97 @@
+<div class="content-container">
+    <header class="page-header-section">
+        <span class="module-badge">Módulo 3</span>
+        <h1>Arquivo X: Teorias da Conspiração</h1>
+        <p class="page-subtitle">Como velhas ideias ganham nova vida na era digital</p>
+    </header>
+
+    <!-- Data Section -->
+    <section class="content-section" style="--decoration-color: rgba(156, 39, 176, 0.05)">
+        <div class="intro-box">
+            <p>
+                As teorias da conspiração não morrem; elas se reciclam. O que muda são os vilões e os meios.
+                O gráfico abaixo mostra como o interesse por temas conspiratórios flutua e se adapta.
+            </p>
+        </div>
+
+        <div class="data-card">
+            <h3>👽 O Ciclo da Conspiração</h3>
+            <canvas id="chartConspiracy"></canvas>
+            <div class="caption">Comparativo de interesse: "Illuminati" (Clássico) vs "QAnon" (Moderno).</div>
+            <span class="chart-source"><strong>Fonte:</strong> Google Trends comparativo. Análise de tendências de busca
+                mostra a substituição de velhas conspirações por novas narrativas digitais.</span>
+        </div>
+    </section>
+
+    <!-- Reality Section -->
+    <section class="content-section">
+        <h2>A Reciclagem de Narrativas</h2>
+        <div class="comparison-intro">
+            <div class="comparison-item">
+                <span class="comparison-icon">🧛</span>
+                <div>
+                    <strong>Idade Média:</strong> Acusações de rituais secretos contra minorias.
+                </div>
+            </div>
+            <div class="comparison-vs">♻️</div>
+            <div class="comparison-item highlight">
+                <span class="comparison-icon">🍕</span>
+                <div>
+                    <strong>Hoje:</strong> "Pizzagate" e teorias sobre elites secretas.
+                </div>
+            </div>
+        </div>
+        <p style="text-align: center; color: #666; margin-top: 20px;">
+            A estrutura narrativa é a mesma: "Eles" (um grupo poderoso) estão escondendo "A Verdade" de "Nós" (o povo).
+        </p>
+    </section>
+
+    <!-- Analysis Section -->
+    <section class="content-section">
+        <div class="highlight-box sabia">
+            <div>
+                <h3>💡 Por que acreditamos?</h3>
+                <p>
+                    Teorias da conspiração oferecem uma explicação simples (e dramática) para um mundo complexo e
+                    caótico.
+                    Elas dão ao crente a sensação de privilégio: "Eu sei algo que os outros não sabem".
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    window.initConspiracyChart = function () {
+        if (typeof Chart === 'undefined') return setTimeout(window.initConspiracyChart, 100);
+
+        const canvas = document.getElementById('chartConspiracy');
+        if (!canvas) return;
+
+        const db = window.Module3Data.conspiracy;
+
+        new Chart(canvas, {
+            type: 'line',
+            data: {
+                labels: db.labels,
+                datasets: [{
+                    label: 'Illuminati (Clássico)',
+                    data: db.illuminati,
+                    borderColor: '#795548',
+                    tension: 0.4
+                }, {
+                    label: 'QAnon (Moderno)',
+                    data: db.qanon,
+                    borderColor: '#E91E63',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                plugins: {
+                    title: { display: true, text: 'A Substituição das Teorias' }
+                }
+            }
+        });
+    };
+    setTimeout(window.initConspiracyChart, 500);
+</script>

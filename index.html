@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fato ou Fake - Curso Interativo</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/theme.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/modules.css">
+    <link rel="stylesheet" href="assets/css/module3.css"> <!-- Module 3 Premium Styles -->
+    <link rel="stylesheet" href="assets/css/game.css"> <!-- Will be created later -->
+
+    <!-- SCORM & Accessibility Init -->
+    <script>
+        // Global Config
+        window.APP_CONFIG = {
+            sequential: true, // Only unlock next after current is done
+            debug: true       // Set to false in production
+        };
+    </script>
+
+    <!-- Chart.js for data visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <!-- Header with Tabs -->
+    <header id="main-header" role="banner">
+        <a href="#" class="logo-container" id="logo-home-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                <circle cx="12" cy="12" r="3" />
+            </svg>
+            <span class="logo-text">Fato ou Fake</span>
+        </a>
+
+        <nav class="tabs-container" id="tabs-nav" aria-label="Navegação dos Módulos">
+            <!-- Tabs will be injected here by app.js -->
+            <span class="loading-text">Carregando módulos...</span>
+        </nav>
+
+        <div class="header-tools">
+            <button id="btn-settings" aria-label="Configurações" title="Configurações" class="header-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                        d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.1a2 2 0 0 1-1-1.74v-.51a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" />
+                    <circle cx="12" cy="12" r="3" />
+                </svg>
+            </button>
+            <div class="tts-toggle-container">
+                <button id="btn-tts-quick" class="header-btn" aria-label="Leitura guiada" title="Leitura guiada">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
+                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Side Progress Bar -->
+    <aside id="side-progress" class="side-progress-container" aria-hidden="true">
+        <!-- Dots injected by app.js -->
+    </aside>
+
+    <!-- Main Content Area -->
+    <main id="main-content" role="main" aria-live="polite">
+        <article id="content-display" class="content-card">
+            <!-- Dynamic Content Here -->
+            <h1>Bem-vindo</h1>
+            <p>Carregando curso...</p>
+        </article>
+
+        <!-- Navigation Footer -->
+        <footer class="content-footer">
+            <button id="btn-prev" class="nav-btn side-nav-prev" aria-label="Página Anterior" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+            </button>
+            <div id="progress-indicator"></div>
+            <button id="btn-next" class="nav-btn side-nav-next" aria-label="Próxima Página" disabled>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+            </button>
+        </footer>
+    </main>
+
+    <!-- Core Dependencies -->
+    <!-- Google Translate -->
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({ pageLanguage: 'pt', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript"
+        src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- SCORM Wrapper is imported by app.js -->
+    <script src="assets/js/audio-manager.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+
+    <script src="assets/js/audio-manager.js"></script>
+    <script src="assets/js/accessibility.js"></script>
+    <script src="assets/js/welcome-effects.js"></script>
+    <script src="assets/js/keyboard.js"></script>
+    <script src="assets/js/tutorial.js"></script>
+
+    <!-- Module 3 Data -->
+    <script src="assets/js/module3-data.js"></script>
+
+    <!-- Main App -->
+    <script type="module" src="assets/js/app.js"></script>
+    <!-- Settings Modal -->
+    <div id="modal-settings" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 data-i18n="ui.settings.title">Configurações</h3>
+                <button class="modal-close" id="btn-settings-close" aria-label="Fechar">×</button>
+            </div>
+            <div class="modal-body">
+
+                <!-- Display Settings -->
+                <div class="settings-section">
+                    <h4 data-i18n="ui.settings.display">Visualização</h4>
+
+                    <div class="setting-row">
+                        <span data-i18n="ui.settings.dark_mode">Modo Escuro (Alto Contraste)</span>
+                        <div class="toggle-control">
+                            <button id="btn-contrast" class="toggle-btn" aria-label="Alternar Modo Escuro">
+                                <span class="toggle-slider"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="setting-row">
+                        <span data-i18n="ui.settings.font_size">Tamanho da Fonte</span>
+                        <div class="font-controls">
+                            <button id="btn-decrease-font" aria-label="Diminuir fonte">A-</button>
+                            <span id="font-size-display">100%</span>
+                            <button id="btn-increase-font" aria-label="Aumentar fonte">A+</button>
+                        </div>
+                    </div>
+
+                    <div class="setting-row">
+                        <span data-i18n="ui.settings.dyslexia">Fonte para Dislexia</span>
+                        <div class="toggle-control">
+                            <button id="btn-dyslexia" class="toggle-btn" aria-label="Alternar Fonte Dislexia">
+                                <span class="toggle-slider"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="setting-row">
+                        <span>Idioma / Language</span>
+                        <div id="google_translate_element" class="translate-widget"></div>
+                    </div>
+                </div>
+
+                <!-- Audio/TTS Settings -->
+                <div class="settings-section" id="tts-controls">
+                    <h4 data-i18n="ui.settings.audio">Áudio e Leitura</h4>
+
+                    <div class="setting-row">
+                        <span data-i18n="ui.settings.auto_read">Leitura Automática</span>
+                        <div class="toggle-control">
+                            <button id="btn-auto-read" class="toggle-btn" aria-label="Ativar Leitura Automática">
+                                <span class="toggle-slider"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="setting-row column">
+                        <div class="row-header">
+                            <span data-i18n="ui.settings.volume">Volume da Leitura</span>
+                        </div>
+                        <input type="range" id="volume-range" min="0" max="100" value="100" aria-label="Volume">
+                    </div>
+
+                    <div class="setting-row column">
+                        <div class="row-header">
+                            <span data-i18n="ui.settings.speed">Velocidade da Voz</span>
+                        </div>
+                        <div class="speed-controls">
+                            <button class="speed-btn" data-speed="0.8">0.8x</button>
+                            <button class="speed-btn active" data-speed="1.0">1.0x</button>
+                            <button class="speed-btn" data-speed="1.5">1.5x</button>
+                            <button class="speed-btn" data-speed="2.0">2.0x</button>
+                        </div>
+                    </div>
+
+                    <div class="setting-row column">
+                        <div class="row-header">
+                            <span data-i18n="ui.settings.voice">Voz do Narrador</span>
+                            <button id="btn-voice-preview" class="small-btn"
+                                data-i18n="ui.settings.preview">Testar</button>
+                        </div>
+                        <div class="select-wrapper">
+                            <select id="voice-select" aria-label="Selecionar voz"></select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

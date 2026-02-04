@@ -1,0 +1,93 @@
+<div class="content-container">
+    <header class="page-header-section">
+        <span class="module-badge">Módulo 3</span>
+        <h1>Ciência: A Curiosidade Mórbida</h1>
+        <p class="page-subtitle">Como algoritmos transformaram uma ideia marginal em fenômeno global</p>
+    </header>
+
+    <!-- Data Section -->
+    <section class="content-section" style="--decoration-color: rgba(156, 39, 176, 0.05)">
+        <div class="intro-box">
+            <p>
+                Ideias anticientíficas sempre existiram em pequenos grupos. A diferença hoje é o "megafone"
+                das redes sociais. Veja como o termo "Terra Plana" explodiu repentinamente.
+            </p>
+        </div>
+
+        <div class="data-card">
+            <h3>📈 A Curva da Viralização</h3>
+            <canvas id="chartScience"></canvas>
+            <div class="caption">Volume de buscas por "Terra Plana" (2013-2023) e mudanças no algoritmo do YouTube.
+            </div>
+            <span class="chart-source"><strong>Fonte:</strong> Google Trends Brasil e pesquisas de opinião pública
+                (Datafolha). O pico em 2019 coincide com a realização da 'Flat Con' em SP.</span>
+        </div>
+    </section>
+
+    <!-- Reality Section -->
+    <section class="content-section">
+        <h2>A Realidade nas Escolas</h2>
+        <div class="story-block warning">
+            <h3>O Desafio da Sala de Aula</h3>
+            <p>
+                Professores de geografia e física relatam gastar até 20% do tempo de aula desmentindo
+                teorias conspiratórias trazidas por alunos, em vez de ensinar o currículo oficial.
+            </p>
+        </div>
+    </section>
+
+    <!-- Analysis Section -->
+    <section class="content-section">
+        <div class="highlight-box sabia">
+            <div>
+                <h3>💡 Análise: Engajamento > Verdade</h3>
+                <p>
+                    Plataformas digitais lucram com retenção. Vídeos conspiratórios são projetados para prender
+                    a atenção ("assista até o final", "a verdade oculta"), sendo assim privilegiados pelos algoritmos.
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    window.initScienceChart = function () {
+        if (typeof Chart === 'undefined') return setTimeout(window.initScienceChart, 100);
+
+        const canvas = document.getElementById('chartScience');
+        if (!canvas) return;
+
+        const db = window.Module3Data.science;
+
+        new Chart(canvas, {
+            type: 'line',
+            data: {
+                labels: db.labels,
+                datasets: [{
+                    label: 'Interesse "Terra Plana"',
+                    data: db.interest,
+                    borderColor: '#9C27B0',
+                    backgroundColor: 'rgba(156, 39, 176, 0.1)',
+                    fill: true
+                }]
+            },
+            options: {
+                plugins: {
+                    annotation: {
+                        annotations: {
+                            line1: {
+                                type: 'line',
+                                xMin: '2019',
+                                xMax: '2019',
+                                borderColor: 'red',
+                                borderWidth: 2,
+                                label: { content: 'Mudança Algoritmo YouTube', enabled: true }
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    };
+    setTimeout(window.initScienceChart, 500);
+</script>

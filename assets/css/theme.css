@@ -1,0 +1,57 @@
+:root {
+    /* Cores Principais - Vermelho Olhar Crítico / Grupo Zaffari */
+    --primary-color: #E53935;
+    --primary-hover: #C62828;
+    --secondary-color: #F5F5F5; /* Cinza claro de fundo */
+    --text-color: #333333;
+    --text-light: #757575;
+    --white: #FFFFFF;
+    
+    /* Status Colors */
+    --success-color: #4CAF50;
+    --error-color: #F44336;
+    --warning-color: #FFC107;
+    
+    /* Layout */
+    --header-height: 70px;
+    --container-width: 1200px;
+    --border-radius: 8px;
+    
+    /* Tipografia */
+    --font-family: 'Inter', sans-serif;
+}
+
+/* Reset Básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Utilitários de Acessibilidade (Herdados) */
+body.dark-mode {
+    --primary-color: #FF5252;
+    --secondary-color: #121212;
+    --text-color: #E0E0E0;
+    --text-light: #B0B0B0;
+    --white: #1E1E1E;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

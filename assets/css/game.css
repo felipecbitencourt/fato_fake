@@ -1,0 +1,76 @@
+/**
+ * Game Styles
+ * Estilos gerais para jogos e atividades interativas
+ */
+
+/* Game Container Base */
+.game-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Loading State */
+.game-loading {
+    text-align: center;
+    padding: 60px;
+    background: linear-gradient(145deg, #f8f9fa, #ffffff);
+    border-radius: 20px;
+}
+
+.game-loading .loader {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #e0e0e0;
+    border-top-color: var(--primary-color, #E53935);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.game-loading p {
+    color: #6b7c93;
+    font-weight: 500;
+}
+
+/* Error State */
+.game-error {
+    text-align: center;
+    padding: 40px;
+    color: var(--primary-color, #E53935);
+}
+
+/* Common Game Elements */
+.game-score {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.game-btn {
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border: none;
+}
+
+.game-btn:hover {
+    transform: scale(1.05);
+}
+
+.game-btn-primary {
+    background: linear-gradient(135deg, var(--primary-color, #E53935), #FF6F61);
+    color: white;
+}
+
+.game-btn-secondary {
+    background: white;
+    color: var(--primary-color, #E53935);
+    border: 2px solid var(--primary-color, #E53935);
+}

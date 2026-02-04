@@ -1,0 +1,781 @@
+@import url('theme.css');
+
+/* ============================================
+   HEADER - Fixed Top Bar with Scroll Hide
+   ============================================ */
+#main-header {
+    background-color: var(--white);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    height: var(--header-height);
+    transition: transform 0.3s ease;
+}
+
+/* Hidden state when scrolling down */
+#main-header.header-hidden {
+    transform: translateY(-100%);
+}
+
+/* Logo */
+.logo-container {
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+}
+
+.logo-container:hover {
+    opacity: 0.8;
+}
+
+.logo-text {
+    display: inline;
+}
+
+/* ============================================
+   TABS WITH DROPDOWNS
+   ============================================ */
+.tabs-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    height: 100%;
+    align-items: center;
+}
+
+/* Module Tab (Wrapper for dropdown) */
+.module-tab-wrapper {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-weight: 500;
+    color: var(--text-light);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.tab-btn:hover:not(:disabled) {
+    color: var(--primary-color);
+    background-color: rgba(229, 57, 53, 0.08);
+}
+
+.tab-btn.active {
+    color: var(--primary-color);
+    background-color: rgba(229, 57, 53, 0.1);
+    font-weight: 700;
+}
+
+.tab-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+    filter: grayscale(1);
+}
+
+.tab-icon {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+}
+
+.tab-chevron {
+    margin-left: 4px;
+    transition: transform 0.3s ease;
+    opacity: 0.5;
+}
+
+.module-tab-wrapper:hover .tab-chevron,
+.module-tab-wrapper.open .tab-chevron {
+    opacity: 1;
+}
+
+.module-tab-wrapper.open .tab-chevron {
+    transform: rotate(180deg);
+}
+
+/* Lock Icon handling */
+.tab-btn:disabled .tab-icon::after {
+    content: "🔒";
+    font-size: 0.7em;
+    margin-left: 3px;
+}
+
+/* ============================================
+   PAGES DROPDOWN
+   ============================================ */
+.pages-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    min-width: 220px;
+    max-width: 280px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    padding: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.module-tab-wrapper.open .pages-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.pages-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid var(--white);
+}
+
+.dropdown-page-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px 12px;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-size: 0.9rem;
+    color: var(--text-color);
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.dropdown-page-btn:hover {
+    background: rgba(229, 57, 53, 0.08);
+    color: var(--primary-color);
+}
+
+.dropdown-page-btn.active {
+    background: rgba(229, 57, 53, 0.12);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.dropdown-page-btn.visited:not(.active) {
+    color: var(--primary-color);
+}
+
+.dropdown-page-btn.visited .dropdown-page-num {
+    color: rgba(229, 57, 53, 0.6);
+}
+
+.dropdown-page-num {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.3);
+    min-width: 20px;
+}
+
+.dropdown-page-btn.active .dropdown-page-num {
+    color: var(--primary-color);
+}
+
+.dropdown-page-name {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* Content Area */
+#main-content {
+    margin-top: calc(var(--header-height) + 20px);
+    padding: 20px;
+    max-width: var(--container-width);
+    margin-left: auto;
+    margin-right: auto;
+    min-height: calc(100vh - var(--header-height) - 40px);
+    display: flex;
+    flex-direction: column;
+}
+
+.content-card {
+    background: var(--white);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    flex: 1;
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer Navigation inside Content */
+.content-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+/* Side navigation arrows */
+.nav-btn {
+    position: fixed;
+    top: 55%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background: var(--white);
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.side-nav-prev {
+    left: 80px;
+}
+
+.side-nav-next {
+    right: 80px;
+}
+
+.nav-btn:hover:not(:disabled) {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 6px 20px rgba(229, 57, 53, 0.3);
+}
+
+.nav-btn:active:not(:disabled) {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.nav-btn:disabled {
+    border-color: #eee;
+    color: #ccc;
+    background: #fafafa;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Special style for Finalizar button */
+.nav-btn.finish-btn {
+    width: auto;
+    height: 48px;
+    padding: 0 30px;
+    border-radius: 30px;
+    font-weight: 700;
+    gap: 10px;
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal {
+    background: var(--white);
+    width: 90%;
+    max-width: 500px;
+    max-height: 90vh;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.modal-overlay.active .modal {
+    transform: translateY(0);
+}
+
+.modal-header {
+    padding: 15px 20px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--primary-color);
+    color: white;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0 5px;
+    line-height: 1;
+}
+
+.modal-body {
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.settings-section {
+    margin-bottom: 25px;
+}
+
+.settings-section h4 {
+    margin: 0 0 15px 0;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light);
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 5px;
+}
+
+.setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.setting-row.column {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.setting-row .row-header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+/* Toggle Switch */
+.toggle-btn {
+    width: 50px;
+    height: 26px;
+    background: #ccc;
+    border-radius: 15px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.3s;
+    padding: 0;
+}
+
+.toggle-btn.active {
+    background: var(--primary-color);
+}
+
+.toggle-slider {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-btn.active .toggle-slider {
+    transform: translateX(24px);
+}
+
+/* Font Controls */
+.font-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f5f5f5;
+    padding: 3px;
+    border-radius: 8px;
+}
+
+.font-controls button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--text-color);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.font-controls span {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    min-width: 45px;
+    text-align: center;
+}
+
+/* Range Input */
+input[type=range] {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: #ddd;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+input[type=range]::-webkit-slider-thumb:hover {
+    transform: scale(1.1);
+}
+
+/* Speed Controls */
+.speed-controls {
+    display: flex;
+    gap: 5px;
+    width: 100%;
+}
+
+.speed-btn {
+    flex: 1;
+    padding: 6px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.speed-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Voice Select */
+.select-wrapper {
+    width: 100%;
+}
+
+select {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: white;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.small-btn {
+    font-size: 0.8rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    border: 1px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.small-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Dark Mode Overrides for Modal */
+body.high-contrast .modal {
+    background: #333;
+    color: yellow;
+    border: 2px solid yellow;
+}
+
+body.high-contrast .modal-header {
+    background: #000;
+    border-bottom: 2px solid yellow;
+}
+
+body.high-contrast .modal-close {
+    color: yellow;
+}
+
+body.high-contrast .settings-section h4 {
+    color: yellow;
+    border-bottom-color: yellow;
+}
+
+body.high-contrast .font-controls,
+body.high-contrast .font-controls button,
+body.high-contrast select,
+body.high-contrast .speed-btn {
+    background: #000;
+    color: yellow;
+    border-color: yellow;
+}
+
+body.high-contrast .speed-btn.active {
+    background: yellow;
+    color: black;
+}
+
+body.high-contrast .toggle-btn {
+    background: #555;
+    border: 1px solid yellow;
+}
+
+body.high-contrast .toggle-btn.active {
+    background: yellow;
+}
+
+
+/* Google Translate Widget */
+#google_translate_element {
+    margin-right: 15px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Hide the 'Powered by Google' branding and top banner */
+.goog-te-gadget-simple {
+    background-color: transparent !important;
+    border: 1px solid #ddd !important;
+    padding: 6px 10px !important;
+    border-radius: 20px !important;
+    font-size: 0.9rem !important;
+    line-height: 1 !important;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.goog-te-gadget-simple:hover {
+    background-color: #f5f5f5 !important;
+    border-color: var(--primary-color) !important;
+}
+
+.goog-te-gadget-simple img {
+    display: none !important;
+    /* Hide Google Icon */
+}
+
+.goog-te-gadget-simple span {
+    color: var(--text-color) !important;
+    font-family: var(--font-family) !important;
+    font-weight: 500 !important;
+}
+
+/* Hide top banner frame */
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+body {
+    top: 0px !important;
+}
+
+/* Hide tooltips */
+.goog-tooltip {
+    display: none !important;
+}
+
+.goog-tooltip:hover {
+    display: none !important;
+}
+
+.goog-text-highlight {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* ============================================
+   SIDE PROGRESS BAR (VERTICAL)
+   ============================================ */
+.side-progress-container {
+    position: fixed;
+    left: 25px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    z-index: 900;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 10px;
+}
+
+/* Sync with header hide */
+#main-header.header-hidden~.side-progress-container {
+    left: 20px;
+    opacity: 0.5;
+}
+
+.progress-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #cbd5e1;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress-dot::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+}
+
+.progress-dot.active {
+    background-color: var(--primary-color);
+    transform: scale(1.8);
+    box-shadow: 0 0 10px rgba(229, 57, 53, 0.3);
+}
+
+.progress-dot.completed {
+    background-color: var(--primary-color);
+    opacity: 0.6;
+}
+
+.progress-dot:hover {
+    background-color: var(--primary-color);
+    transform: scale(1.5);
+}
+
+/* Tooltip for pages */
+.progress-dot::before {
+    content: attr(data-page);
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--text-color);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
+.progress-dot:hover::before {
+    opacity: 1;
+}
+
+/* Hide legacy elements */
+.page-step,
+#progress-indicator {
+    display: none !important;
+}
+
+@media (max-width: 1200px) {
+    .side-progress-container {
+        left: 10px;
+    }
+
+    .side-nav-prev {
+        left: 20px;
+    }
+
+    .side-nav-next {
+        right: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .side-progress-container {
+        display: none;
+    }
+}

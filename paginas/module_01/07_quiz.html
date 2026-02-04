@@ -1,0 +1,227 @@
+<div class="content-container">
+    <!-- Page Header -->
+    <div class="page-header-section">
+        <h1>🕵️ Laboratório do Detetive</h1>
+    </div>
+
+    <!-- Detective Briefing -->
+    <section class="content-section">
+        <div class="detective-briefing">
+            <div class="briefing-badge">
+                <span class="badge-icon">🔍</span>
+                <span class="badge-title">MISSÃO ESPECIAL</span>
+            </div>
+            <div class="briefing-content">
+                <h3>Bem-vindo ao caso, Detetive!</h3>
+                <p>
+                    Você receberá <strong>5 documentos suspeitos</strong> para analisar.
+                    Use suas ferramentas para montar um relatório completo sobre cada um:
+                </p>
+                <div class="tools-preview">
+                    <div class="tool-item">
+                        <span class="tool-emoji">📊</span>
+                        <span class="tool-name">Gráfico de Análise</span>
+                        <span class="tool-desc">Classifique o tipo de informação</span>
+                    </div>
+                    <div class="tool-item">
+                        <span class="tool-emoji">🔖</span>
+                        <span class="tool-name">Carimbos</span>
+                        <span class="tool-desc">Marque a categoria no documento</span>
+                    </div>
+                    <div class="tool-item">
+                        <span class="tool-emoji">📏</span>
+                        <span class="tool-name">Medidor</span>
+                        <span class="tool-desc">Defina o nível de gravidade</span>
+                    </div>
+                    <div class="tool-item">
+                        <span class="tool-emoji">📁</span>
+                        <span class="tool-name">Arquivos</span>
+                        <span class="tool-desc">Classifique a motivação</span>
+                    </div>
+                </div>
+                <p class="briefing-tip">
+                    💡 <strong>Dica:</strong> Observe atentamente cada detalhe antes de tomar sua decisão.
+                    Um bom detetive nunca age por impulso!
+                </p>
+
+                <!-- Start Button -->
+                <button class="start-activity-btn" id="start-game-btn">
+                    🔎 Iniciar Investigação
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Container (hidden until button click) -->
+    <section class="content-section" id="game-section" style="display: none;">
+        <div id="classification-game-container">
+            <div class="game-loading">
+                <div class="loader"></div>
+                <p>Preparando seu laboratório...</p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+    /* Detective Briefing */
+    .detective-briefing {
+        background: linear-gradient(135deg, #1a1a2e, #2d2d44);
+        border-radius: 20px;
+        overflow: hidden;
+    }
+
+    .briefing-badge {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 25px;
+        background: linear-gradient(90deg, #E53935, #FF6F61);
+    }
+
+    .badge-icon {
+        font-size: 1.5rem;
+    }
+
+    .badge-title {
+        color: white;
+        font-weight: 800;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+
+    .briefing-content {
+        padding: 30px;
+        color: white;
+    }
+
+    .briefing-content h3 {
+        color: #FF8A80;
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+    }
+
+    .briefing-content p {
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
+
+    .tools-preview {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .tool-item {
+        background: rgba(255, 255, 255, 0.08);
+        padding: 20px 15px;
+        border-radius: 12px;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s;
+    }
+
+    .tool-item:hover {
+        background: rgba(255, 255, 255, 0.12);
+        transform: translateY(-3px);
+    }
+
+    .tool-emoji {
+        font-size: 2rem;
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    .tool-name {
+        display: block;
+        font-weight: 700;
+        font-size: 0.85rem;
+        margin-bottom: 5px;
+        color: white;
+    }
+
+    .tool-desc {
+        display: block;
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    .briefing-tip {
+        background: rgba(255, 138, 128, 0.15);
+        padding: 15px 20px;
+        border-radius: 12px;
+        border-left: 4px solid #FF8A80;
+        font-size: 0.95rem;
+        margin: 0 0 25px 0;
+    }
+
+    /* Start Activity Button */
+    .start-activity-btn {
+        display: block;
+        width: 100%;
+        padding: 18px 30px;
+        background: linear-gradient(135deg, #E53935, #FF6F61);
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 20px rgba(229, 57, 53, 0.4);
+    }
+
+    .start-activity-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(229, 57, 53, 0.5);
+    }
+
+    .start-activity-btn:active {
+        transform: translateY(0);
+    }
+
+    /* Game Loading */
+    .game-loading {
+        text-align: center;
+        padding: 60px;
+        background: linear-gradient(145deg, #f8f9fa, #ffffff);
+        border-radius: 20px;
+    }
+
+    .loader {
+        width: 50px;
+        height: 50px;
+        border: 4px solid #e0e0e0;
+        border-top-color: #E53935;
+        border-radius: 50%;
+        margin: 0 auto 20px;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .game-loading p {
+        color: #6b7c93;
+        font-weight: 500;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .tools-preview {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .tools-preview {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+</div>

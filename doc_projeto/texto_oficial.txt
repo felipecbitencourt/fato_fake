@@ -1,0 +1,266 @@
+Prémio Arquivo.pt
+Descrição Sumária do Trabalho
+Identificação
+● Título: Olhar Crítico
+● Área temática: Desinformação
+● Candidato: Eduarda Tessari Pereira, Felipe Correa Bitencourt
+● Email: eduarda.tessari@ufrgs.br ; felipe.bitencourt@ufcspa.edu.br
+
+Descrição do Trabalho
+O projeto Olhar Crítico consiste numa plataforma digital dedicada ao combate à
+desinformação, através de uma abordagem multidimensional que integra educação mediática,
+visualização de dados, ferramentas interativas de verificação, além de bases para
+investigações na área. Este trabalho baseia-se no acervo digital do Arquivo.pt, utilizando o seu
+extenso repositório de páginas web arquivadas como base empírica para examinar padrões de
+disseminação de informações falsas em diferentes contextos, desde manifestações
+contemporâneas até estratégias de propaganda em períodos históricos marcantes.
+A plataforma organiza-se em três eixos principais: educacional, analítico e prático. Para
+tal, foi desenvolvido um website completo, composto por dezessete páginas, das quais se
+destacam seis: “O que é fake”, “Dados”, “Verificação”, “Caça-Fakes”, “Portugal” e
+“Acervo”.
+
+1
+
+Figura 1. Grafo de páginas Olhar Crítico.
+
+Objetivos
+1. Educação mediática em língua portuguesa:
+Desenvolver uma plataforma que traduza conceitos académicos sobre desinformação
+em recursos acessíveis e diversificados para o público em geral.
+2. Desenvolvimento de competências analíticas:
+Capacitar os utilizadores a adotarem uma postura crítica perante conteúdos digitais,
+
+2
+
+promovendo o letramento digital e a verificação de informações, especialmente face à
+crescente utilização de inteligência artificial na produção de desinformação.
+3. Gamificação da aprendizagem:
+Utilizar elementos de jogo para incentivar a identificação de fake news, com módulos
+educativos centrados em técnicas práticas de checagem e análise crítica de conteúdos.
+4. Ferramenta de investigação e visualização de dados:
+Desenvolver uma interface interativa que permita mapear a evolução do termo fake
+news, identificar relações entre tópicos e visualizar tendências temporais na circulação
+de desinformação.
+5. Análise histórica e comparativa:
+Estabelecer conexões entre padrões de desinformação do passado e do presente,
+através da comparação de documentos do Arquivo.pt com casos contemporâneos,
+com especial atenção aos períodos da ditadura portuguesa e da Revolução dos Cravos.
+6. Base empírica para pesquisa académica:
+Organizar e categorizar um corpus de dados sobre desinformação que possa ser
+utilizado em investigações linguísticas, históricas e sociológicas.
+
+Resultados Atingidos
+Como resultado, temos o desenvolvimento de uma plataforma web contendo os
+seguinte recursos:
+● O que é Fake?
+Inclui uma secção dedicada à conceituação das fake news, apresentando não apenas
+definições académicas consolidadas (como as categorias de desordem informacional propostas
+3
+
+por Wardle & Derakhshan, 2017), mas também uma perspetiva histórica que traça a evolução
+da desinformação desde os primórdios da comunicação impressa até aos desafios colocados
+pela inteligência artificial generativa (Santos, 2020). Esta abordagem é enriquecida por linhas
+do tempo interativas que ilustram casos paradigmáticos, como a disseminação de teorias da
+conspiração documentadas através de materiais arquivados no Arquivo.pt.
+● Dados
+O componente analítico materializa-se em ferramentas de visualização de dados que
+processam o acervo do Arquivo.pt, transformando-o em informação acessível ao público em
+geral. No total, estão disponíveis cinco painéis, dos quais:
+
+● Três apresentam dados pré-processados recolhidos através da API do
+Arquivo.pt (análise de menções conjuntas do termo fake news com tópicos
+previamente selecionados, aparição do termo fake news em portais de notícias e
+ocorrência de teorias da conspiração).
+● Os outros dois painéis utilizam elementos de pesquisa dinâmica, de acordo com
+os termos introduzidos pelo utilizador (pesquisa conjunta ao termo fake news -ou
+a outro termo- e pesquisa livre para visualizar a ocorrência de qualquer termo).
+
+4
+
+Figura 2. Painel para pesquisa dinâmica na página de dados
+
+● Verificação
+O módulo de verificação de notícias oferece um protocolo sistemático para avaliação de
+fontes, incluindo análise de URLs suspeitas, busca reversa de imagens e visualização do
+histórico de versões via Arquivo.pt, alinhando-se com os critérios de classificação de fontes de
+desinformação propostos por Passamani (2021). No final desta secção, é apresentado um
+breve quiz.
+● Caça-Fakes
+A inovação pedagógica do projeto revela-se particularmente nos jogos educativos da
+secção Caça-Fakes, que aplicam princípios de gamificação para treinar competências de
+deteção de desinformação, fundamentando-se em estudos sobre literacia mediática (ENPEC,
+2021). Estes desafios apresentam casos reais extraídos do Arquivo.pt, exigindo que os
+jogadores apliquem os conhecimentos adquiridos para distinguir entre notícias verídicas e
+conteúdos manipulados. Existem dois modos de jogo distintos:
+○ Notícias: As notícias foram retiradas do Arquivo.pt, e o utilizador deverá indicar se
+uma notícia é verídica ou não.
+■ 1° fase - São apresentados exemplos mais fáceis de distinguir
+■ 2° fase - notícias mais diversificadas, aumentando o nível de dificuldade do
+desafio.
+○ IA: O objetivo é adivinhar quando um conteúdo foi gerado por inteligência artificial.
+■ 1° fase - Deve-se indicar se uma imagem foi criada por IA ou não.
+■ 2° fase - Deve-se determinar se uma reportagem inteira foi gerada por IA.
+5
+
+Figura 3. Captura de tela do desafio IA, fase 1.
+
+● Portugal
+A secção Portugal explora como a desinformação se faz presente durante o Estado
+Novo e a Revolução dos Cravos. Através de documentos históricos, notícias arquivadas e
+conteúdos multimédia, analisamos as estratégias de manipulação informativa utilizadas pelo
+regime autoritário e a sua transição para a liberdade de imprensa após 25 de Abril de 1974.
+Nesta secção, o utilizador pode:
+1. Conhecer a história da ditadura do Estado Novo;
+2. Explorar os acontecimentos da Revolução dos Cravos;
+3. Analisar exemplos de fakes e desinformação ocorridos desde os tempos da ditadura até
+os dias atuais;
+
+6
+
+4. Aceder a uma galeria de fotos históricas da ditadura e da revolução, com conteúdos
+preservados no Arquivo.pt.
+● Acervo
+O projeto também disponibiliza uma curadoria de referências científicas e didáticas
+sobre o fenômeno da desinformação, além de conter um repositório de fake news retiradas do
+Arquivo.pt e sessão de sugestões de materiais para serem adicionadas pela comunidade
+interessada na temática.
+
+Originalidade e caráter inovador
+O projeto Olhar Crítico distingue-se pela sua abordagem interdisciplinar e inovadora no
+combate à desinformação, com contributos metodológicos, tecnológicos e pedagógicos.
+Ao integrar análise histórica com ferramentas digitais, o projeto permite entender as fake
+news como fenómenos de continuidade discursiva. No plano tecnológico, destaca-se pela
+criação de interfaces que exploram a API do Arquivo.pt para identificar menções conjuntas e
+padrões de desinformação em grandes volumes de páginas web arquivadas. Superando
+abordagens limitadas a fact-checking atual, esta ferramenta permite traçar genealogias de
+narrativas falsas ao longo dos anos.
+Na vertente pedagógica, inova com a gamificação do ensino: o módulo Caça-Fakes,
+baseado em casos reais do Arquivo.pt, alia técnicas de verificação a conteúdos gerados por
+IA, promovendo um letramento digital alinhado aos desafios contemporâneos.
+
+7
+
+Diferencia-se ainda ao articular ciência de dados e humanidades digitais, incorporando
+psicologia social, teoria da comunicação e história na análise de conteúdos, indo além da
+simples dicotomia verdadeiro/falso.
+A curadoria de fontes primárias do Arquivo.pt, organizada para fins educativos e de
+pesquisa, oferece uma base robusta e colaborativa, com espaço para sugestões dos próprios
+utilizadores.
+
+Essa integração entre história digital, recursos didáticos e visualização de dados torna o
+Olhar Crítico um modelo replicável para projetos de literacia mediática em diferentes contextos
+culturais e linguísticos.
+
+Impacto social (aplicação e utilidade social)
+O projeto Olhar Crítico foi criado como uma ferramenta de literacia digital acessível a
+cidadãos de diferentes contextos socioculturais, com foco na prevenção da desinformação e
+capacitação crítica.
+A plataforma oferece recursos práticos, como o módulo Verificação, que permite aplicar
+técnicas simples no dia a dia, desde a análise de URLs e histórico de páginas via Arquivo.pt
+até à busca reversa de imagens.
+Como ferramenta de capacitação crítica, o projeto combina jogos educativos e análises
+históricas para aprofundar a compreensão dos mecanismos da desinformação, desde vieses
+psicológicos até estratégias políticas, sendo um processo especialmente relevante para grupos
+com baixo letramento digital. Essa democratização do conhecimento concretiza-se em
+
+8
+
+conteúdos que explicam não só o que é uma fake news, mas também os fatores psicológicos e
+sociais que favorecem a sua difusão (Wardle & Derakhshan, 2017).
+Um diferencial relevante é a adaptação aos contextos locais: ao recorrer a exemplos
+dos arquivos históricos português e brasileiro, a plataforma dialoga com a experiência concreta
+dos cidadãos lusófonos, reforçando a eficácia pedagógica (Freire, 1970). Os recursos são
+também versáteis, aplicáveis tanto em contextos formais como informais de aprendizagem,
+colmatando lacunas na literacia mediática.
+
+Impacto científico (aplicação e utilidade científica)
+O projeto Olhar Crítico contribui para a investigação académica sobre desinformação,
+ao oferecer um conjunto integrado de recursos metodológicos, empíricos e analíticos. Através
+da articulação entre ciências sociais e métodos computacionais, fornece ferramentas para
+analisar fenómenos desinformativos numa perspetiva diacrónica e comparada.
+A construção de um acervo de fake news, preservadas e retiradas diretamente do
+Arquivo.pt, oferece aos pesquisadores uma base inicial para traçar genealogias da
+desinformação, identificar padrões de manipulação e analisar as transformações nas técnicas
+de persuasão ao longo do tempo.
+As ferramentas desenvolvidas, como gráficos interativos e buscas dinâmicas via API,
+tornam o acesso a grandes volumes de dados mais fácil, mesmo para investigadores sem
+formação técnica. O projeto destaca-se ainda como infraestrutura de investigação colaborativa,
+com dados abertos, contributos dos utilizadores e forte potencial interdisciplinar.
+
+9
+
+Relevância da utilização do Arquivo.pt
+O Arquivo.pt é essencial para o projeto Olhar Crítico, atuando não apenas como
+repositório, mas como base empírica que garante profundidade histórica e rigor metodológico à
+análise da desinformação. Ao preservar o património digital português desde 1991, permite
+examinar a evolução da desinformação, verificar conteúdos alterados ou apagados e identificar
+padrões recorrentes de manipulação, como no caso das teorias sobre vacinas, cujos
+argumentos atuais repetem retóricas antigas arquivadas.
+Tecnicamente, forneceu dados sobre a popularização do termo fake news e sua
+associação com outros temas. A análise de mais de 4 milhões de menções (2000–2020), via
+API, revelou picos de disseminação ligados a eleições, crises sanitárias e outros marcos
+históricos.
+
+Entre os conteúdos preservados utilizados, encontram-se: um conjunto variado
+de páginas web, como notícias jornalísticas, blogues, páginas de instituições, além de imagens
+históricas.
+
+Comentários adicionais
+● Informações técnicas
+○ O projeto foi desenvolvido utilizando HTML, CSS e JavaScript, com a plataforma
+No-Code Wix como auxílio. A coleta de dados foi realizada por meio da API do
+Arquivo.pt, e ferramentas de IA, como ChatGPT, DeepSeek e Leonardo.ai
+foram empregadas para aprimorar o código e criar conteúdo para o jogo das IAs.
+
+● Limitações
+○ A API do Arquivo.pt deixa de retornar dados a partir de 2021.
+
+10
+
+○ A função utilizada para coletar os resultados é a estimated_nr_results, pois o
+número exato de resultados não pode ser carregado devido a limitações de
+requisições. A metodologia de cálculo dessa estimativa não é clara. Apesar
+disso, foi utilizado para rastrear a ocorrência do termo fake news ao longo do
+tempo, com os resultados coerentes.
+○ Os dados devem ser interpretados com cautela, pois representam apenas um
+recorte da internet arquivada, sendo importante contextualizá-los
+adequadamente.
+● Acessibilidade
+○ O site foi adaptado para pessoas com deficiência visual, garantindo maior
+inclusão e acessibilidade.
+
+● Versão Mobile
+○ A versão mobile foi desenvolvida com funcionalidades reduzidas, de forma que
+recomenda-se o acesso via Desktop para a versão completa.
+
+Recursos complementares
+1. Website Olhar Crítico,
+olharcritico.org: link para acesso à plataforma.
+2. GitHub Olhar Crítico,
+https://github.com/felipecbitencourt/OlharCritico.git: código aberto do projeto.
+3. Arquivo.pt,
+https://arquivo.pt/: site do Arquivo.pt.
+
+11
+
+4. GitHub- Arquivo.pt API,
+https://github.com/arquivo/pwa-technologies/wiki/Arquivo.pt-API: API utilizada no projeto.
+5. Educação em Ciências e Fake News: Uma Revisão Narrativa,
+https://www.editorarealize.com.br/editora/anais/enpec/2021/TRABALHO_COMPLETO_E
+V155_MD1_SA108_ID1340_29062021204056.pdf; Aborda a importância do letramento
+midiático no combate à desinformação.
+6. Fake News: Uma Revisão Compreensiva e Interdisciplinar,
+https://brajets.com/brajets/article/view/790/429; Explora o uso de deepfakes e IA
+generativa na propagação de desinformação.
+7. Information Disorder: Toward an Interdisciplinary Framework for Research and
+Policy Making,
+https://edoc.coe.int/en/media/11609-desordem-informacional-para-um-quadro-interdiscip
+linar-de-investigacao-e-elaboracao-de-politicas-publicas.html: apresenta a classificação
+de desinformação.
+8. Critérios de Classificação de Fontes de Fake News no Brasil e no Mundo,
+https://pesquisa-eaesp.fgv.br/sites/gvpesquisa.fgv.br/files/publicacoes/rf_-_matheus_sou
+za_passamani.pdf: oferece parâmetros para análise de credibilidade de fontes.
+9. Pedagogia do Oprimido,
+https://gestaoeducacaoespecial.ufes.br/sites/gestaoeducacaoespecial.ufes.br/files/field/
+anexo/pedagogia-do-oprimido-paulo-freire.pdf: texto acerca da importância da
+adaptação do ensino ao universo cultural.

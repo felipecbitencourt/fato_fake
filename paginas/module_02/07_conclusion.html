@@ -1,0 +1,323 @@
+<div class="content-container">
+    <!-- Celebration Header -->
+    <div class="celebration-header">
+        <div class="confetti-icon">📜✨</div>
+        <span class="complete-badge">Módulo Concluído!</span>
+        <h1>Historiador Digital 🏅</h1>
+        <p class="celebration-text">
+            Você analisou o passado e entendeu as <strong>raízes da desinformação</strong>.
+            Seu olhar crítico está ficando mais aguçado!
+        </p>
+    </div>
+
+    <!-- Achievement Section -->
+    <section class="content-section">
+        <div class="achievement-box">
+            <div class="achievement-icon">🏆</div>
+            <div class="achievement-content">
+                <h3>Conquistas Desbloqueadas</h3>
+                <div class="achievements-list">
+                    <div class="achievement-item">
+                        <span class="check-badge">✓</span>
+                        <span>4 Eras da Desinformação Estudadas</span>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="check-badge">✓</span>
+                        <span>Caso Vacinas: Fraude Científica</span>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="check-badge">✓</span>
+                        <span>Caso Clima: Negação Corporativa</span>
+                    </div>
+                    <div class="achievement-item">
+                        <span class="check-badge">✓</span>
+                        <span>Caso Terra Plana: Poder dos Algoritmos</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What's Next Section -->
+    <section class="content-section">
+        <h2>O Que Vem a Seguir?</h2>
+        <p class="section-desc">
+            Conhecer a história é fundamental, mas agora é hora de olhar para os números.
+            Qual é a real dimensão do problema?
+        </p>
+
+        <div class="next-module-preview">
+            <div class="preview-icon">📊</div>
+            <div class="preview-content">
+                <span class="preview-label">Próximo Módulo</span>
+                <h3>Impactos Reais</h3>
+                <p>
+                    Visualize dados e estatísticas que revelam a escala do problema
+                    da desinformação no Brasil e no mundo.
+                </p>
+                <div class="preview-topics">
+                    <span class="topic-tag">📈 Tendências de Busca</span>
+                    <span class="topic-tag">🇧🇷 Dados Brasil</span>
+                    <span class="topic-tag">🌐 Impacto Global</span>
+                    <span class="topic-tag">📱 Comportamento Digital</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="content-section final-cta">
+        <div class="cta-inner">
+            <div class="cta-icon">🚀</div>
+            <div class="cta-text">
+                <h3>Continue Sua Jornada</h3>
+                <p>
+                    Clique em <strong>"Próximo"</strong> abaixo para registrar seu progresso
+                    e desbloquear o Módulo 3.
+                </p>
+            </div>
+        </div>
+    </section>
+</div>
+
+<style>
+    /* Celebration Header */
+    .celebration-header {
+        text-align: center;
+        padding: 50px 30px;
+        background: linear-gradient(135deg, #e8eaf6, #c5cae9);
+        border-radius: 20px;
+        margin-bottom: 40px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .celebration-header::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(63, 81, 181, 0.1) 0%, transparent 70%);
+        animation: pulse-bg 3s infinite;
+    }
+
+    @keyframes pulse-bg {
+
+        0%,
+        100% {
+            transform: scale(1);
+            opacity: 0.5;
+        }
+
+        50% {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+    }
+
+    .confetti-icon {
+        font-size: 4rem;
+        margin-bottom: 15px;
+        animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .complete-badge {
+        display: inline-block;
+        background: #3F51B5;
+        color: white;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 15px;
+    }
+
+    .celebration-header h1 {
+        font-size: 2.5rem;
+        color: #1a237e;
+        margin-bottom: 15px;
+        position: relative;
+    }
+
+    .celebration-text {
+        color: #303F9F;
+        font-size: 1.15rem;
+        line-height: 1.7;
+        max-width: 600px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    /* Achievement Box */
+    .achievement-box {
+        display: flex;
+        gap: 25px;
+        padding: 30px;
+        background: linear-gradient(145deg, #ffffff, #fafafa);
+        border-radius: 16px;
+        border: 1px solid rgba(0, 0, 0, 0.04);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    .achievement-icon {
+        font-size: 3rem;
+        flex-shrink: 0;
+    }
+
+    .achievement-content h3 {
+        font-size: 1.2rem;
+        color: #1a1a2e;
+        margin-bottom: 15px;
+    }
+
+    .achievements-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .achievement-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 15px;
+        background: rgba(63, 81, 181, 0.08);
+        border-radius: 10px;
+    }
+
+    .check-badge {
+        color: white;
+        background: #3F51B5;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        text-align: center;
+        border-radius: 50%;
+        font-size: 0.8rem;
+        font-weight: 700;
+    }
+
+    /* Next Module Preview */
+    .next-module-preview {
+        display: flex;
+        gap: 25px;
+        padding: 30px;
+        background: linear-gradient(145deg, #fafafa, #ffffff);
+        border-radius: 16px;
+        border: 2px dashed rgba(229, 57, 53, 0.3);
+        transition: all 0.3s ease;
+    }
+
+    .next-module-preview:hover {
+        border-color: var(--primary-color);
+        box-shadow: 0 10px 30px rgba(229, 57, 53, 0.1);
+    }
+
+    .preview-icon {
+        font-size: 3rem;
+        background: rgba(229, 57, 53, 0.1);
+        width: 80px;
+        height: 80px;
+        line-height: 80px;
+        text-align: center;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    .preview-label {
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--primary-color);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+    }
+
+    .preview-content h3 {
+        font-size: 1.4rem;
+        color: #1a1a2e;
+        margin-bottom: 10px;
+    }
+
+    .preview-content>p {
+        color: #6b7c93;
+        line-height: 1.7;
+        margin-bottom: 15px;
+    }
+
+    .preview-topics {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .topic-tag {
+        padding: 6px 12px;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 15px;
+        font-size: 0.8rem;
+        color: #6b7c93;
+    }
+
+    /* Final CTA */
+    .final-cta {
+        margin-top: 20px;
+    }
+
+    .cta-inner {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        padding: 30px;
+        background: linear-gradient(135deg, #1a1a2e, #2d2d44);
+        border-radius: 16px;
+        color: white;
+    }
+
+    .cta-icon {
+        font-size: 2.5rem;
+    }
+
+    .cta-text h3 {
+        margin-bottom: 5px;
+        color: white;
+    }
+
+    .cta-text p {
+        margin: 0;
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.6;
+    }
+
+    @media (max-width: 768px) {
+
+        .achievement-box,
+        .next-module-preview,
+        .cta-inner {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .celebration-header h1 {
+            font-size: 2rem;
+        }
+    }
+</style>
+</div>
