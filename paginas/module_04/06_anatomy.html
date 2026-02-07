@@ -1,0 +1,103 @@
+<div class="content-container">
+    <!-- Page Header -->
+    <div class="page-header-section">
+        <span class="module-badge" style="background: linear-gradient(135deg, #009688, #00695C);">Anatomia</span>
+        <h1>Investigação Forense</h1>
+        <p class="page-subtitle">Sites de Fake News deixam rastros. Aprenda a ler as pistas escondidas na estrutura da
+            página.</p>
+    </div>
+
+    <!-- Intro -->
+    <section class="content-section">
+        <div class="intro-text"
+            style="border-left-color: #009688; background: linear-gradient(90deg, rgba(0, 150, 136, 0.05), transparent);">
+            <p>
+                Todo site falso comete crimes contra o design e a lógica. Seu trabalho é encontrar essas falhas.
+                O primeiro e maior erro está quase sempre no endereço (URL).
+            </p>
+        </div>
+    </section>
+
+    <!-- URL Archeology -->
+    <section class="content-section">
+        <h2>1. Arqueologia da URL (O Endereço)</h2>
+        <div class="card info-card" style="border-top-color: #D32F2F;">
+            <p>O golpe mais comum é o <strong>Typosquatting</strong> (imitação de domínio). Veja este exemplo:</p>
+
+            <div class="code-display">
+                https://www.publico.pt.<strong>ofertas-hoje.com</strong>/noticia
+            </div>
+
+            <div style="margin-top: 15px; padding: 15px; background: rgba(0,0,0,0.03); border-radius: 8px;">
+                <p>
+                    👆 <strong>Análise Forense:</strong> Você lê "publico.pt" e confia. Mas para a internet, o que vale
+                    é o que vem
+                    <strong>imediatamente antes</strong> da primeira barra <code>/</code> ou da extensão (.com).
+                </p>
+                <p style="margin-top: 10px; color: #D32F2F; font-weight: 600;">
+                    Veredito: O site real é "ofertas-hoje.com". O "Publico" é apenas um disfarce (subdomínio).
+                </p>
+            </div>
+        </div>
+
+        <div class="cards-grid" style="margin-top: 25px;">
+            <div class="card info-card" style="min-height: auto;">
+                <h4 style="color: #D32F2F; display: flex; align-items: center; gap: 8px;">🚩 Extensão Bizarra</h4>
+                <p>Domínios como <code>.com.co</code> ou <code>.loja</code> fingindo ser sites de notícias.</p>
+            </div>
+            <div class="card info-card" style="min-height: auto;">
+                <h4 style="color: #D32F2F; display: flex; align-items: center; gap: 8px;">🚩 Erro de Digitação</h4>
+                <p><code>gogle.com</code> (falta um 'o') ou <code>faceboook.com</code> (um 'o' a mais).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checklist -->
+    <section class="content-section">
+        <h2>2. Checklist de Sinais Vitais</h2>
+        <div class="checklist-container">
+            <ul class="check-list">
+                <li>
+                    <strong>Whois (Data de Nascimento):</strong>
+                    Sites confiáveis têm anos ou décadas. Sites de golpes geralmente foram criados há poucos dias ou
+                    semanas.
+                    <br><span class="check-details">Ferramenta: Use o <code>who.is</code> para ver a data de
+                        criação.</span>
+                </li>
+                <li>
+                    <strong>O Autor Fantasma:</strong>
+                    Artigo sem autor ou assinado por "Admin"? Clique no nome. Se não levar a perfil nenhum no
+                    LinkedIn/Twitter, o "jornalista" não existe.
+                </li>
+                <li>
+                    <strong>Rastros de Desleixo:</strong>
+                    Jornais têm revisores. Sites falsos têm erros de português, formatação quebrada (fontes diferentes
+                    no mesmo texto) e imagens pixeladas.
+                </li>
+                <li>
+                    <strong>A Seção "Sobre Nós":</strong>
+                    Sites legítimos têm endereço físico e ficha técnica. Sites falsos têm textos genéricos ("Somos um
+                    portal de verdade") ou copiados.
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Visual Aid -->
+    <div style="text-align: center; margin-top: 40px; opacity: 0.8;">
+        <img src="assets/media/images/eyes/eye_tech_1.png" alt="Análise digital detalhada"
+            class="responsive-img rounded" style="max-height: 120px; box-shadow: none;">
+        <p class="caption">Treine seu olho para ver o que os outros ignoram.</p>
+    </div>
+</div>
+
+<style>
+    .check-list li {
+        margin-bottom: 25px;
+    }
+
+    .code-display {
+        font-family: 'Consolas', 'Monaco', monospace;
+        letter-spacing: 0.5px;
+    }
+</style>

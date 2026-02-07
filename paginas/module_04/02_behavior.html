@@ -1,0 +1,159 @@
+<div class="content-container">
+    <!-- Page Header -->
+    <div class="page-header-section">
+        <span class="module-badge" style="background: linear-gradient(135deg, #FF5722, #E64A19);">Comportamento</span>
+        <h1>Atenção ao Consumir</h1>
+        <p class="page-subtitle">
+            A desinformação não ataca sua lógica, ela sequestra suas emoções. Aprenda a reconhecer os gatilhos.
+        </p>
+    </div>
+
+    <!-- Introduction -->
+    <section class="content-section">
+        <div class="intro-text">
+            <p>
+                Antes de clicar em "partilhar", pare. Avalie o conteúdo com calma. A desinformação é desenhada
+                especificamente para <strong>explorar suas emoções</strong> e seu senso de urgência, fazendo você agir
+                por impulso
+                antes que seu cérebro racional possa intervir.
+            </p>
+        </div>
+    </section>
+
+    <!-- Flip Cards Grid -->
+    <section class="content-section">
+        <h2>Os 3 Sinais de Alerta</h2>
+        <div class="cards-grid">
+            <!-- Card 1 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="border-top-color: #D32F2F;">
+                        <div class="card-icon" style="background: rgba(211, 47, 47, 0.1); color: #D32F2F;">🔴</div>
+                        <h3>Conteúdos Polêmicos</h3>
+                        <p>Temas que dividem e chocam.</p>
+                        <span class="click-hint">Toque para ver exemplo</span>
+                    </div>
+                    <div class="flip-card-back" style="background: linear-gradient(135deg, #D32F2F, #B71C1C);">
+                        <h4>O Gatilho</h4>
+                        <p>Notícias sobre pessoas famosas, política, saúde ou tragédias. Golpistas sabem que estes temas
+                            geram cliques rápidos.</p>
+                        <div class="example-box-dark">
+                            <strong>Exemplo Real:</strong><br>
+                            "Ator famoso morre em acidente chocante! Veja o vídeo (Link Suspeito)"
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="border-top-color: #E64A19;">
+                        <div class="card-icon" style="background: rgba(230, 74, 25, 0.1); color: #E64A19;">😲</div>
+                        <h3>Sensacionalismo</h3>
+                        <p>Manchetes que gritam com você.</p>
+                        <span class="click-hint">Toque para ver exemplo</span>
+                    </div>
+                    <div class="flip-card-back" style="background: linear-gradient(135deg, #E64A19, #BF360C);">
+                        <h4>O Gatilho</h4>
+                        <p>Se provoca raiva extrema, medo pânico ou euforia, desconfie. O jornalismo sério busca
+                            informar, não manipular.</p>
+                        <div class="example-box-dark">
+                            <strong>Exemplo Real:</strong><br>
+                            "A cura secreta que os médicos escondem de você!"
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front" style="border-top-color: #F57C00;">
+                        <div class="card-icon" style="background: rgba(245, 124, 0, 0.1); color: #F57C00;">⏳</div>
+                        <h3>Urgência Artificial</h3>
+                        <p>A pressa é inimiga da verdade.</p>
+                        <span class="click-hint">Toque para ver exemplo</span>
+                    </div>
+                    <div class="flip-card-back" style="background: linear-gradient(135deg, #F57C00, #E65100);">
+                        <h4>O Gatilho</h4>
+                        <p>Desconfie de pedidos de ação imediata ("Partilhe agora"). A pressa bloqueia seu pensamento
+                            crítico.</p>
+                        <div class="example-box-dark">
+                            <strong>Exemplo Real:</strong><br>
+                            "Vaga de emprego expira em 5 min! Clique já!"
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pro Tip Section -->
+    <section class="content-section">
+        <div class="highlight-box sabia">
+            <h3>💡 O Sequestro da Amígdala</h3>
+            <p>
+                Quando sentimos medo ou raiva intensa, nosso cérebro ativa o modo de "luta ou fuga" e desliga a parte
+                responsável pelo pensamento lógico (córtex pré-frontal).
+            </p>
+            <p style="margin-top: 15px; font-weight: 500;">
+                Fake News são projetadas biologicamente para hackear esse sistema. <em>Se doeu ou assustou, não
+                    compartilhe sem checar.</em>
+            </p>
+        </div>
+    </section>
+</div>
+
+<style>
+    /* Specific Styles for this Page */
+    .module-badge {
+        display: inline-block;
+        padding: 8px 20px;
+        color: white;
+        border-radius: 30px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+    }
+
+    .click-hint {
+        font-size: 0.8rem;
+        color: #999;
+        margin-top: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        opacity: 0.7;
+    }
+
+    .example-box-dark {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 15px;
+        border-radius: 8px;
+        margin-top: 15px;
+        font-size: 0.9rem;
+        border-left: 3px solid rgba(255, 255, 255, 0.5);
+    }
+
+    /* Flip Card Specifics */
+    .flip-card {
+        height: 320px;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+
+    /* Javascript for click to flip (handled by inline script below or generic app.js if present) */
+</style>
+
+<script>
+    // Simple script to handle flip on click for better mobile experience
+    document.querySelectorAll('.flip-card').forEach(card => {
+        card.addEventListener('click', () => {
+            card.classList.toggle('flipped');
+        });
+    });
+</script>

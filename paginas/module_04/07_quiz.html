@@ -1,0 +1,167 @@
+<div class="content-container">
+    <!-- Page Header -->
+    <div class="page-header-section">
+        <span class="module-badge" style="background: linear-gradient(135deg, #4CAF50, #2E7D32);">Quiz Final</span>
+        <h1>Verificação de Conhecimento</h1>
+        <p class="page-subtitle">Você está pronto para ser um detetive digital? Teste suas habilidades.</p>
+    </div>
+
+    <!-- Quiz Block -->
+    <div class="quiz-block">
+        <form id="module-quiz-form">
+
+            <!-- Question 1 -->
+            <div class="question-item" data-correct="b" style="margin-bottom: 40px;">
+                <p class="question">1. Ao encontrar uma notícia bombástica sobre um novo imposto, qual a primeira
+                    atitude correta (Método SIFT)?</p>
+                <div class="options">
+                    <label class="quiz-option">
+                        <input type="radio" name="q1" value="a" style="margin-right: 10px;">
+                        Consultar apenas o site onde a notícia saiu.
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q1" value="b" style="margin-right: 10px;">
+                        Investigar a fonte e buscar cobertura em jornais oficiais.
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q1" value="c" style="margin-right: 10px;">
+                        Ler os comentários para ver se as pessoas concordam.
+                    </label>
+                </div>
+                <div class="feedback hidden"></div>
+            </div>
+
+            <!-- Question 2 -->
+            <div class="question-item" data-correct="b" style="margin-bottom: 40px;">
+                <p class="question">2. Qual ferramenta é ideal para descobrir se uma foto é antiga ou manipulada?</p>
+                <div class="options">
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="a" style="margin-right: 10px;">
+                        Zoom Digital.
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="b" style="margin-right: 10px;">
+                        Busca Reversa (TinEye / Google Lens).
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q2" value="c" style="margin-right: 10px;">
+                        Wayback Machine.
+                    </label>
+                </div>
+                <div class="feedback hidden"></div>
+            </div>
+
+            <!-- Question 3 -->
+            <div class="question-item" data-correct="a" style="margin-bottom: 40px;">
+                <p class="question">3. O que é "Typosquatting" em uma URL?</p>
+                <div class="options">
+                    <label class="quiz-option">
+                        <input type="radio" name="q3" value="a" style="margin-right: 10px;">
+                        Criar domínios falsos que imitam visuais de sites reais (ex: gogle.com).
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q3" value="b" style="margin-right: 10px;">
+                        Invadir o site original e mudar a manchete.
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q3" value="c" style="margin-right: 10px;">
+                        Escrever notícias com erros de português propositais.
+                    </label>
+                </div>
+                <div class="feedback hidden"></div>
+            </div>
+
+            <!-- Question 4 -->
+            <div class="question-item" data-correct="b" style="margin-bottom: 40px;">
+                <p class="question">4. O "Sequestro da Amígdala" refere-se a:</p>
+                <div class="options">
+                    <label class="quiz-option">
+                        <input type="radio" name="q4" value="a" style="margin-right: 10px;">
+                        Um vírus de computador que rouba dados.
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q4" value="b" style="margin-right: 10px;">
+                        Quando uma emoção forte (medo/raiva) bloqueia nosso pensamento racional.
+                    </label>
+                    <label class="quiz-option">
+                        <input type="radio" name="q4" value="c" style="margin-right: 10px;">
+                        Uma técnica de reportagem investigativa.
+                    </label>
+                </div>
+                <div class="feedback hidden"></div>
+            </div>
+
+            <button type="submit" class="btn-primary"
+                style="width: 100%; padding: 15px; font-size: 1.1rem; margin-top: 20px;">
+                Verificar Respostas
+            </button> <!-- Button styling from global CSS assumes .btn-primary exists, if not we add basic style -->
+        </form>
+    </div>
+</div>
+
+<style>
+    /* Quiz Specific Styles to ensure premium look */
+    .btn-primary {
+        background: linear-gradient(135deg, #1976D2, #1565C0);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 700;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(25, 118, 210, 0.3);
+    }
+</style>
+
+<script>
+    document.getElementById('module-quiz-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        let score = 0;
+        const questions = document.querySelectorAll('.question-item');
+
+        questions.forEach(q => {
+            const correct = q.dataset.correct;
+            const selected = q.querySelector('input:checked');
+            const feedback = q.querySelector('.feedback');
+            const options = q.querySelectorAll('.quiz-option');
+
+            // Reset previous state
+            options.forEach(opt => opt.classList.remove('correct', 'wrong'));
+            feedback.classList.add('hidden');
+            feedback.className = 'feedback hidden'; // Reset classes
+
+            if (selected) {
+                if (selected.value === correct) {
+                    score++;
+                    selected.parentElement.classList.add('correct');
+                    feedback.textContent = "Correto! ✅";
+                    feedback.classList.remove('hidden');
+                    feedback.classList.add('positive');
+                } else {
+                    selected.parentElement.classList.add('wrong');
+
+                    // Highlight correct answer
+                    const correctInput = q.querySelector(`input[value="${correct}"]`);
+                    if (correctInput) correctInput.parentElement.classList.add('correct');
+
+                    feedback.textContent = "Incorreto. A resposta certa está destacada em verde.";
+                    feedback.classList.remove('hidden');
+                    feedback.classList.add('negative');
+                }
+            } else {
+                feedback.textContent = "Por favor, selecione uma opção.";
+                feedback.classList.remove('hidden');
+                feedback.classList.add('negative');
+            }
+        });
+
+        if (score === questions.length) {
+            // Optional: Scroll to top or show modal
+            alert(`Parabéns! Você acertou ${score}/${questions.length}. Você dominou o Módulo 4!`);
+        }
+    });
+</script>

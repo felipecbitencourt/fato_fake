@@ -63,11 +63,13 @@
         "icon": "🔍",
         "locked": true,
         "pages": [
-            "verify_01.html",
-            "verify_02.html",
-            "verify_03.html",
-            "verify_04.html",
-            "verify_05.html"
+            "module_04/01_intro.html",
+            "module_04/02_behavior.html",
+            "module_04/03_psychology.html",
+            "module_04/04_method_sift.html",
+            "module_04/05_tools.html",
+            "module_04/06_anatomy.html",
+            "module_04/07_quiz.html"
         ]
     },
     {

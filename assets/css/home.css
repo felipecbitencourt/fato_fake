@@ -1,0 +1,1190 @@
+/* ================================================
+   HOME PAGE STYLES - Fato ou Fake
+   PREMIUM DESIGN VERSION
+   ================================================ */
+
+/* Variables */
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.15);
+    --shadow-glow: 0 0 60px rgba(229, 57, 53, 0.15);
+    --gradient-red: linear-gradient(135deg, #E53935 0%, #C62828 100%);
+    --gradient-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    --gradient-mesh:
+        radial-gradient(ellipse at 20% 20%, rgba(229, 57, 53, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(229, 57, 53, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(255, 193, 7, 0.08) 0%, transparent 60%);
+}
+
+/* ============================================
+   HERO SECTION - Full Impact
+   ============================================ */
+.home-container {
+    background: var(--gradient-mesh), var(--secondary-color);
+    min-height: 100vh;
+    padding-bottom: 60px;
+}
+
+.home-hero {
+    text-align: center;
+    padding: 80px 20px 60px;
+    position: relative;
+}
+
+.home-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(229, 57, 53, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.home-hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    background: var(--gradient-red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 16px;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.02em;
+}
+
+.home-hero .subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--text-light);
+    max-width: 550px;
+    margin: 0 auto 50px;
+    line-height: 1.7;
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   ORBITAL ANIMATION - Premium
+   ============================================ */
+.orbital-container {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    margin: 0 auto 60px;
+    z-index: 1;
+}
+
+.orbital-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: var(--gradient-red);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 10px 40px rgba(229, 57, 53, 0.4),
+        0 0 80px rgba(229, 57, 53, 0.2),
+        inset 0 -5px 20px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    animation: pulse-center 3s ease-in-out infinite;
+}
+
+@keyframes pulse-center {
+
+    0%,
+    100% {
+        box-shadow:
+            0 10px 40px rgba(229, 57, 53, 0.4),
+            0 0 80px rgba(229, 57, 53, 0.2),
+            inset 0 -5px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    50% {
+        box-shadow:
+            0 15px 50px rgba(229, 57, 53, 0.5),
+            0 0 100px rgba(229, 57, 53, 0.3),
+            inset 0 -5px 20px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.orbital-center svg {
+    width: 48px;
+    height: 48px;
+    color: white;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.orbital-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 2px solid rgba(229, 57, 53, 0.15);
+    border-radius: 50%;
+}
+
+.orbital-ring::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 1px dashed rgba(229, 57, 53, 0.1);
+    border-radius: 50%;
+    animation: rotate-slow 60s linear infinite reverse;
+}
+
+@keyframes rotate-slow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.orbital-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: orbit 25s linear infinite;
+}
+
+.orbital-icon {
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    box-shadow:
+        var(--shadow-md),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    border: 1px solid var(--glass-border);
+    animation: counter-orbit 25s linear infinite;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.orbital-icon:hover {
+    transform: scale(1.25) !important;
+    box-shadow:
+        var(--shadow-lg),
+        0 0 30px rgba(229, 57, 53, 0.3);
+    z-index: 10;
+}
+
+/* Position each icon around the circle (7 icons, 360/7 ≈ 51.4°) */
+.orbital-icon:nth-child(1) {
+    top: -26px;
+    left: 50%;
+    margin-left: -26px;
+}
+
+.orbital-icon:nth-child(2) {
+    top: 8%;
+    right: 2%;
+}
+
+.orbital-icon:nth-child(3) {
+    top: 55%;
+    right: -8%;
+}
+
+.orbital-icon:nth-child(4) {
+    bottom: -5%;
+    right: 20%;
+}
+
+.orbital-icon:nth-child(5) {
+    bottom: -5%;
+    left: 20%;
+}
+
+.orbital-icon:nth-child(6) {
+    top: 55%;
+    left: -8%;
+}
+
+.orbital-icon:nth-child(7) {
+    top: 8%;
+    left: 2%;
+}
+
+@keyframes orbit {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes counter-orbit {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+/* ============================================
+   COURSE INFO CARDS - Elevated
+   ============================================ */
+.course-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    padding: 0 20px;
+    max-width: 1000px;
+    margin: 0 auto 60px;
+}
+
+.info-card {
+    background: var(--white);
+    padding: 32px 24px;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: var(--shadow-md);
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--gradient-red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.info-card:hover::before {
+    transform: scaleX(1);
+}
+
+.info-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.info-card h3 {
+    font-size: 2rem;
+    font-weight: 800;
+    background: var(--gradient-red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 4px;
+}
+
+.info-card p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* ============================================
+   NEW CONTENT SECTIONS - Text Expansion
+   ============================================ */
+.content-section {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+/* Context Section */
+.context-section .text-block {
+    flex: 1;
+}
+
+.context-section h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text-color);
+    margin-bottom: 24px;
+    position: relative;
+    display: inline-block;
+}
+
+.context-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+.context-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-color);
+    margin-bottom: 20px;
+}
+
+.context-section strong {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.context-section .visual-block {
+    flex: 0 0 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.stat-circle {
+    width: 280px;
+    height: 280px;
+    background: var(--gradient-red);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    color: white;
+    box-shadow:
+        var(--shadow-lg),
+        0 0 40px rgba(229, 57, 53, 0.3);
+    position: relative;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+.stat-circle::before {
+    content: '';
+    position: absolute;
+    inset: -10px;
+    border: 1px dashed rgba(229, 57, 53, 0.3);
+    border-radius: 50%;
+    animation: rotate-slow 40s linear infinite;
+}
+
+.stat-number {
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.stat-label {
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1.4;
+    opacity: 0.95;
+}
+
+/* Benefits Section */
+.benefits-section {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 100%);
+    border-radius: 30px;
+    margin: 40px auto;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.benefit-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+}
+
+.benefit-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+    border-color: rgba(229, 57, 53, 0.1);
+}
+
+.benefit-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-red);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.benefit-card:hover::before {
+    opacity: 1;
+}
+
+.benefit-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    background: rgba(229, 57, 53, 0.05);
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover .benefit-icon {
+    background: var(--primary-color);
+    color: white;
+    transform: rotate(5deg);
+}
+
+.benefit-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: var(--text-color);
+}
+
+.benefit-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* ============================================
+   FLIP CARDS - 3D Premium
+   ============================================ */
+.flip-cards-section {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.section-header .section-subtitle {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+.flip-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    perspective: 1500px;
+}
+
+.flip-card {
+    height: 220px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(10deg);
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    text-align: center;
+}
+
+.flip-card-front {
+    background: var(--white);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: var(--shadow-md);
+}
+
+.flip-card-front::before {
+    content: '?';
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-color);
+    opacity: 0.15;
+}
+
+.flip-card-front::after {
+    content: "👆 Clique para revelar";
+    position: absolute;
+    bottom: 16px;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.flip-card:hover .flip-card-front::after {
+    opacity: 1;
+}
+
+.flip-card-front p {
+    font-size: 1.05rem;
+    font-weight: 500;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+    padding: 24px;
+}
+
+.flip-card-back.fato {
+    background: linear-gradient(135deg, #43a047 0%, #2e7d32 100%);
+    color: white;
+    box-shadow:
+        var(--shadow-lg),
+        0 0 40px rgba(76, 175, 80, 0.3);
+}
+
+.flip-card-back.fake {
+    background: linear-gradient(135deg, #e53935 0%, #b71c1c 100%);
+    color: white;
+    box-shadow:
+        var(--shadow-lg),
+        0 0 40px rgba(229, 57, 53, 0.3);
+}
+
+.flip-card-back .verdict {
+    font-size: 2.5rem;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.flip-card-back .label {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.flip-card-back .explanation {
+    font-size: 0.9rem;
+    opacity: 0.95;
+    line-height: 1.5;
+    font-weight: 400;
+}
+
+/* ============================================
+   ROADMAP - Visual Journey
+   ============================================ */
+.roadmap-section {
+    padding: 80px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.roadmap-section h2 {
+    text-align: center;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    margin-bottom: 50px;
+    color: var(--text-color);
+}
+
+.roadmap {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    padding: 0 30px;
+}
+
+.roadmap::before {
+    content: '';
+    position: absolute;
+    top: 42px;
+    left: 80px;
+    right: 80px;
+    height: 6px;
+    background: linear-gradient(90deg,
+            var(--primary-color) 0%,
+            rgba(229, 57, 53, 0.5) 50%,
+            rgba(229, 57, 53, 0.2) 100%);
+    border-radius: 3px;
+    z-index: 0;
+}
+
+.roadmap::after {
+    content: '';
+    position: absolute;
+    top: 38px;
+    left: 80px;
+    width: 14px;
+    height: 14px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(229, 57, 53, 0.5);
+    animation: progress-pulse 2s ease-in-out infinite;
+}
+
+@keyframes progress-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 20px rgba(229, 57, 53, 0.5);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 30px rgba(229, 57, 53, 0.8);
+        transform: scale(1.2);
+    }
+}
+
+.roadmap-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    max-width: 120px;
+}
+
+.roadmap-icon {
+    width: 84px;
+    height: 84px;
+    background: var(--white);
+    border: 4px solid var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 16px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: var(--shadow-md);
+    position: relative;
+}
+
+.roadmap-icon::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border: 2px dashed rgba(229, 57, 53, 0.2);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.roadmap-item:hover .roadmap-icon {
+    background: var(--gradient-red);
+    transform: scale(1.15) translateY(-5px);
+    box-shadow: var(--shadow-lg), 0 0 40px rgba(229, 57, 53, 0.4);
+}
+
+.roadmap-item:hover .roadmap-icon::after {
+    opacity: 1;
+}
+
+.roadmap-item:hover .roadmap-icon span {
+    filter: grayscale(1) brightness(10);
+}
+
+.roadmap-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-align: center;
+    line-height: 1.3;
+}
+
+.roadmap-number {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    opacity: 0.6;
+    margin-top: 4px;
+}
+
+/* ============================================
+   QUOTE SECTION - Statement
+   ============================================ */
+.quote-section {
+    padding: 70px 40px;
+    margin: 40px 20px;
+    background: var(--white);
+    border-radius: 24px;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.quote-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    background: var(--gradient-red);
+}
+
+.quote-section::after {
+    content: '"';
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    font-size: 8rem;
+    font-family: Georgia, serif;
+    background: var(--gradient-red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    opacity: 0.1;
+    line-height: 1;
+}
+
+.quote-text {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    font-style: italic;
+    color: var(--text-color);
+    line-height: 1.8;
+    margin-bottom: 24px;
+    position: relative;
+    z-index: 1;
+    max-width: 700px;
+}
+
+.quote-author {
+    font-size: 1.1rem;
+    font-weight: 700;
+    background: var(--gradient-red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   START BUTTON - Call to Action
+   ============================================ */
+.start-section {
+    text-align: center;
+    padding: 60px 20px 80px;
+}
+
+.start-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 20px 48px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: white;
+    background: var(--gradient-red);
+    border: none;
+    border-radius: 60px;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow:
+        0 8px 30px rgba(229, 57, 53, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.start-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.start-btn:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow:
+        0 16px 50px rgba(229, 57, 53, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.start-btn:hover::before {
+    left: 100%;
+}
+
+.start-btn:active {
+    transform: translateY(-2px) scale(0.99);
+}
+
+.start-btn svg {
+    width: 26px;
+    height: 26px;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 1024px) {
+    .course-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .flip-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .roadmap {
+        overflow-x: auto;
+        padding-bottom: 20px;
+        gap: 10px;
+    }
+
+    .roadmap::before {
+        left: 60px;
+        right: 60px;
+    }
+
+    .roadmap-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 1.6rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .content-wrapper {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .context-section h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .context-section .visual-block {
+        width: 100%;
+    }
+
+    .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-hero {
+        padding: 60px 20px 40px;
+    }
+
+    .orbital-container {
+        width: 260px;
+        height: 260px;
+    }
+
+    .orbital-center {
+        width: 80px;
+        height: 80px;
+    }
+
+    .orbital-center svg {
+        width: 38px;
+        height: 38px;
+    }
+
+    .orbital-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+    }
+
+    .course-info {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+
+    .info-card {
+        padding: 24px 16px;
+    }
+
+    .info-card h3 {
+        font-size: 1.6rem;
+    }
+
+    .flip-cards-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .flip-card {
+        height: 200px;
+    }
+
+    .roadmap {
+        gap: 5px;
+    }
+
+    .roadmap::before {
+        left: 50px;
+        right: 50px;
+        height: 4px;
+        top: 35px;
+    }
+
+    .roadmap::after {
+        top: 31px;
+        left: 50px;
+        width: 12px;
+        height: 12px;
+    }
+
+    .roadmap-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.4rem;
+        border-width: 3px;
+    }
+
+    .roadmap-label {
+        font-size: 0.75rem;
+    }
+
+    .quote-section {
+        padding: 50px 30px;
+        margin: 30px 15px;
+    }
+
+    .start-btn {
+        padding: 18px 36px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .course-info {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+
+    .info-card {
+        padding: 20px 12px;
+    }
+
+    .info-card .icon {
+        font-size: 2rem;
+    }
+
+    .info-card h3 {
+        font-size: 1.4rem;
+    }
+
+    .roadmap-item {
+        max-width: 60px;
+    }
+
+    .roadmap-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.1rem;
+    }
+
+    .roadmap-label {
+        font-size: 0.65rem;
+    }
+}
+
+/* ============================================
+   DARK MODE
+   ============================================ */
+body.dark-mode .home-container {
+    background: var(--gradient-mesh), var(--secondary-color);
+}
+
+body.dark-mode .orbital-icon {
+    background: rgba(30, 30, 30, 0.9);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .flip-card-front {
+    background: #2a2a2a;
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark-mode .flip-card-front p {
+    color: var(--text-color);
+}
+
+body.dark-mode .info-card {
+    background: #2a2a2a;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .roadmap-icon {
+    background: #2a2a2a;
+}
+
+body.dark-mode .quote-section {
+    background: #2a2a2a;
+}
+
+body.dark-mode .stat-label {
+    color: var(--white);
+}
+
+body.dark-mode .benefit-card {
+    background: #2a2a2a;
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .benefit-icon {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+
+    .orbital-icons,
+    .orbital-icon,
+    .orbital-ring::before,
+    .orbital-center,
+    .stat-circle::before,
+    .stat-circle {
+        animation: none;
+    }
+
+    .flip-card-inner {
+        transition: none;
+    }
+
+    .flip-card.flipped .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+}
+/* ============================================
+   TUTORIAL CTA - Intro Text
+   ============================================ */
+.tutorial-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 40px !important;
+}
+
+.tutorial-intro h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.tutorial-intro p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Dark Mode adjustment for intro text */
+body.dark-mode .tutorial-intro h2 {
+    color: var(--white);
+}
