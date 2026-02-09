@@ -1,0 +1,143 @@
+/* 
+ * High Contrast Mode Styles 
+ * Activated when body has class 'high-contrast'
+ */
+
+body.high-contrast {
+    /* Override Variables for High Contrast */
+    --primary-color: #FFFF00 !important;
+    /* Bright Yellow */
+    --primary-hover: #FFD700 !important;
+    /* Gold */
+    --secondary-color: #000000 !important;
+    /* Pure Black */
+    --text-color: #FFFFFF !important;
+    /* Pure White */
+    --text-light: #E0E0E0 !important;
+    /* Light Gray */
+    --white: #000000 !important;
+    /* Cards become black */
+    --success-color: #00FF00 !important;
+    /* Bright Green */
+    --error-color: #FF0000 !important;
+    /* Bright Red */
+    --warning-color: #FFA500 !important;
+    /* Bright Orange */
+
+    /* Module-specific overrides */
+    --module-color: #FFFF00 !important;
+    --card-bg: #000000 !important;
+
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+}
+
+/* Universal High Contrast Overrides */
+body.high-contrast * {
+    background-image: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+}
+
+/* Containers and Cards */
+body.high-contrast .content-card,
+body.high-contrast .module-card,
+body.high-contrast .modal-content,
+body.high-contrast header,
+body.high-contrast footer,
+body.high-contrast .interactive-card,
+body.high-contrast .flip-card-front,
+body.high-contrast .flip-card-back {
+    background-color: #000000 !important;
+    border: 2px solid #FFFFFF !important;
+    color: #FFFFFF !important;
+}
+
+/* Links */
+body.high-contrast a {
+    color: #FFFF00 !important;
+    text-decoration: underline !important;
+}
+
+body.high-contrast a:hover,
+body.high-contrast a:focus {
+    background-color: #FFFF00 !important;
+    color: #000000 !important;
+}
+
+/* Buttons */
+body.high-contrast button,
+body.high-contrast .btn,
+body.high-contrast .nav-btn,
+body.high-contrast .tab-btn {
+    background-color: #000000 !important;
+    border: 2px solid #FFFF00 !important;
+    color: #FFFF00 !important;
+    font-weight: bold !important;
+}
+
+body.high-contrast button:hover,
+body.high-contrast button:focus,
+body.high-contrast .btn:hover,
+body.high-contrast .btn:focus,
+body.high-contrast .tab-btn.active {
+    background-color: #FFFF00 !important;
+    color: #000000 !important;
+}
+
+body.high-contrast button:disabled,
+body.high-contrast .btn:disabled {
+    border-color: #888888 !important;
+    color: #888888 !important;
+    background-color: #000000 !important;
+}
+
+/* Inputs */
+body.high-contrast input,
+body.high-contrast select,
+body.high-contrast textarea {
+    background-color: #000000 !important;
+    border: 2px solid #FFFFFF !important;
+    color: #FFFFFF !important;
+}
+
+body.high-contrast input:focus,
+body.high-contrast select:focus,
+body.high-contrast textarea:focus {
+    outline: 2px solid #FFFF00 !important;
+}
+
+/* Headings */
+body.high-contrast h1,
+body.high-contrast h2,
+body.high-contrast h3,
+body.high-contrast h4,
+body.high-contrast h5,
+body.high-contrast h6 {
+    color: #FFFF00 !important;
+}
+
+/* Icons */
+body.high-contrast svg {
+    stroke: currentColor !important;
+}
+
+/* Progress bar (Module specific) */
+body.high-contrast .progress-dot {
+    background-color: #000000 !important;
+    border: 2px solid #FFFFFF !important;
+}
+
+body.high-contrast .progress-dot.active {
+    background-color: #FFFF00 !important;
+}
+
+body.high-contrast .progress-dot.completed {
+    background-color: #FFFFFF !important;
+}
+
+/* Focus styles for keyboard navigation */
+body.high-contrast *:focus-visible {
+    outline: 3px solid #FFFF00 !important;
+    outline-offset: 2px !important;
+}

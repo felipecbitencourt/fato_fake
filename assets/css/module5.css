@@ -1,0 +1,355 @@
+/* Module 5 - Future of IA Specific Styles */
+
+:root {
+    --ia-primary: #6200ea;
+    --ia-secondary: #00b0ff;
+    --ia-accent: #00e676;
+    --ia-dark: #121212;
+    --ia-surface: #1e1e1e;
+    --ia-text-muted: #b0bec5;
+    --ia-glass-bg: rgba(255, 255, 255, 0.95);
+    --ia-glass-border: rgba(255, 255, 255, 0.2);
+}
+
+/* === Typography & Gradients === */
+
+/* Gradient Text */
+.text-gradient-ia {
+    background: linear-gradient(135deg, var(--ia-primary), var(--ia-secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+/* Module Badge */
+.badge-ia {
+    background: linear-gradient(135deg, #6200ea, #00b0ff) !important;
+}
+
+/* === Intro Section === */
+
+.intro-ia {
+    border-left-color: var(--ia-primary) !important;
+}
+
+.intro-ia .intro-icon {
+    background: rgba(98, 0, 234, 0.1) !important;
+}
+
+/* === Cards & Components === */
+
+/* Futuristic Card Base */
+.ia-card {
+    background: var(--ia-glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--ia-primary);
+    box-shadow: 0 8px 32px rgba(98, 0, 234, 0.1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    border-radius: 12px;
+}
+
+.ia-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(98, 0, 234, 0.2);
+}
+
+/* Comparison Cards (Before vs After) */
+.card-before {
+    border-top-color: #9e9e9e !important;
+}
+
+.card-before .card-icon {
+    background: rgba(0, 0, 0, 0.05) !important;
+}
+
+.card-after {
+    border-top-color: var(--ia-secondary) !important;
+}
+
+.card-after .card-icon {
+    background: rgba(0, 176, 255, 0.1) !important;
+}
+
+/* Deepfake Type Cards */
+.deepfake-type {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.deepfake-type::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--ia-primary), var(--ia-secondary));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.deepfake-type:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.deepfake-type:hover::after {
+    opacity: 1;
+}
+
+.deepfake-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #f5f5f5, #fff);
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* === Box Styles === */
+
+/* Impact Box */
+.box-impact {
+    background: linear-gradient(135deg, #f3e5f5, #e1bee7);
+    border-left: 5px solid #8e24aa;
+    color: #4a148c;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+.box-impact h3 {
+    color: #6a1b9a !important;
+}
+
+/* Liar's Dividend Box (Dark Theme) */
+.box-liar-dividend {
+    background: linear-gradient(135deg, #263238, #37474f);
+    border: 1px solid #455a64;
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.box-liar-dividend h3 {
+    color: #eceff1 !important;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.box-liar-dividend p {
+    color: #cfd8dc;
+}
+
+.box-liar-dividend .ad-text {
+    margin-top: 15px;
+    font-weight: 500;
+    color: #b0bec5;
+}
+
+/* Hallucination Box */
+.box-hallucination {
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+    border-left: 5px solid #1976d2;
+    color: #0d47a1;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+/* Mission Box */
+.box-mission {
+    background: linear-gradient(135deg, #212121, #424242);
+    border-left: 5px solid var(--ia-accent);
+    color: white;
+    padding: 35px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.box-mission::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(0, 230, 118, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.box-mission h3 {
+    color: var(--ia-accent) !important;
+}
+
+/* Quote IA */
+.quote-ia {
+    background: linear-gradient(135deg, #311b92, #4527a0) !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.quote-ia::after {
+    content: '❝';
+    position: absolute;
+    top: -20px;
+    right: 20px;
+    font-size: 10rem;
+    color: rgba(255, 255, 255, 0.05);
+    font-family: serif;
+}
+
+/* Success Box */
+.box-success-ia {
+    background: linear-gradient(135deg, #e8f5e9, #c8e6c9);
+    border-left: 5px solid #2e7d32;
+    color: #1b5e20;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+/* === Detection Grid === */
+
+.detection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 35px;
+}
+
+.detection-item {
+    background: #fff;
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    border-top: 4px solid var(--ia-accent);
+    transition: transform 0.3s ease;
+}
+
+.detection-item:hover {
+    transform: translateY(-5px);
+}
+
+.detection-item h4 {
+    color: var(--ia-primary);
+    margin-bottom: 12px;
+    font-size: 1.15rem;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* === Flip Cards (Solutions) === */
+
+.card-c2pa-front {
+    border-top: 5px solid var(--ia-accent) !important;
+}
+
+.icon-c2pa {
+    background: rgba(0, 230, 118, 0.1) !important;
+}
+
+.card-c2pa-back {
+    background: linear-gradient(135deg, #00c853, #69f0ae) !important;
+    color: #003300 !important;
+    /* Ensure readable text on green */
+}
+
+.card-c2pa-back p {
+    color: #003300 !important;
+    font-weight: 500;
+}
+
+.card-crypto-front {
+    border-top: 5px solid var(--ia-primary) !important;
+}
+
+.icon-crypto {
+    background: rgba(98, 0, 234, 0.1) !important;
+}
+
+.card-crypto-back {
+    background: linear-gradient(135deg, #6200ea, #b388ff) !important;
+    color: white !important;
+}
+
+/* === Buttons === */
+
+.btn-ia-start {
+    background: linear-gradient(135deg, #6200ea, #00b0ff);
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(98, 0, 234, 0.3);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-ia-start:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 12px 35px rgba(98, 0, 234, 0.4);
+    background: linear-gradient(135deg, #7c4dff, #40c4ff);
+}
+
+.btn-ia-start:active {
+    transform: translateY(0);
+}
+
+/* === Animations === */
+
+@keyframes pulse-glow {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 230, 118, 0.4);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 230, 118, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 230, 118, 0);
+    }
+}
+
+.box-mission {
+    animation: pulse-glow 3s infinite;
+}
+
+/* Mobile Responsiveness Utility */
+@media (max-width: 768px) {
+    .deepfake-type {
+        padding: 20px;
+    }
+
+    .box-liar-dividend,
+    .box-mission,
+    .box-impact {
+        padding: 20px;
+    }
+
+    .quote-ia::after {
+        font-size: 6rem;
+        top: 0;
+    }
+}

@@ -69,7 +69,9 @@
             "module_04/04_method_sift.html",
             "module_04/05_tools.html",
             "module_04/06_anatomy.html",
-            "module_04/07_quiz.html"
+            "module_04/08_summary.html",
+            "module_04/07_quiz.html",
+            "module_04/09_conclusion.html"
         ]
     },
     {
@@ -78,11 +80,14 @@
         "icon": "🤖",
         "locked": true,
         "pages": [
-            "future_01.html",
-            "future_02.html",
-            "future_03.html",
-            "future_04.html",
-            "future_05.html"
+            "module_05/01_intro.html",
+            "module_05/02_deepfakes.html",
+            "module_05/03_detection.html",
+            "module_05/04_solutions.html",
+            "module_05/05_activity.html",
+            "module_05/06_summary.html",
+            "module_05/07_reflection.html",
+            "module_05/08_conclusion.html"
         ]
     },
     {
