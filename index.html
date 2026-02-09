@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="assets/css/game.css"> <!-- Will be created later -->
     <link rel="stylesheet" href="assets/css/home.css"> <!-- Home Page Styles -->
     <link rel="stylesheet" href="assets/css/high-contrast.css"> <!-- Accessibility High Contrast -->
+    <link rel="stylesheet" href="assets/css/motivations-disruptive.css"> <!-- Disruptive Motivations Page -->
 
     <!-- SCORM & Accessibility Init -->
     <script>
@@ -40,14 +41,20 @@
 
     <!-- Header with Tabs -->
     <header id="main-header" role="banner">
-        <a href="#" class="logo-container" id="logo-home-link">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-                <circle cx="12" cy="12" r="3" />
-            </svg>
-            <span class="logo-text">Fato ou Fake</span>
-        </a>
+        <div class="logo-section">
+            <a href="#" class="logo-container" id="logo-home-link">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                    <circle cx="12" cy="12" r="3" />
+                </svg>
+                <span class="logo-text">Fato ou Fake</span>
+            </a>
+            <!-- Progress Bar (moved from sidebar) -->
+            <div id="header-progress" class="header-progress-container" aria-hidden="true">
+                <!-- Dots injected by app.js -->
+            </div>
+        </div>
 
         <nav class="tabs-container" id="tabs-nav" aria-label="Navegação dos Módulos">
             <!-- Tabs will be injected here by app.js -->
@@ -76,10 +83,6 @@
         </div>
     </header>
 
-    <!-- Side Progress Bar -->
-    <aside id="side-progress" class="side-progress-container" aria-hidden="true">
-        <!-- Dots injected by app.js -->
-    </aside>
 
     <!-- Main Content Area -->
     <main id="main-content" role="main" aria-live="polite">

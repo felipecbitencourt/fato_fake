@@ -378,7 +378,7 @@ class App {
     }
 
     renderSideProgress(module) {
-        const sideNav = document.getElementById('side-progress');
+        const sideNav = document.getElementById('header-progress');
         if (!sideNav) return;
 
         if (module.hidden || this.currentModuleIndex === 0) {
