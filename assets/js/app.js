@@ -357,7 +357,7 @@ class App {
             }
 
             // Initialize Classification Game button if on quiz page
-            if (pageFile.includes('06_quiz')) {
+            if (pageFile.includes('07_quiz')) {
                 setTimeout(() => {
                     const startBtn = document.getElementById('start-game-btn');
                     const gameSection = document.getElementById('game-section');
@@ -365,8 +365,10 @@ class App {
 
                     if (startBtn && gameSection && gameContainer) {
                         startBtn.addEventListener('click', () => {
-                            // Hide briefing section and show game
-                            startBtn.closest('.content-section').style.display = 'none';
+                            // Hide briefing section (closest glass-panel or similar wrapper)
+                            const briefingPanel = startBtn.closest('.glass-panel') || startBtn.closest('.detective-briefing');
+                            if (briefingPanel) briefingPanel.style.display = 'none';
+
                             gameSection.style.display = 'block';
 
                             // Initialize the game
@@ -382,6 +384,9 @@ class App {
 
             // Execute scripts found in the loaded content
             this.executeScripts(this.ui.contentArea);
+
+            // RENDER INLINE NAVIGATION (Global Change)
+            this.renderInlineNavigation();
 
         } catch (error) {
             console.error("Page load failed", error);
@@ -490,7 +495,7 @@ class App {
             // Next page in same module
             this.currentPageIndex++;
             this.renderModuleContent(currentModule);
-            this.updateNavButtons();
+            // this.updateNavButtons(); // No longer needed
         } else {
             // End of module - Unlock next module
             console.log(`Module ${this.currentModuleIndex} complete. Unlocking next...`);
@@ -499,12 +504,10 @@ class App {
             if (this.currentModuleIndex < this.modules.length - 1) {
                 console.log(`Loading next module: ${this.currentModuleIndex + 1}`);
                 this.loadModule(this.currentModuleIndex + 1);
-                // Note: loadModule calls goToPage which calls updateNavButtons
             } else {
                 alert("Curso Finalizado!");
                 SCORM.set("cmi.core.lesson_status", "completed");
                 SCORM.save();
-                this.updateNavButtons();
             }
         }
     }
@@ -514,7 +517,6 @@ class App {
         if (this.currentPageIndex > 0) {
             this.currentPageIndex--;
             this.renderModuleContent(this.modules[this.currentModuleIndex]);
-            this.updateNavButtons();
         } else if (this.currentModuleIndex > 0) {
             // Go to previous module last page
             const prevModuleIndex = this.currentModuleIndex - 1;
@@ -524,36 +526,74 @@ class App {
     }
 
     updateNavButtons() {
-        // Toggle footer visibility based on module
-        const footer = document.querySelector('.content-footer');
-        if (footer) {
-            if (this.currentModuleIndex === 0) {
-                footer.style.display = 'none';
-            } else {
-                footer.style.display = 'flex';
-            }
-        }
+        // Deprecated: Global footer is hidden via CSS
+    }
 
+    renderInlineNavigation() {
+        // Remove existing inline nav if present (though renderModuleContent wipes contentArea usually)
+        const existingNav = this.ui.contentArea.querySelector('.inline-navigation-container');
+        if (existingNav) existingNav.remove();
+
+        const navContainer = document.createElement('div');
+        navContainer.className = 'inline-navigation-container';
+
+        // Check Logic
         const isFirst = this.currentModuleIndex === 0 && this.currentPageIndex === 0;
         const isLastModule = this.currentModuleIndex === this.modules.length - 1;
         const isLastPage = this.currentPageIndex === this.modules[this.currentModuleIndex].pages.length - 1;
 
-        this.ui.btnPrev.disabled = isFirst;
-
-        // Reset classes and content for btnNext
-        this.ui.btnNext.disabled = false;
-        this.ui.btnNext.classList.remove('finish-btn');
-
-        if (isLastModule && isLastPage) {
-            this.ui.btnNext.innerHTML = 'Finalizar ✓';
-            this.ui.btnNext.classList.add('finish-btn');
-            this.ui.btnNext.ariaLabel = "Finalizar Curso";
+        // 1. Previous Button
+        if (!isFirst) {
+            const btnPrev = document.createElement('button');
+            btnPrev.className = 'btn-nav-inline prev';
+            btnPrev.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                Anterior
+            `;
+            btnPrev.onclick = () => this.prevPage();
+            navContainer.appendChild(btnPrev);
         } else {
-            // Restore SVG Arrow if it was changed to text
-            if (this.ui.btnNext.classList.contains('finish-btn') || this.ui.btnNext.textContent.includes('Finalizar')) {
-                this.ui.btnNext.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>';
+            // Placeholder for spacing if needed, or just append nothing (flex-start)
+            const spacer = document.createElement('div');
+            navContainer.appendChild(spacer);
+        }
+
+        // 2. Next / Finish Button
+        const btnNext = document.createElement('button');
+        if (isLastModule && isLastPage) {
+            btnNext.className = 'btn-nav-inline finish';
+            btnNext.innerHTML = `
+                Finalizar Curso
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            `;
+            btnNext.onclick = () => {
+                alert("Parabéns! Você concluiu o curso.");
+                SCORM.set("cmi.core.lesson_status", "completed");
+                SCORM.save();
+            };
+        } else {
+            btnNext.className = 'btn-nav-inline next';
+            btnNext.innerHTML = `
+                Próximo
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+            `;
+            btnNext.onclick = () => this.nextPage();
+        }
+        navContainer.appendChild(btnNext);
+
+        // Append to content area
+        // Ensure it's appended to the .disruptive-page wrapper if it exists, or just the main container
+        const pageWrapper = this.ui.contentArea.querySelector('.disruptive-page') || this.ui.contentArea.querySelector('div');
+        if (pageWrapper) {
+            // Check if wrapper has specific sections (Module 1 structure often has .scattered-section)
+            const lastSection = pageWrapper.querySelector('section:last-of-type');
+            if (lastSection) {
+                lastSection.appendChild(navContainer);
+            } else {
+                pageWrapper.appendChild(navContainer);
             }
-            this.ui.btnNext.ariaLabel = "Próxima Página";
+        } else {
+            this.ui.contentArea.appendChild(navContainer);
         }
     }
 
