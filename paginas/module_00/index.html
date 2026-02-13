@@ -1,0 +1,265 @@
+<!-- ================================================
+     HOME PAGE - Fato ou Fake
+     Página inicial do curso - Premium Design
+     ================================================ -->
+
+<div class="home-container">
+    <!-- Hero Section -->
+    <section class="home-hero">
+        <h1>Fato ou Fake</h1>
+        <p class="subtitle">Desenvolva seu olhar crítico e aprenda a identificar informações falsas no mundo digital</p>
+
+        <!-- Orbital Animation -->
+        <div class="orbital-container">
+            <div class="orbital-ring"></div>
+            <div class="orbital-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+                    <circle cx="12" cy="12" r="3" />
+                </svg>
+            </div>
+            <div class="orbital-icons">
+                <div class="orbital-icon" title="Conceitualização">🧠</div>
+                <div class="orbital-icon" title="Panorama Histórico">📜</div>
+                <div class="orbital-icon" title="Impactos Reais">📊</div>
+                <div class="orbital-icon" title="Verificação">🔍</div>
+                <div class="orbital-icon" title="Futuro (IA)">🤖</div>
+                <div class="orbital-icon" title="Caça Fakes">🕵️</div>
+                <div class="orbital-icon" title="Indica">🔗</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Info -->
+    <section class="course-info">
+        <div class="info-card">
+            <span class="icon">📚</span>
+            <h3>7</h3>
+            <p>Módulos Completos</p>
+        </div>
+        <div class="info-card">
+            <span class="icon">🎮</span>
+            <h3>1</h3>
+            <p>Jogo Interativo</p>
+        </div>
+        <div class="info-card">
+            <span class="icon">⏱️</span>
+            <h3>~2h</h3>
+            <p>Tempo Estimado</p>
+        </div>
+        <div class="info-card">
+            <span class="icon">🏆</span>
+            <h3>100%</h3>
+            <p>Online e Gratuito</p>
+        </div>
+    </section>
+
+    <!-- CONTENT: Problem & Context -->
+    <section class="content-section context-section">
+        <div class="content-wrapper">
+            <div class="text-block">
+                <h2>A Verdade em Crise</h2>
+                <p>Em um mundo onde uma mentira se espalha 6 vezes mais rápido que a verdade, estar informado não é
+                    suficiente. É preciso saber <strong>investigar</strong>.</p>
+                <p>Deepfakes, bots, manipulação emocional e viés de confirmação transformaram a internet em um campo de
+                    batalha. Você tem as armas certas para se defender?</p>
+            </div>
+            <div class="visual-block">
+                <div class="stat-circle">
+                    <span class="stat-number">70%</span>
+                    <span class="stat-label">das notícias falsas são compartilhadas por humanos, não robôs.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENT: Learning Outcomes -->
+    <section class="content-section benefits-section">
+        <div class="section-header">
+            <h2>O Que Você Vai Dominar</h2>
+            <p class="section-subtitle">Ferramentas práticas para sua autodefesa digital</p>
+        </div>
+
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">🧠</div>
+                <h3>Pensamento Crítico</h3>
+                <p>Aprenda a questionar narrativas e identificar falácias lógicas instantaneamente.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">👁️</div>
+                <h3>Semiótica Visual</h3>
+                <p>Analise imagens e vídeos manipulados. O que os olhos veem, a mente precisa checar.</p>
+            </div>
+            <div class="benefit-card">
+                <div class="benefit-icon">🛠️</div>
+                <h3>Ferramentas Reais</h3>
+                <p>Domine técnicas de fact-checking usadas por jornalistas investigativos profissionais.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Flip Cards Section -->
+    <section class="flip-cards-section">
+        <div class="section-header">
+            <h2>🤔 Será que você sabe?</h2>
+            <p class="section-subtitle">Clique nas cartas para descobrir se a afirmação é Fato ou Fake</p>
+        </div>
+
+        <div class="flip-cards-grid">
+            <!-- Card 1 - FATO -->
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <p>O Brasil é o único país com 5 copas do mundo de futebol</p>
+                    </div>
+                    <div class="flip-card-back fato">
+                        <div class="verdict">✅</div>
+                        <div class="label">FATO</div>
+                        <p class="explanation">Conquistadas em 1958, 1962, 1970, 1994 e 2002</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 - FAKE -->
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <p>90% das fake news são criadas por robôs</p>
+                    </div>
+                    <div class="flip-card-back fake">
+                        <div class="verdict">❌</div>
+                        <div class="label">FAKE</div>
+                        <p class="explanation">Cerca de 70% são compartilhadas por humanos reais</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 - FATO -->
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <p>Uma mentira viaja mais rápido que a verdade</p>
+                    </div>
+                    <div class="flip-card-back fato">
+                        <div class="verdict">✅</div>
+                        <div class="label">FATO</div>
+                        <p class="explanation">Estudo do MIT comprovou que fake news se espalham 6x mais rápido</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 - FAKE -->
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <p>O termo "Fake News" surgiu em 2016</p>
+                    </div>
+                    <div class="flip-card-back fake">
+                        <div class="verdict">❌</div>
+                        <div class="label">FAKE</div>
+                        <p class="explanation">O conceito existe desde o século XIX</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5 - FATO -->
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <p>O Brasil está entre os 5 países que mais compartilham fake news</p>
+                    </div>
+                    <div class="flip-card-back fato">
+                        <div class="verdict">✅</div>
+                        <div class="label">FATO</div>
+                        <p class="explanation">Segundo pesquisa do Instituto Reuters</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6 - FAKE -->
+            <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <p>Fake news só afetam pessoas com baixa escolaridade</p>
+                    </div>
+                    <div class="flip-card-back fake">
+                        <div class="verdict">❌</div>
+                        <div class="label">FAKE</div>
+                        <p class="explanation">Estudos mostram que afeta todas as classes sociais</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="roadmap-section">
+        <h2>🗺️ Sua jornada de aprendizado</h2>
+
+        <div class="roadmap">
+            <div class="roadmap-item">
+                <div class="roadmap-icon"><span>🧠</span></div>
+                <span class="roadmap-label">Conceitos</span>
+                <span class="roadmap-number">Módulo 1</span>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-icon"><span>📜</span></div>
+                <span class="roadmap-label">História</span>
+                <span class="roadmap-number">Módulo 2</span>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-icon"><span>📊</span></div>
+                <span class="roadmap-label">Impactos</span>
+                <span class="roadmap-number">Módulo 3</span>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-icon"><span>🔍</span></div>
+                <span class="roadmap-label">Verificação</span>
+                <span class="roadmap-number">Módulo 4</span>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-icon"><span>🤖</span></div>
+                <span class="roadmap-label">Futuro (IA)</span>
+                <span class="roadmap-number">Módulo 5</span>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-icon"><span>🕵️</span></div>
+                <span class="roadmap-label">Caça Fakes</span>
+                <span class="roadmap-number">Jogo</span>
+            </div>
+            <div class="roadmap-item">
+                <div class="roadmap-icon"><span>🔗</span></div>
+                <span class="roadmap-label">Recursos</span>
+                <span class="roadmap-number">Extra</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quote Section -->
+    <section class="quote-section">
+        <p class="quote-text">
+            Fake News também são informações que possivelmente são mais eficazes do que fatos.
+            O que conta é o efeito a curto prazo. A efetividade substitui a verdade.
+        </p>
+        <p class="quote-author">— Byung-Chul Han</p>
+    </section>
+
+    <!-- Start Tutorial Button -->
+    <!-- Start Tutorial Button -->
+    <section class="start-section tutorial-cta">
+        <div class="tutorial-intro">
+            <h2>Primeira vez aqui?</h2>
+            <p>Faça um tour guiado de 1 minuto para conhecer todas as ferramentas da plataforma.</p>
+        </div>
+        <button id="btn-start-tutorial" class="start-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <polygon points="10 8 16 12 10 16 10 8" />
+            </svg>
+            Iniciar Tutorial
+        </button>
+    </section>
+</div>
