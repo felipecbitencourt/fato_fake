@@ -3,16 +3,7 @@
    Inspired by modern UI course landing pages
    ============================================ */
 
-/* === CSS Variables === */
-:root {
-    --bold-bg: #0a0a0a;
-    --bold-accent: #FF1744;
-    --bold-secondary: #00E5FF;
-    --bold-text: #ffffff;
-    --bold-muted: rgba(255, 255, 255, 0.6);
-    --bold-card: rgba(255, 255, 255, 0.03);
-    --bold-border: rgba(255, 255, 255, 0.08);
-}
+@import url('./variables-disruptive.css');
 
 /* === Page Wrapper === */
 .disruptive-page {

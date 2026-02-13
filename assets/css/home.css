@@ -3,19 +3,7 @@
    DISRUPTIVE DESIGN VERSION (Module 01 Theme)
    ================================================ */
 
-/* Variables - Disruptive Theme */
-:root {
-    --bold-bg: #0a0a0a;
-    --bold-accent: #FF1744;
-    /* Neon Red */
-    --bold-secondary: #00E5FF;
-    /* Neon Cyan */
-    --bold-text: #ffffff;
-    --bold-muted: rgba(255, 255, 255, 0.6);
-    --bold-card: rgba(255, 255, 255, 0.03);
-    --bold-border: rgba(255, 255, 255, 0.08);
-    --gradient-red: linear-gradient(135deg, #FF1744 0%, #D50000 100%);
-}
+@import url('./variables-disruptive.css');
 
 /* Base Layout */
 .home-container {

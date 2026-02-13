@@ -1,11 +1,12 @@
 @import url('theme.css');
+@import url('variables-disruptive.css');
 
 /* ============================================
-   HEADER - Fixed Top Bar with Scroll Hide
+   HEADER - Fixed Top Bar - Disruptive Design
    ============================================ */
 #main-header {
-    background-color: var(--white);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background: var(--bold-bg, #0a0a0a);
+    border-bottom: 1px solid var(--bold-border, rgba(255, 255, 255, 0.08));
     position: fixed;
     top: 0;
     left: 0;
@@ -37,13 +38,21 @@
 .logo-container {
     font-weight: 800;
     font-size: 1.2rem;
-    color: var(--primary-color);
+    color: var(--bold-accent, #FF1744);
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
     transition: opacity 0.2s ease;
+}
+
+.logo-container svg {
+    stroke: var(--bold-accent, #FF1744);
+}
+
+.logo-text {
+    color: var(--bold-text, #fff);
 }
 
 .logo-container:hover {
@@ -113,7 +122,52 @@
 }
 
 /* ============================================
-   TABS WITH DROPDOWNS
+   HEADER TOOLS - Settings & TTS buttons
+   ============================================ */
+.header-tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.header-btn {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--bold-border, rgba(255, 255, 255, 0.08));
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--bold-muted, rgba(255, 255, 255, 0.6));
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.header-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: var(--bold-secondary, #00E5FF);
+    color: var(--bold-text, #fff);
+}
+
+.header-btn.active {
+    background: var(--bold-accent, #FF1744);
+    border-color: var(--bold-accent, #FF1744);
+    color: var(--bold-text, #fff);
+}
+
+.header-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.tts-toggle-container {
+    position: relative;
+}
+
+/* ============================================
+   TABS WITH DROPDOWNS - Disruptive Design
    ============================================ */
 .tabs-container {
     flex: 1;
@@ -139,7 +193,7 @@
     cursor: pointer;
     font-family: var(--font-family);
     font-weight: 500;
-    color: var(--text-light);
+    color: var(--bold-muted, rgba(255, 255, 255, 0.6));
     border-radius: 8px;
     transition: all 0.3s ease;
     display: flex;
@@ -149,19 +203,19 @@
 }
 
 .tab-btn:hover:not(:disabled) {
-    color: var(--primary-color);
-    background-color: rgba(229, 57, 53, 0.08);
+    color: var(--bold-text, #fff);
+    background-color: rgba(255, 255, 255, 0.05);
 }
 
 .tab-btn.active {
-    color: var(--primary-color);
-    background-color: rgba(229, 57, 53, 0.1);
+    color: var(--bold-accent, #FF1744);
+    background-color: rgba(255, 23, 68, 0.1);
     font-weight: 700;
 }
 
 .tab-btn:disabled {
     cursor: not-allowed;
-    opacity: 0.5;
+    opacity: 0.4;
     filter: grayscale(1);
 }
 
@@ -388,15 +442,17 @@
     gap: 10px;
 }
 
-/* Modal Styles */
+/* ============================================
+   MODAL STYLES - Disruptive Design
+   ============================================ */
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(8px);
     z-index: 2000;
     display: none;
     align-items: center;
@@ -411,12 +467,13 @@
 }
 
 .modal {
-    background: var(--white);
+    background: var(--bold-bg, #0a0a0a);
     width: 90%;
     max-width: 500px;
     max-height: 90vh;
-    border-radius: var(--border-radius);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    border: 1px solid var(--bold-border, rgba(255, 255, 255, 0.08));
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -429,57 +486,81 @@
 }
 
 .modal-header {
-    padding: 15px 20px;
-    border-bottom: 1px solid #eee;
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--bold-border, rgba(255, 255, 255, 0.08));
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--primary-color);
-    color: white;
+    background: rgba(255, 255, 255, 0.03);
 }
 
 .modal-header h3 {
     margin: 0;
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--bold-text, #fff);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 .modal-close {
     background: none;
     border: none;
-    color: white;
-    font-size: 1.5rem;
+    color: var(--bold-muted, rgba(255, 255, 255, 0.6));
+    font-size: 1.8rem;
     cursor: pointer;
     padding: 0 5px;
     line-height: 1;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.modal-close:hover {
+    color: var(--bold-accent, #FF1744);
+    transform: scale(1.1);
 }
 
 .modal-body {
-    padding: 20px;
+    padding: 25px;
     overflow-y: auto;
+    color: var(--bold-text, #fff);
 }
 
 .settings-section {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
 }
 
 .settings-section h4 {
-    margin: 0 0 15px 0;
-    font-size: 0.9rem;
+    margin: 0 0 20px 0;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--text-light);
-    border-bottom: 2px solid #f0f0f0;
-    padding-bottom: 5px;
+    letter-spacing: 2px;
+    color: var(--bold-secondary, #00E5FF);
+    border-bottom: 1px solid var(--bold-border, rgba(255, 255, 255, 0.08));
+    padding-bottom: 10px;
+    font-weight: 700;
 }
 
 .setting-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
+    margin-bottom: 18px;
     flex-wrap: wrap;
     gap: 10px;
+    padding: 12px 15px;
+    background: var(--bold-card, rgba(255, 255, 255, 0.03));
+    border-radius: 10px;
+    border: 1px solid var(--bold-border, rgba(255, 255, 255, 0.08));
+    transition: border-color 0.3s;
+}
+
+.setting-row:hover {
+    border-color: var(--bold-secondary, #00E5FF);
+}
+
+.setting-row > span {
+    color: var(--bold-text, #fff);
+    font-weight: 500;
 }
 
 .setting-row.column {
@@ -491,77 +572,91 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
-/* Toggle Switch */
+.setting-row .row-header span {
+    color: var(--bold-text, #fff);
+    font-weight: 500;
+}
+
+/* Toggle Switch - Disruptive */
 .toggle-btn {
-    width: 50px;
-    height: 26px;
-    background: #ccc;
-    border-radius: 15px;
-    border: none;
+    width: 54px;
+    height: 28px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    border: 1px solid var(--bold-border, rgba(255, 255, 255, 0.08));
     position: relative;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s;
     padding: 0;
 }
 
+.toggle-btn:hover {
+    border-color: var(--bold-secondary, #00E5FF);
+}
+
 .toggle-btn.active {
-    background: var(--primary-color);
+    background: var(--bold-accent, #FF1744);
+    border-color: var(--bold-accent, #FF1744);
 }
 
 .toggle-slider {
-    width: 20px;
-    height: 20px;
-    background: white;
+    width: 22px;
+    height: 22px;
+    background: var(--bold-text, #fff);
     border-radius: 50%;
     position: absolute;
-    top: 3px;
+    top: 2px;
     left: 3px;
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .toggle-btn.active .toggle-slider {
-    transform: translateX(24px);
+    transform: translateX(25px);
 }
 
-/* Font Controls */
+/* Font Controls - Disruptive */
 .font-controls {
     display: flex;
     align-items: center;
-    gap: 10px;
-    background: #f5f5f5;
-    padding: 3px;
-    border-radius: 8px;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px;
+    border-radius: 10px;
+    border: 1px solid var(--bold-border, rgba(255, 255, 255, 0.08));
 }
 
 .font-controls button {
-    width: 32px;
-    height: 32px;
+    background: transparent;
     border: none;
-    background: white;
-    border-radius: 6px;
+    color: var(--bold-text, #fff);
+    padding: 8px 14px;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: bold;
-    color: var(--text-color);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.font-controls button:hover {
+    background: var(--bold-accent, #FF1744);
 }
 
 .font-controls span {
-    font-variant-numeric: tabular-nums;
-    font-weight: 600;
-    min-width: 45px;
+    color: var(--bold-secondary, #00E5FF);
+    font-weight: 700;
+    min-width: 50px;
     text-align: center;
 }
 
-/* Range Input */
+/* Range Input - Disruptive */
 input[type=range] {
     width: 100%;
     height: 6px;
     border-radius: 3px;
-    background: #ddd;
+    background: rgba(255, 255, 255, 0.1);
     outline: none;
     -webkit-appearance: none;
     appearance: none;
@@ -573,84 +668,109 @@ input[type=range]::-webkit-slider-thumb {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: var(--primary-color);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: var(--bold-accent, #FF1744);
+    box-shadow: 0 0 10px rgba(255, 23, 68, 0.5);
     cursor: pointer;
-    transition: transform 0.1s;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 input[type=range]::-webkit-slider-thumb:hover {
-    transform: scale(1.1);
+    transform: scale(1.15);
+    box-shadow: 0 0 15px rgba(255, 23, 68, 0.7);
 }
 
-/* Speed Controls */
+input[type=range]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--bold-accent, #FF1744);
+    border: none;
+    cursor: pointer;
+}
+
+/* Speed Controls - Disruptive */
 .speed-controls {
     display: flex;
-    gap: 5px;
+    gap: 8px;
     width: 100%;
 }
 
 .speed-btn {
     flex: 1;
-    padding: 6px;
-    border: 1px solid #ddd;
-    background: white;
-    border-radius: 6px;
+    padding: 10px 8px;
+    border: 1px solid var(--bold-border, rgba(255, 255, 255, 0.08));
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
     cursor: pointer;
+    color: var(--bold-muted, rgba(255, 255, 255, 0.6));
+    font-weight: 600;
     font-size: 0.85rem;
-    transition: all 0.2s;
+    transition: all 0.3s;
+}
+
+.speed-btn:hover {
+    border-color: var(--bold-secondary, #00E5FF);
+    color: var(--bold-text, #fff);
 }
 
 .speed-btn.active {
-    background: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
+    background: var(--bold-accent, #FF1744);
+    color: var(--bold-text, #fff);
+    border-color: var(--bold-accent, #FF1744);
 }
 
-/* Voice Select */
+/* Voice Select - Disruptive */
 .select-wrapper {
     width: 100%;
 }
 
 select {
     width: 100%;
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
-    background: white;
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid var(--bold-border, rgba(255, 255, 255, 0.08));
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--bold-text, #fff);
     font-family: inherit;
     font-size: 0.9rem;
     cursor: pointer;
+    transition: border-color 0.3s;
+}
+
+select:hover,
+select:focus {
+    border-color: var(--bold-secondary, #00E5FF);
+    outline: none;
+}
+
+select option {
+    background: var(--bold-bg, #0a0a0a);
+    color: var(--bold-text, #fff);
 }
 
 .small-btn {
     font-size: 0.8rem;
-    padding: 2px 8px;
-    border-radius: 4px;
-    border: 1px solid var(--primary-color);
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--bold-secondary, #00E5FF);
     background: transparent;
-    color: var(--primary-color);
+    color: var(--bold-secondary, #00E5FF);
     cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s;
 }
 
 .small-btn:hover {
-    background: var(--primary-color);
-    color: white;
+    background: var(--bold-secondary, #00E5FF);
+    color: var(--bold-bg, #0a0a0a);
 }
 
-/* Dark Mode Overrides for Modal */
+/* High Contrast Mode Overrides */
 body.high-contrast .modal {
-    background: #333;
-    color: yellow;
     border: 2px solid yellow;
 }
 
-body.high-contrast .modal-header {
-    background: #000;
-    border-bottom: 2px solid yellow;
-}
-
-body.high-contrast .modal-close {
+body.high-contrast .modal-header h3 {
     color: yellow;
 }
 
@@ -659,27 +779,17 @@ body.high-contrast .settings-section h4 {
     border-bottom-color: yellow;
 }
 
-body.high-contrast .font-controls,
-body.high-contrast .font-controls button,
-body.high-contrast select,
-body.high-contrast .speed-btn {
+body.high-contrast .toggle-btn.active {
+    background: yellow;
+}
+
+body.high-contrast .toggle-btn.active .toggle-slider {
     background: #000;
-    color: yellow;
-    border-color: yellow;
 }
 
 body.high-contrast .speed-btn.active {
     background: yellow;
-    color: black;
-}
-
-body.high-contrast .toggle-btn {
-    background: #555;
-    border: 1px solid yellow;
-}
-
-body.high-contrast .toggle-btn.active {
-    background: yellow;
+    color: #000;
 }
 
 

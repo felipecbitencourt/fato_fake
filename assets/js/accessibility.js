@@ -47,18 +47,55 @@ const AccessibilityManager = {
         this.initTTS();
     },
 
-    // ... (speakElement and initSettingsModal unchanged) ...
+    /**
+     * Inicializa o modal de configurações
+     */
+    initSettingsModal: function () {
+        const settingsBtn = document.getElementById('btn-settings');
+        const settingsModal = document.getElementById('modal-settings');
+        const closeBtn = document.getElementById('btn-settings-close');
+
+        if (settingsBtn && settingsModal) {
+            // Abrir modal
+            settingsBtn.onclick = () => {
+                settingsModal.classList.add('active');
+                if (typeof AudioManager !== 'undefined') AudioManager.playClick();
+            };
+
+            // Fechar modal com botão X
+            if (closeBtn) {
+                closeBtn.onclick = () => {
+                    settingsModal.classList.remove('active');
+                    if (typeof AudioManager !== 'undefined') AudioManager.playClick();
+                };
+            }
+
+            // Fechar modal clicando fora
+            settingsModal.onclick = (e) => {
+                if (e.target === settingsModal) {
+                    settingsModal.classList.remove('active');
+                }
+            };
+
+            // Fechar modal com ESC
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && settingsModal.classList.contains('active')) {
+                    settingsModal.classList.remove('active');
+                }
+            });
+        }
+    },
 
     /**
      * Inicializa modo escuro (dark mode) - PERSISTENTE
-     * PADRÃO: ATIVO (TRUE) se não houver preferência salva
+     * PADRÃO: DESATIVADO (FALSE) se não houver preferência salva
      */
     initDarkMode: function () {
         const contrastBtn = document.getElementById('btn-contrast');
 
-        // Carregar preferência ou definir padrão como TRUE
+        // Carregar preferência ou definir padrão como FALSE (Desativado)
         const savedContrast = localStorage.getItem('high-contrast');
-        const isHighContrast = savedContrast === null ? true : savedContrast === 'true';
+        const isHighContrast = savedContrast === null ? false : savedContrast === 'true';
 
         // Aplicar estado inicial
         if (isHighContrast) {
@@ -153,7 +190,7 @@ const AccessibilityManager = {
      * Inicializa Text-to-Speech
      */
     initTTS: function () {
-        this.ttsBtn = document.getElementById('btn-tts');
+        this.ttsBtn = document.getElementById('btn-tts-quick') || document.getElementById('btn-tts');
         this.ttsControls = document.getElementById('tts-controls');
         const volumeRange = document.getElementById('volume-range');
         const autoReadBtn = document.getElementById('btn-auto-read');
