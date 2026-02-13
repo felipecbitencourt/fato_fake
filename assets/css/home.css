@@ -1,83 +1,307 @@
 /* ================================================
    HOME PAGE STYLES - Fato ou Fake
-   PREMIUM DESIGN VERSION
+   DISRUPTIVE DESIGN VERSION (Module 01 Theme)
    ================================================ */
 
-/* Variables */
+/* Variables - Disruptive Theme */
 :root {
-    --glass-bg: rgba(255, 255, 255, 0.85);
-    --glass-border: rgba(255, 255, 255, 0.4);
-    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
-    --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.15);
-    --shadow-glow: 0 0 60px rgba(229, 57, 53, 0.15);
-    --gradient-red: linear-gradient(135deg, #E53935 0%, #C62828 100%);
-    --gradient-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-    --gradient-mesh:
-        radial-gradient(ellipse at 20% 20%, rgba(229, 57, 53, 0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(229, 57, 53, 0.1) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(255, 193, 7, 0.08) 0%, transparent 60%);
+    --bold-bg: #0a0a0a;
+    --bold-accent: #FF1744;
+    /* Neon Red */
+    --bold-secondary: #00E5FF;
+    /* Neon Cyan */
+    --bold-text: #ffffff;
+    --bold-muted: rgba(255, 255, 255, 0.6);
+    --bold-card: rgba(255, 255, 255, 0.03);
+    --bold-border: rgba(255, 255, 255, 0.08);
+    --gradient-red: linear-gradient(135deg, #FF1744 0%, #D50000 100%);
+}
+
+/* Base Layout */
+.home-container {
+    background: var(--bold-bg);
+    color: var(--bold-text);
+    min-height: 100vh;
+    padding-bottom: 60px;
+    font-family: 'Inter', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* === Global Background Shapes === */
+.global-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.g-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.15;
+    z-index: 0;
+}
+
+/* Distributed Circles - Home Specific Positions */
+.g-circle-1 {
+    width: 300px;
+    height: 300px;
+    border: 2px solid var(--bold-secondary);
+    top: 15%;
+    left: -50px;
+    animation: rotate-slow 40s linear infinite;
+}
+
+.g-circle-2 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, var(--bold-accent) 0%, transparent 60%);
+    top: 35%;
+    right: -100px;
+    opacity: 0.1;
+    animation: pulse 6s ease-in-out infinite;
+}
+
+.g-circle-3 {
+    width: 250px;
+    height: 250px;
+    border: 1px solid var(--bold-text);
+    top: 60%;
+    left: 5%;
+    opacity: 0.1;
+}
+
+.g-circle-4 {
+    width: 350px;
+    height: 350px;
+    border: 2px solid var(--bold-accent);
+    top: 85%;
+    right: -20px;
+    animation: rotate-slow 35s linear infinite reverse;
+}
+
+/* === Decorative Geometric Shapes (Hero) === */
+.decorative-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.shape {
+    position: absolute;
+    opacity: 0.1;
+    z-index: 0;
+}
+
+/* Semicircles */
+.shape-semicircle-1 {
+    width: 150px;
+    height: 75px;
+    border: 2px solid var(--bold-accent);
+    border-radius: 150px 150px 0 0;
+    border-bottom: none;
+    top: 20%;
+    right: 5%;
+    opacity: 0.08;
+    transform: rotate(15deg);
+}
+
+.shape-semicircle-2 {
+    width: 100px;
+    height: 50px;
+    background: linear-gradient(to top, transparent, var(--bold-secondary));
+    border-radius: 0 0 100px 100px;
+    bottom: 30%;
+    left: 10%;
+    opacity: 0.06;
+}
+
+/* Diamonds */
+.shape-diamond-1 {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--bold-accent);
+    transform: rotate(45deg);
+    top: 15%;
+    left: 15%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.shape-diamond-2 {
+    width: 30px;
+    height: 30px;
+    background: var(--bold-secondary);
+    transform: rotate(45deg);
+    bottom: 20%;
+    right: 20%;
+    opacity: 0.08;
+    animation: float 8s ease-in-out infinite 1s;
+}
+
+/* Triangles */
+.shape-triangle-1 {
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 35px solid var(--bold-accent);
+    top: 60%;
+    left: 8%;
+    opacity: 0.06;
+    transform: rotate(-15deg);
+}
+
+.shape-triangle-2 {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 25px solid var(--bold-secondary);
+    top: 25%;
+    right: 15%;
+    opacity: 0.08;
+    animation: float 7s ease-in-out infinite 0.5s;
+}
+
+/* Rings */
+.shape-ring-1 {
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--bold-accent);
+    border-radius: 50%;
+    bottom: 10%;
+    right: 10%;
+    animation: pulse 5s ease-in-out infinite;
+    opacity: 0.08;
+}
+
+.shape-ring-2 {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--bold-secondary);
+    border-radius: 50%;
+    top: 50%;
+    left: 5%;
+    opacity: 0.06;
+}
+
+/* Dot Pattern */
+.shape-dots {
+    width: 100px;
+    height: 100px;
+    background-image: radial-gradient(var(--bold-accent) 1.5px, transparent 1.5px);
+    background-size: 12px 12px;
+    top: 10%;
+    right: 5%;
+    opacity: 0.08;
+}
+
+/* Animations included in previous update (float, pulse) */
+
+/* === Hero Eyes Background === */
+.hero-eyes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.eye-img {
+    position: absolute;
+    opacity: 0.15;
+    mix-blend-mode: luminosity;
+    /* Blends nicely with dark background */
+    filter: contrast(1.2) brightness(0.8);
+    border-radius: 50%;
+    /* Optional: soft edges or circle mask */
+    mask-image: radial-gradient(circle, black 40%, transparent 70%);
+    /* Soft fade out */
+    -webkit-mask-image: radial-gradient(circle, black 40%, transparent 70%);
+}
+
+.eye-1 {
+    width: 400px;
+    height: auto;
+    top: 10%;
+    left: -100px;
+    transform: rotate(-10deg);
+    animation: float 8s ease-in-out infinite;
+}
+
+.eye-2 {
+    width: 300px;
+    height: auto;
+    bottom: 20%;
+    right: -50px;
+    transform: rotate(5deg);
+    opacity: 0.1;
+    animation: float 9s ease-in-out infinite 1s;
+}
+
+.eye-3 {
+    width: 250px;
+    height: auto;
+    top: 15%;
+    right: 15%;
+    opacity: 0.08;
+    mix-blend-mode: overlay;
 }
 
 /* ============================================
-   HERO SECTION - Full Impact
+   HERO SECTION - Bold Typography
    ============================================ */
-.home-container {
-    background: var(--gradient-mesh), var(--secondary-color);
-    min-height: 100vh;
-    padding-bottom: 60px;
-}
-
 .home-hero {
     text-align: center;
     padding: 80px 20px 60px;
     position: relative;
-}
-
-.home-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(229, 57, 53, 0.08) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
+    z-index: 1;
 }
 
 .home-hero h1 {
-    font-size: clamp(2.5rem, 6vw, 4rem);
-    font-weight: 800;
-    background: var(--gradient-red);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 16px;
-    position: relative;
-    z-index: 1;
-    letter-spacing: -0.02em;
+    font-size: clamp(3rem, 10vw, 6rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -3px;
+    line-height: 0.9;
+    margin-bottom: 20px;
+    color: var(--bold-text);
+}
+
+.home-hero h1::after {
+    content: '.';
+    color: var(--bold-accent);
 }
 
 .home-hero .subtitle {
     font-size: clamp(1rem, 2.5vw, 1.25rem);
-    color: var(--text-light);
-    max-width: 550px;
+    color: var(--bold-muted);
+    max-width: 600px;
     margin: 0 auto 50px;
     line-height: 1.7;
-    position: relative;
-    z-index: 1;
 }
 
 /* ============================================
-   ORBITAL ANIMATION - Premium
+   ORBITAL ANIMATION - Adapted for Dark Mode
    ============================================ */
 .orbital-container {
     position: relative;
     width: 320px;
     height: 320px;
-    margin: 0 auto 60px;
+    margin: 0 auto 80px;
     z-index: 1;
 }
 
@@ -88,42 +312,14 @@
     transform: translate(-50%, -50%);
     width: 100px;
     height: 100px;
-    background: var(--gradient-red);
+    background: var(--bold-accent);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow:
-        0 10px 40px rgba(229, 57, 53, 0.4),
-        0 0 80px rgba(229, 57, 53, 0.2),
-        inset 0 -5px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 50px rgba(255, 23, 68, 0.4);
     z-index: 2;
     animation: pulse-center 3s ease-in-out infinite;
-}
-
-@keyframes pulse-center {
-
-    0%,
-    100% {
-        box-shadow:
-            0 10px 40px rgba(229, 57, 53, 0.4),
-            0 0 80px rgba(229, 57, 53, 0.2),
-            inset 0 -5px 20px rgba(0, 0, 0, 0.2);
-    }
-
-    50% {
-        box-shadow:
-            0 15px 50px rgba(229, 57, 53, 0.5),
-            0 0 100px rgba(229, 57, 53, 0.3),
-            inset 0 -5px 20px rgba(0, 0, 0, 0.2);
-    }
-}
-
-.orbital-center svg {
-    width: 48px;
-    height: 48px;
-    color: white;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
 }
 
 .orbital-ring {
@@ -132,22 +328,764 @@
     left: 0;
     width: 100%;
     height: 100%;
-    border: 2px solid rgba(229, 57, 53, 0.15);
+    border: 2px solid rgba(255, 23, 68, 0.2);
     border-radius: 50%;
 }
 
-.orbital-ring::before {
+.orbital-icons {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: orbit 30s linear infinite;
+}
+
+.orbital-icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #0a0a0a;
+    border: 1px solid var(--bold-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--bold-text);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    animation: counter-orbit 30s linear infinite;
+    transition: all 0.3s ease;
+}
+
+.orbital-icon:hover {
+    border-color: var(--bold-secondary);
+    color: var(--bold-secondary);
+    transform: scale(1.2);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+}
+
+/* Icon Positioning (Same as before) */
+.orbital-icon:nth-child(1) {
+    top: -25px;
+    left: 50%;
+    margin-left: -25px;
+}
+
+.orbital-icon:nth-child(2) {
+    top: 15%;
+    right: 0;
+}
+
+.orbital-icon:nth-child(3) {
+    top: 60%;
+    right: -10px;
+}
+
+.orbital-icon:nth-child(4) {
+    bottom: 0;
+    right: 20%;
+}
+
+.orbital-icon:nth-child(5) {
+    bottom: 0;
+    left: 20%;
+}
+
+.orbital-icon:nth-child(6) {
+    top: 60%;
+    left: -10px;
+}
+
+.orbital-icon:nth-child(7) {
+    top: 15%;
+    left: 0;
+}
+
+/* ============================================
+   COURSE INFO CARDS - Dark/Glass
+   ============================================ */
+.course-info {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 20px;
+    max-width: 1100px;
+    margin: 0 auto 100px;
+    position: relative;
+    z-index: 1;
+}
+
+.info-card {
+    background: var(--bold-card);
+    padding: 30px 20px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid var(--bold-border);
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    border-color: var(--bold-secondary);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.info-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.info-card h3 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--bold-text);
+    margin-bottom: 5px;
+    line-height: 1;
+}
+
+.info-card p {
+    color: var(--bold-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ============================================
+   CONTENT SECTIONS - Typography Focused
+   ============================================ */
+.content-section {
+    padding: 100px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.context-section h2,
+.section-header h2 {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+    margin-bottom: 30px;
+    color: var(--bold-text);
+    line-height: 1;
+}
+
+.context-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--bold-muted);
+    margin-bottom: 25px;
+}
+
+.context-section strong {
+    color: var(--bold-secondary);
+    font-weight: 700;
+}
+
+.stat-circle {
+    width: 250px;
+    height: 250px;
+    border: 2px solid var(--bold-accent);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    position: relative;
+    background: rgba(255, 23, 68, 0.05);
+}
+
+.stat-number {
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: var(--bold-accent);
+    line-height: 1;
+    margin-bottom: 10px;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--bold-text);
+    line-height: 1.4;
+}
+
+/* ============================================
+   BENEFITS - Clean Cards
+   ============================================ */
+.benefits-section {
+    position: relative;
+}
+
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.benefit-card {
+    background: var(--bold-card);
+    padding: 40px 30px;
+    border-radius: 12px;
+    border: 1px solid var(--bold-border);
+    transition: all 0.3s ease;
+}
+
+.benefit-card:hover {
+    border-color: var(--bold-accent);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.benefit-icon {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    color: var(--bold-text);
+}
+
+.benefit-card h3 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--bold-text);
+    text-transform: uppercase;
+}
+
+.benefit-card p {
+    color: var(--bold-muted);
+    line-height: 1.6;
+}
+
+/* ============================================
+   FLIP CARDS - Dark Version
+   ============================================ */
+.flip-cards-section {
+    padding: 100px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--bold-muted);
+}
+
+.flip-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    /* perspective removed to prevent shared vanishing point distortion */
+}
+
+.flip-card {
+    height: 240px;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    perspective: 1000px;
+    /* Individual perspective for straight flip */
+}
+
+.flip-card.flipped {
+    z-index: 10;
+}
+
+/* Fix overlapping during transition */
+.flip-card:hover {
+    z-index: 5;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform-style: preserve-3d;
+    border-radius: 16px;
+}
+
+/* Hover rotation removed to prevent unwanted movement */
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    text-align: center;
+    border: 1px solid var(--bold-border);
+    box-sizing: border-box;
+    /* Critical for correct sizing */
+    background-color: var(--bold-card);
+    /* Default background */
+}
+
+.flip-card-front {
+    background-color: var(--bold-card);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Fog Effect Overlay - Darkened for Readability */
+.flip-card-front::before {
     content: '';
     position: absolute;
-    top: -10px;
-    left: -10px;
-    right: -10px;
-    bottom: -10px;
-    border: 1px dashed rgba(229, 57, 53, 0.1);
-    border-radius: 50%;
-    animation: rotate-slow 60s linear infinite reverse;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.95) 100%);
+    z-index: 1;
 }
 
+.flip-card-front p {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    /* Pure white for max contrast */
+    line-height: 1.4;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+    /* Stronger shadow */
+}
+
+/* Placeholder style for cards without specific images yet */
+.placeholder-card {
+    background-image: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+}
+
+.flip-card-back {
+    transform: rotateY(180deg);
+}
+
+.flip-card-back.fato {
+    background: #00C853;
+    /* Strong Green */
+    border-color: #00C853;
+}
+
+.flip-card-back.fake {
+    background: #D50000;
+    /* Strong Red */
+    border-color: #D50000;
+}
+
+.flip-card-back .verdict {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.flip-card-back .label {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.flip-card-back .explanation {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* ============================================
+   ROADMAP - Vertical on Mobile, Horizontal Desktop
+   ============================================ */
+/* ============================================
+   ROADMAP - Board Game Trail Layout
+   ============================================ */
+.roadmap-section {
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.roadmap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns */
+    gap: 40px 20px;
+    /* Row gap, Col gap */
+    justify-items: center;
+    position: relative;
+    padding: 40px 0;
+}
+
+/* Remove old straight line */
+.roadmap::before {
+    display: none;
+}
+
+/* Grid Placement for Snake Layout (1-4 Right, 5-8 Left) */
+.roadmap-item:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.roadmap-item:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.roadmap-item:nth-child(3) {
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.roadmap-item:nth-child(4) {
+    grid-column: 4;
+    grid-row: 1;
+}
+
+/* Row 2: Right to Left */
+.roadmap-item:nth-child(5) {
+    grid-column: 4;
+    grid-row: 2;
+}
+
+.roadmap-item:nth-child(6) {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.roadmap-item:nth-child(7) {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+
+/* Connecting Path (Pseudo-elements) */
+.roadmap-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+    min-width: 120px;
+}
+
+/* Horizontal Connector (Right) for 1, 2, 3 */
+.roadmap-item:nth-child(1)::after,
+.roadmap-item:nth-child(2)::after,
+.roadmap-item:nth-child(3)::after {
+    content: '';
+    position: absolute;
+    top: 25px;
+    /* Center of 50px icon */
+    left: 50%;
+    width: 200%;
+    /* Span to next item */
+    height: 4px;
+    background: var(--bold-border);
+    z-index: -1;
+}
+
+/* Vertical Connector (Down) for 4 -> 5 */
+.roadmap-item:nth-child(4)::after {
+    content: '';
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    width: 4px;
+    height: 180px;
+    /* Span down to next row */
+    background: var(--bold-border);
+    z-index: -1;
+    border-radius: 4px;
+}
+
+/* Horizontal Connector (Left) for 5, 6 -> 7 */
+.roadmap-item:nth-child(5)::before,
+.roadmap-item:nth-child(6)::before {
+    content: '';
+    position: absolute;
+    top: 25px;
+    right: 50%;
+    width: 200%;
+    height: 4px;
+    background: var(--bold-border);
+    z-index: -1;
+}
+
+
+/* Hover Effects */
+.roadmap-item:hover .roadmap-icon {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px var(--bold-secondary);
+    border-color: var(--bold-secondary);
+    background: var(--bold-card);
+}
+
+.roadmap-icon {
+    width: 50px;
+    height: 50px;
+    background: var(--bold-bg);
+    border: 2px solid var(--bold-border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 4px var(--bold-bg);
+    z-index: 2;
+}
+
+.roadmap-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--bold-text);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.roadmap-number {
+    font-size: 0.75rem;
+    color: var(--bold-muted);
+}
+
+/* Mobile: Vertical Snake or Simple Stack */
+@media (max-width: 768px) {
+    .roadmap {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+
+    /* Reset grid placements */
+    .roadmap-item:nth-child(n) {
+        grid-column: auto;
+        grid-row: auto;
+        width: 100%;
+        max-width: 300px;
+        flex-direction: row;
+        gap: 20px;
+        text-align: left;
+    }
+
+    /* Vertical line connectors for mobile */
+    .roadmap-item::after,
+    .roadmap-item::before {
+        display: none;
+        /* Clear desktop connectors */
+    }
+
+    /* New vertical line */
+    .roadmap-item:not(:last-child)::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50px;
+        left: 25px;
+        /* Center of icon */
+        width: 2px;
+        height: 40px;
+        /* Gap size */
+        background: var(--bold-border);
+        z-index: 0;
+    }
+
+    .roadmap-icon {
+        margin-bottom: 0;
+    }
+
+    .roadmap-label {
+        text-align: left;
+    }
+}
+
+/* ============================================
+   QUOTE SECTION - Impactful
+   ============================================ */
+.quote-section {
+    padding: 80px 20px;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.quote-text {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 800;
+    line-height: 1.4;
+    color: var(--bold-text);
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.quote-author {
+    color: var(--bold-accent);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ============================================
+   CTA - Start Tutorial
+   ============================================ */
+.start-section {
+    padding: 60px 20px 100px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.cta-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+    border: 1px solid var(--bold-border);
+    border-radius: 24px;
+    padding: 40px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.cta-card:hover {
+    border-color: var(--bold-secondary);
+    box-shadow: 0 20px 60px rgba(0, 229, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.cta-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at top right, rgba(0, 229, 255, 0.1), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.cta-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--bold-border);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-emoji {
+    font-size: 3rem;
+}
+
+.cta-content {
+    flex: 1;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-content h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--bold-text);
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.cta-content p {
+    font-size: 1.1rem;
+    color: var(--bold-muted);
+    line-height: 1.5;
+}
+
+.cta-action {
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Mobile Responsiveness for CTA */
+@media (max-width: 768px) {
+    .cta-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    .cta-content {
+        text-align: center;
+    }
+}
+
+.start-btn {
+    background: var(--bold-accent);
+    color: white;
+    border: none;
+    padding: 20px 50px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(255, 23, 68, 0.4);
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.start-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(255, 23, 68, 0.6);
+}
+
+.start-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Animation Keyframes */
 @keyframes rotate-slow {
     from {
         transform: rotate(0deg);
@@ -158,78 +1096,28 @@
     }
 }
 
-.orbital-icons {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    animation: orbit 25s linear infinite;
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 0.1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
 }
 
-.orbital-icon {
-    position: absolute;
-    width: 52px;
-    height: 52px;
-    background: var(--glass-bg);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    box-shadow:
-        var(--shadow-md),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
-    border: 1px solid var(--glass-border);
-    animation: counter-orbit 25s linear infinite;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
+@keyframes pulse-center {
 
-.orbital-icon:hover {
-    transform: scale(1.25) !important;
-    box-shadow:
-        var(--shadow-lg),
-        0 0 30px rgba(229, 57, 53, 0.3);
-    z-index: 10;
-}
+    0%,
+    100% {
+        box-shadow: 0 0 50px rgba(255, 23, 68, 0.4);
+    }
 
-/* Position each icon around the circle (7 icons, 360/7 ≈ 51.4°) */
-.orbital-icon:nth-child(1) {
-    top: -26px;
-    left: 50%;
-    margin-left: -26px;
-}
-
-.orbital-icon:nth-child(2) {
-    top: 8%;
-    right: 2%;
-}
-
-.orbital-icon:nth-child(3) {
-    top: 55%;
-    right: -8%;
-}
-
-.orbital-icon:nth-child(4) {
-    bottom: -5%;
-    right: 20%;
-}
-
-.orbital-icon:nth-child(5) {
-    bottom: -5%;
-    left: 20%;
-}
-
-.orbital-icon:nth-child(6) {
-    top: 55%;
-    left: -8%;
-}
-
-.orbital-icon:nth-child(7) {
-    top: 8%;
-    left: 2%;
+    50% {
+        box-shadow: 0 0 80px rgba(255, 23, 68, 0.7);
+    }
 }
 
 @keyframes orbit {
@@ -252,939 +1140,57 @@
     }
 }
 
-/* ============================================
-   COURSE INFO CARDS - Elevated
-   ============================================ */
-.course-info {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    padding: 0 20px;
-    max-width: 1000px;
-    margin: 0 auto 60px;
-}
-
-.info-card {
-    background: var(--white);
-    padding: 32px 24px;
-    border-radius: 16px;
-    text-align: center;
-    box-shadow: var(--shadow-md);
-    border: 1px solid rgba(0, 0, 0, 0.04);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-.info-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: var(--gradient-red);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
-}
-
-.info-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg), var(--shadow-glow);
-}
-
-.info-card:hover::before {
-    transform: scaleX(1);
-}
-
-.info-card .icon {
-    font-size: 2.5rem;
-    margin-bottom: 12px;
-    display: block;
-}
-
-.info-card h3 {
-    font-size: 2rem;
-    font-weight: 800;
-    background: var(--gradient-red);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 4px;
-}
-
-.info-card p {
-    color: var(--text-light);
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-/* ============================================
-   NEW CONTENT SECTIONS - Text Expansion
-   ============================================ */
-.content-section {
-    padding: 80px 20px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.content-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-}
-
-/* Context Section */
-.context-section .text-block {
-    flex: 1;
-}
-
-.context-section h2 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--text-color);
-    margin-bottom: 24px;
-    position: relative;
-    display: inline-block;
-}
-
-.context-section h2::after {
-    content: '';
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 60px;
-    height: 4px;
-    background: var(--primary-color);
-    border-radius: 2px;
-}
-
-.context-section p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text-color);
-    margin-bottom: 20px;
-}
-
-.context-section strong {
-    color: var(--primary-color);
-    font-weight: 700;
-}
-
-.context-section .visual-block {
-    flex: 0 0 300px;
-    display: flex;
-    justify-content: center;
-}
-
-.stat-circle {
-    width: 280px;
-    height: 280px;
-    background: var(--gradient-red);
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 30px;
-    color: white;
-    box-shadow:
-        var(--shadow-lg),
-        0 0 40px rgba(229, 57, 53, 0.3);
-    position: relative;
-    animation: float 6s ease-in-out infinite;
-}
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-15px);
-    }
-}
-
-.stat-circle::before {
-    content: '';
-    position: absolute;
-    inset: -10px;
-    border: 1px dashed rgba(229, 57, 53, 0.3);
-    border-radius: 50%;
-    animation: rotate-slow 40s linear infinite;
-}
-
-.stat-number {
-    font-size: 4rem;
-    font-weight: 800;
-    line-height: 1;
-    margin-bottom: 10px;
-    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.stat-label {
-    font-size: 1rem;
-    font-weight: 500;
-    line-height: 1.4;
-    opacity: 0.95;
-}
-
-/* Benefits Section */
-.benefits-section {
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 100%);
-    border-radius: 30px;
-    margin: 40px auto;
-}
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-top: 50px;
-}
-
-.benefit-card {
-    background: var(--white);
-    padding: 40px 30px;
-    border-radius: 20px;
-    box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    text-align: left;
-    position: relative;
-    overflow: hidden;
-}
-
-.benefit-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
-    border-color: rgba(229, 57, 53, 0.1);
-}
-
-.benefit-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: var(--gradient-red);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.benefit-card:hover::before {
-    opacity: 1;
-}
-
-.benefit-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    background: rgba(229, 57, 53, 0.05);
-    width: 80px;
-    height: 80px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.benefit-card:hover .benefit-icon {
-    background: var(--primary-color);
-    color: white;
-    transform: rotate(5deg);
-}
-
-.benefit-card h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: var(--text-color);
-}
-
-.benefit-card p {
-    color: var(--text-light);
-    line-height: 1.6;
-}
-
-/* ============================================
-   FLIP CARDS - 3D Premium
-   ============================================ */
-.flip-cards-section {
-    padding: 60px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.section-header h2 {
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    font-weight: 700;
-    color: var(--text-color);
-    margin-bottom: 8px;
-}
-
-.section-header .section-subtitle {
-    color: var(--text-light);
-    font-size: 1rem;
-}
-
-.flip-cards-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    perspective: 1500px;
-}
-
-.flip-card {
-    height: 220px;
-    cursor: pointer;
-}
-
-.flip-card-inner {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-    transform-style: preserve-3d;
-}
-
-.flip-card:hover .flip-card-inner {
-    transform: rotateY(10deg);
-}
-
-.flip-card.flipped .flip-card-inner {
-    transform: rotateY(180deg);
-}
-
-.flip-card-front,
-.flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 16px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 28px;
-    text-align: center;
-}
-
-.flip-card-front {
-    background: var(--white);
-    border: 1px solid rgba(0, 0, 0, 0.06);
-    box-shadow: var(--shadow-md);
-}
-
-.flip-card-front::before {
-    content: '?';
-    position: absolute;
-    top: 16px;
-    right: 20px;
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--primary-color);
-    opacity: 0.15;
-}
-
-.flip-card-front::after {
-    content: "👆 Clique para revelar";
-    position: absolute;
-    bottom: 16px;
-    font-size: 0.75rem;
-    color: var(--text-light);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.flip-card:hover .flip-card-front::after {
-    opacity: 1;
-}
-
-.flip-card-front p {
-    font-size: 1.05rem;
-    font-weight: 500;
-    color: var(--text-color);
-    line-height: 1.6;
-}
-
-.flip-card-back {
-    transform: rotateY(180deg);
-    padding: 24px;
-}
-
-.flip-card-back.fato {
-    background: linear-gradient(135deg, #43a047 0%, #2e7d32 100%);
-    color: white;
-    box-shadow:
-        var(--shadow-lg),
-        0 0 40px rgba(76, 175, 80, 0.3);
-}
-
-.flip-card-back.fake {
-    background: linear-gradient(135deg, #e53935 0%, #b71c1c 100%);
-    color: white;
-    box-shadow:
-        var(--shadow-lg),
-        0 0 40px rgba(229, 57, 53, 0.3);
-}
-
-.flip-card-back .verdict {
-    font-size: 2.5rem;
-    margin-bottom: 8px;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
-}
-
-.flip-card-back .label {
-    font-size: 1.4rem;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    margin-bottom: 12px;
-    text-transform: uppercase;
-}
-
-.flip-card-back .explanation {
-    font-size: 0.9rem;
-    opacity: 0.95;
-    line-height: 1.5;
-    font-weight: 400;
-}
-
-/* ============================================
-   ROADMAP - Visual Journey
-   ============================================ */
-.roadmap-section {
-    padding: 80px 20px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.roadmap-section h2 {
-    text-align: center;
-    font-size: clamp(1.5rem, 4vw, 2rem);
-    margin-bottom: 50px;
-    color: var(--text-color);
-}
-
-.roadmap {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    position: relative;
-    padding: 0 30px;
-}
-
-.roadmap::before {
-    content: '';
-    position: absolute;
-    top: 42px;
-    left: 80px;
-    right: 80px;
-    height: 6px;
-    background: linear-gradient(90deg,
-            var(--primary-color) 0%,
-            rgba(229, 57, 53, 0.5) 50%,
-            rgba(229, 57, 53, 0.2) 100%);
-    border-radius: 3px;
-    z-index: 0;
-}
-
-.roadmap::after {
-    content: '';
-    position: absolute;
-    top: 38px;
-    left: 80px;
-    width: 14px;
-    height: 14px;
-    background: var(--primary-color);
-    border-radius: 50%;
-    box-shadow: 0 0 20px rgba(229, 57, 53, 0.5);
-    animation: progress-pulse 2s ease-in-out infinite;
-}
-
-@keyframes progress-pulse {
-
-    0%,
-    100% {
-        box-shadow: 0 0 20px rgba(229, 57, 53, 0.5);
-        transform: scale(1);
-    }
-
-    50% {
-        box-shadow: 0 0 30px rgba(229, 57, 53, 0.8);
-        transform: scale(1.2);
-    }
-}
-
-.roadmap-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-    flex: 1;
-    max-width: 120px;
-}
-
-.roadmap-icon {
-    width: 84px;
-    height: 84px;
-    background: var(--white);
-    border: 4px solid var(--primary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    margin-bottom: 16px;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: var(--shadow-md);
-    position: relative;
-}
-
-.roadmap-icon::after {
-    content: '';
-    position: absolute;
-    inset: -8px;
-    border: 2px dashed rgba(229, 57, 53, 0.2);
-    border-radius: 50%;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.roadmap-item:hover .roadmap-icon {
-    background: var(--gradient-red);
-    transform: scale(1.15) translateY(-5px);
-    box-shadow: var(--shadow-lg), 0 0 40px rgba(229, 57, 53, 0.4);
-}
-
-.roadmap-item:hover .roadmap-icon::after {
-    opacity: 1;
-}
-
-.roadmap-item:hover .roadmap-icon span {
-    filter: grayscale(1) brightness(10);
-}
-
-.roadmap-label {
-    font-size: 0.85rem;
-    font-weight: 600;
-    color: var(--text-color);
-    text-align: center;
-    line-height: 1.3;
-}
-
-.roadmap-number {
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    opacity: 0.6;
-    margin-top: 4px;
-}
-
-/* ============================================
-   QUOTE SECTION - Statement
-   ============================================ */
-.quote-section {
-    padding: 70px 40px;
-    margin: 40px 20px;
-    background: var(--white);
-    border-radius: 24px;
-    box-shadow: var(--shadow-lg);
-    position: relative;
-    overflow: hidden;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.quote-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 8px;
-    height: 100%;
-    background: var(--gradient-red);
-}
-
-.quote-section::after {
-    content: '"';
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    font-size: 8rem;
-    font-family: Georgia, serif;
-    background: var(--gradient-red);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    opacity: 0.1;
-    line-height: 1;
-}
-
-.quote-text {
-    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-    font-style: italic;
-    color: var(--text-color);
-    line-height: 1.8;
-    margin-bottom: 24px;
-    position: relative;
-    z-index: 1;
-    max-width: 700px;
-}
-
-.quote-author {
-    font-size: 1.1rem;
-    font-weight: 700;
-    background: var(--gradient-red);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    position: relative;
-    z-index: 1;
-}
-
-/* ============================================
-   START BUTTON - Call to Action
-   ============================================ */
-.start-section {
-    text-align: center;
-    padding: 60px 20px 80px;
-}
-
-.start-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    padding: 20px 48px;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: white;
-    background: var(--gradient-red);
-    border: none;
-    border-radius: 60px;
-    cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow:
-        0 8px 30px rgba(229, 57, 53, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    position: relative;
-    overflow: hidden;
-}
-
-.start-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
-}
-
-.start-btn:hover {
-    transform: translateY(-4px) scale(1.02);
-    box-shadow:
-        0 16px 50px rgba(229, 57, 53, 0.5),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-}
-
-.start-btn:hover::before {
-    left: 100%;
-}
-
-.start-btn:active {
-    transform: translateY(-2px) scale(0.99);
-}
-
-.start-btn svg {
-    width: 26px;
-    height: 26px;
-    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
-}
-
-/* ============================================
-   RESPONSIVE
-   ============================================ */
+/* Responsive */
 @media (max-width: 1024px) {
-    .course-info {
-        grid-template-columns: repeat(2, 1fr);
-    }
 
+    .course-info,
+    .benefits-grid,
     .flip-cards-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .roadmap {
-        overflow-x: auto;
-        padding-bottom: 20px;
-        gap: 10px;
-    }
-
-    .roadmap::before {
-        left: 60px;
-        right: 60px;
-    }
-
-    .roadmap-icon {
-        width: 70px;
-        height: 70px;
-        font-size: 1.6rem;
-    }
-}
-
-@media (max-width: 900px) {
     .content-wrapper {
         flex-direction: column;
         text-align: center;
-        gap: 40px;
-    }
-
-    .context-section h2::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .context-section .visual-block {
-        width: 100%;
-    }
-
-    .benefits-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
     }
 }
 
 @media (max-width: 768px) {
-    .home-hero {
-        padding: 60px 20px 40px;
-    }
 
-    .orbital-container {
-        width: 260px;
-        height: 260px;
-    }
-
-    .orbital-center {
-        width: 80px;
-        height: 80px;
-    }
-
-    .orbital-center svg {
-        width: 38px;
-        height: 38px;
-    }
-
-    .orbital-icon {
-        width: 44px;
-        height: 44px;
-        font-size: 1.2rem;
-    }
-
-    .course-info {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-    }
-
-    .info-card {
-        padding: 24px 16px;
-    }
-
-    .info-card h3 {
-        font-size: 1.6rem;
-    }
-
+    .course-info,
+    .benefits-grid,
     .flip-cards-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .flip-card {
-        height: 200px;
     }
 
     .roadmap {
-        gap: 5px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 30px;
+        padding-left: 50px;
     }
 
     .roadmap::before {
-        left: 50px;
-        right: 50px;
-        height: 4px;
-        top: 35px;
-    }
-
-    .roadmap::after {
-        top: 31px;
-        left: 50px;
-        width: 12px;
-        height: 12px;
-    }
-
-    .roadmap-icon {
-        width: 60px;
-        height: 60px;
-        font-size: 1.4rem;
-        border-width: 3px;
-    }
-
-    .roadmap-label {
-        font-size: 0.75rem;
-    }
-
-    .quote-section {
-        padding: 50px 30px;
-        margin: 30px 15px;
-    }
-
-    .start-btn {
-        padding: 18px 36px;
-        font-size: 1.1rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .course-info {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-    }
-
-    .info-card {
-        padding: 20px 12px;
-    }
-
-    .info-card .icon {
-        font-size: 2rem;
-    }
-
-    .info-card h3 {
-        font-size: 1.4rem;
+        width: 2px;
+        height: 100%;
+        left: 20px;
+        top: 0;
+        right: auto;
     }
 
     .roadmap-item {
-        max-width: 60px;
+        flex-direction: row;
+        gap: 20px;
     }
 
     .roadmap-icon {
-        width: 48px;
-        height: 48px;
-        font-size: 1.1rem;
+        margin-bottom: 0;
+        width: 50px;
+        height: 50px;
     }
 
-    .roadmap-label {
-        font-size: 0.65rem;
+    .roadmap::before {
+        display: none;
+        /* Simplify on mobile for now or adjust logic */
     }
-}
-
-/* ============================================
-   DARK MODE
-   ============================================ */
-body.dark-mode .home-container {
-    background: var(--gradient-mesh), var(--secondary-color);
-}
-
-body.dark-mode .orbital-icon {
-    background: rgba(30, 30, 30, 0.9);
-    border-color: rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .flip-card-front {
-    background: #2a2a2a;
-    border-color: rgba(255, 255, 255, 0.08);
-}
-
-body.dark-mode .flip-card-front p {
-    color: var(--text-color);
-}
-
-body.dark-mode .info-card {
-    background: #2a2a2a;
-    border-color: rgba(255, 255, 255, 0.05);
-}
-
-body.dark-mode .roadmap-icon {
-    background: #2a2a2a;
-}
-
-body.dark-mode .quote-section {
-    background: #2a2a2a;
-}
-
-body.dark-mode .stat-label {
-    color: var(--white);
-}
-
-body.dark-mode .benefit-card {
-    background: #2a2a2a;
-    border-color: rgba(255, 255, 255, 0.05);
-}
-
-body.dark-mode .benefit-icon {
-    background: rgba(255, 255, 255, 0.05);
-}
-
-/* ============================================
-   REDUCED MOTION
-   ============================================ */
-@media (prefers-reduced-motion: reduce) {
-
-    .orbital-icons,
-    .orbital-icon,
-    .orbital-ring::before,
-    .orbital-center,
-    .stat-circle::before,
-    .stat-circle {
-        animation: none;
-    }
-
-    .flip-card-inner {
-        transition: none;
-    }
-
-    .flip-card.flipped .flip-card-inner {
-        transform: rotateY(180deg);
-    }
-}
-/* ============================================
-   TUTORIAL CTA - Intro Text
-   ============================================ */
-.tutorial-cta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding-top: 40px !important;
-}
-
-.tutorial-intro h2 {
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: var(--text-color);
-}
-
-.tutorial-intro p {
-    color: var(--text-light);
-    font-size: 1.1rem;
-    max-width: 500px;
-    margin: 0 auto;
-    line-height: 1.5;
-}
-
-/* Dark Mode adjustment for intro text */
-body.dark-mode .tutorial-intro h2 {
-    color: var(--white);
 }

@@ -6,251 +6,207 @@
 ## 📄 01 Intro
 *Arquivo: `module_05/01_intro.html`*
 
-Módulo 5 
-## O Futuro da Desinformação 
+Módulo 5
+## A Era da Realidade Sintética
 
-Quando a mentira ganha velocidade de máquina e realismo de cinema. 
-🤖 
-### A Era da IA Generativa 
+**"Viveremos num mundo onde a verdade será uma escolha, não um fato."**
 
-A desinformação não é mais apenas humana. Com a **Inteligência Artificial Generativa **,
- a criação de conteúdo falso tornou-se automatizada, barata e assustadoramente realista.
- Neste módulo, exploraremos essa nova fronteira onde "ver" não é mais "crer". 
+A desinformação evoluiu. Deixamos a era das *Fake News* artesanais (textos mentirosos, fotos fora de contexto) e entramos na era da **Mídia Sintética**.
 
-### O Que Você Vai Aprender 
-01 
-#### Deepfakes 
+Com a Inteligência Artificial Generativa, a criação de conteúdo falso tornou-se instantânea, barata e, pior, indistinguível da realidade para nossos sentidos biológicos.
 
-Entenda como o **Face Swap **, **Lip Sync **e **Voice
- Cloning **estão redefinindo a fraude e a manipulação política. 
-🎭 02 
-#### O Dividendo do Mentiroso 
+### O Que Mudou?
+*   **Velocidade**: O que levava dias para um artista VFX criar, agora leva segundos.
+*   **Acesso**: Não é preciso ser um hacker. Qualquer pessoa com um smartphone pode criar.
+*   **Realismo**: Cruzamos o "Vale da Estranheza". As máquinas aprenderam a nos imitar perfeitamente.
 
-Descubra como a mera existência da IA cria uma desculpa perfeita para
- figuras públicas negarem evidências reais. 
-🛡️ 03 
-#### Kit de Detecção 
-
-Aprenda a identificar os "glitches" visuais e auditivos que as IAs ainda deixam para trás
- (mãos deformadas, falta de respiração, texturas irreais). 
-🕵️ 
-> "Em um mundo onde qualquer coisa pode ser falsificada, a confiança torna-se o recurso mais escasso." 
-⏱️ **Duração estimada **15-20 minutos 📝 **Prática **Laboratório de Detecção 🔨 **Ferramentas **Lupa Virtual 
-#### Está preparado? 
-
-Primeiro passo: Entender a escala do problema.
+Neste módulo, vamos abrir a "caixa preta" dessa tecnologia. Você não vai apenas ver o que ela faz, vai entender **como** ela faz.
 
 ---
 
-## 📄 02 Deepfakes
-*Arquivo: `module_05/02_deepfakes.html`*
+## 📄 02 How It Works
+*Arquivo: `module_05/02_how_it_works.html`*
 
-Módulo 5 
-## Deepfakes 
+Módulo 5
+## A Mágica é Estatística (Como Funciona)
 
-Quando "ver" não é mais "crer". 
+Para combater a IA, precisamos desmistificá-la. Não é magia, é matemática. Existem dois modelos principais que você precisa conhecer:
 
-**Deepfakes **são mídias sintéticas onde a imagem ou voz de uma pessoa é substituída
- pela de outra com ajuda de Inteligência Artificial. 
+### 1. O Falsificador e o Detetive (GANs)
+As **Redes Adversárias Generativas (GANs)** funcionam como um jogo de gato e rato entre duas IAs:
+*   **O Gerador (Falsificador)**: Cria uma imagem falsa (ex: um rosto).
+*   **O Discriminador (Detetive)**: Tenta adivinhar se é real ou falso.
 
-### Os 3 Tipos Principais 
-🎭 
-#### Face Swap 
+O Gerador aprende com seus erros. Ele tenta milhões de vezes até que o Detetive não consiga mais distinguir a falsificação da realidade. É assim que nascem os *Deepfakes* de vídeo.
 
-Troca de Rosto 
+### 2. Do Ruído à Imagem (Modelos de Difusão)
+Ferramentas como Midjourney e DALL-E usam **Difusão**. Imagine uma foto nítida sendo coberta por garoa (ruído) até virar pura estática. A IA aprende a fazer o processo inverso: ela olha para a estática e "alucina" pormenores até reconstruir uma imagem nítida que nunca existiu.
 
-Colocar o rosto de uma celebridade ou pessoa comum em outro corpo.
- Muito usado em pornografia não consensual e fraudes financeiras. 
-👄 
-#### Lip Sync 
-
-Sincronia Labial 
-
-Alterar o movimento da boca de alguém em um vídeo real para fazê-lo "dizer"
- algo que nunca disse, mantendo a voz original ou clonada. 
-🎙️ 
-#### Voice Cloning 
-
-Clonagem de Voz 
-
-Com apenas 3 segundos de áudio, IAs podem clonar a voz de netos (golpe do sequestro)
- ou de CEOs (fraudes bancárias). 
-
-#### 🛡️ O "Dividendo do Mentiroso" 
-
-Um efeito colateral perverso da IA: Como todos sabem que vídeos *podem *ser falsificados,
- figuras públicas apanhadas em vídeos reais comprometedores podem simplesmente alegar: **"Isso é IA, é fake news." **
-
-A mera existência da tecnologia cria uma desculpa plausível para fugir da responsabilidade.
+**Conceito Chave**: A IA não "sabe" o que é um rosto humana. Ela sabe, estatisticamente, qual pixel costuma vir ao lado de outro pixel para formar algo que *nós* reconhecemos como um rosto.
 
 ---
 
-## 📄 03 Detection
-*Arquivo: `module_05/03_detection.html`*
+## 📄 03 Deepfakes
+*Arquivo: `module_05/03_deepfakes.html`*
 
-Módulo 5 
-## Kit de Detecção de IA 
+Módulo 5
+## A Trindade do Deepfake
 
-Ainda não existe tecnologia perfeita, mas a IA deixa rastros. Treine seu olhar. 
+O termo "Deepfake" (Deep Learning + Fake) tornou-se um guarda-chuva para várias técnicas de manipulação. Vamos categorizá-las tecnicamente:
 
-### 🕵️ Em Imagens (Artefatos Visuais) 
+### 🎭 1. Face Swap (Troca de Rosto)
+A técnica mais famosa. Mapeia os traços faciais de um alvo (ex: Tom Cruise) sobre o vídeo de um ator.
+*   **Uso Malicioso**: Pornografia não-consensual (96% dos deepfakes online), humilhação pública e fraudes de identidade.
 
-##### 🖐️ Mãos e Dedos 
+### 👄 2. Lip Sync (Sincronia Labial)
+Mantém o rosto e a voz originais, mas altera o movimento da boca para fazer a pessoa dizer algo que nunca disse.
+*   **Perigo**: É extremamente sutil. Pode ser usado para alterar discursos políticos ou depoimentos judiciais sem deixar rastros óbvios.
 
-A IA ainda luta para contar dedos. Procure por mãos com 6 dedos, dedos fundidos ou em posições
- impossíveis. 
-
-##### ✨ Texturas de Pele 
-
-Peles excessivamente lisas, brilhantes ou com "efeito de plástico", sem poros ou imperfeições
- naturais. 
-
-##### 🌫️ Fundo e Detalhes 
-
-Objetos no fundo desfocados de forma estranha, textos ilegíveis (símbolos alienígenas) em placas ou
- camisetas. 
-
-##### 👓 Simetria 
-
-Brincos diferentes em cada orelha, óculos tortos ou reflexos nos olhos que não coincidem com a
- iluminação. 
-
-### 🗣️ Em Áudio 
-💨 Respiração Falta natural de pausas para respirar. A fala pode parecer contínua demais, sem as pequenas
- interrupções humanas. 🤖 Entonação Voz monótona ou metálica, sem a variação emocional condizente com o conteúdo da mensagem. 🔤 Pronúncia Erros sutis em nomes próprios, siglas locais ou palavras complexas que um falante nativo não
- erraria. 
-### 📝 Em Texto 
-
-#### Alucinações 
-
-O ChatGPT e outros podem inventar fatos com total confiança. **Sempre verifique datas e fontes citadas. **
-
-##### Padrões Repetitivos 
-
-Uso excessivo de certas palavras de transição ou estruturas frasais muito "perfeitas" e genéricas.
+### 🎙️ 3. Voice Cloning (Clonagem de Voz)
+IAs modernas precisam de apenas **3 segundos** de áudio para clonar uma voz com entonação e sotaque perfeitos.
+*   **Aplicação Criminal**: O "Golpe do Sequestro" e fraudes de CEO (ordens falsas de transferência bancária via telefone).
 
 ---
 
-## 📄 04 Solutions
-*Arquivo: `module_05/04_solutions.html`*
+## 📄 04 Psychology
+*Arquivo: `module_05/04_psychology.html`*
 
-Módulo 5 
-## Tecnologia como Solução 
+Módulo 5
+## Por Que Acreditamos? (A Psicologia de Hackear o Cérebro)
 
-A mesma tecnologia que cria o problema pode ser parte da solução. 
-🔒 
-##### Marcas d'água Digitais (C2PA) 
+A tecnologia é avançada, mas o alvo é obsoleto: nosso cérebro. Evoluímos por milhares de anos para confiar em nossos sentidos. A IA explora falhas fundamentais do nosso hardware biológico.
 
-Padrões invisíveis incorporados ao arquivo. 
+### O Efeito de Supremacia Visual
+Temos uma tendência inata de confiar mais no que vemos do que no que lemos ou ouvimos. Se um texto diz "O Presidente cometeu um crime", exigimos provas. Se vemos um vídeo dele cometendo o crime, nosso cérebro processa aquilo como **evidência direta**, contornando nosso ceticismo.
 
-Certificam a origem da imagem (ex: "Criado por câmera Sony" vs "Gerado por DALL-E").
- Permite rastrear se a imagem foi alterada desde sua criação. 
-🔑 
-##### Assinatura Criptográfica 
+### Viés de Confirmação 2.0
+As fakes geradas por IA são "mísseis teleguiados" de viés. Elas não precisam convencer a todos, apenas confirmar o que um grupo específico *já quer acreditar*.
+*   Se você odeia o Político X, seu cérebro *quer* que a imagem dele sendo preso seja real. A IA entrega exatamente essa dopamina.
 
-Autenticação na fonte. 
-
-Conteúdo autenticado digitalmente por veículos de imprensa ou governos no momento da
- publicação.
- Garante que o conteúdo não foi adulterado.
+> **Regra de Ouro**: Se uma imagem provoca uma reação emocional imediata e intensa (raiva, medo, euforia) e confirma suas crenças prévias, pare. Você está sendo hackeado.
 
 ---
 
-## 📄 05 Activity
-*Arquivo: `module_05/05_activity.html`*
+## 📄 05 Real Cases
+*Arquivo: `module_05/05_real_cases.html`*
 
-Módulo 5 
-## Laboratório de Detecção 
+Módulo 5
+## Anatomia de um Viral: Estudos de Caso
 
-Passe para o próximo nível. Você enfrentará o **"Modo IA" **. 
+Vamos analisar três casos reais que mostram como a desinformação visual impacta o mundo real.
 
-#### 🔬 Instruções da Missão 
+### 1. O Papa de Puffer (O Viral "Inofensivo")
+*   **O Caso**: Uma foto do Papa Francisco com um casaco fashion branco viralizou.
+*   **Por que colou?**: Quebrou a expectativa (surpresa), mas manteve a plausibilidade (o Papa é rico/importante).
+*   **Impacto**: Mostrou ao mundo que não conseguimos mais distinguir fotos de realidade. Foi o "momento Sputnik" da IA generativa.
 
-1. Você receberá **5 imagens **. Algumas são fotos reais, outras geradas por IA. 
-2. Use a **lupa virtual **para encontrar os "glitches" (erros) discutidos
- anteriormente. 
-3. **Classifique **cada imagem e justifique sua escolha. 
+### 2. Explosão no Pentágono (O Impacto Financeiro)
+*   **O Caso**: Uma imagem de fumaça preta no Pentágono circulou no Twitter (X) por contas verificadas (pagas).
+*   **Impacto Real**: O índice S&P 500 caiu 0,3% em minutos, evaporando bilhões de dólares em valor de mercado.
+*   **Lição**: A desinformação visual tem consequências financeiras imediatas, operadas por algoritmos de trading que "leem" notícias.
 
-Está pronto para testar seu olhar?
-
----
-
-## 📄 06 Summary
-*Arquivo: `module_05/06_summary.html`*
-
-Módulo 5 
-## Recapitulando: IA 
-
-A tecnologia avança rápido, mas seu pensamento crítico é atemporal. 
-🤖 Missão Cumprida 
-Você explorou a fronteira final da desinformação. O que antes parecia ficção científica,
- agora é parte do seu dia a dia. Vamos fixar o essencial. 
-
-### Pontos-Chave do Módulo 5 
-1 
-#### IA Generativa: Escala e Velocidade 
-
-A IA democratizou a criação de falsificações de alta qualidade.
- Agora, qualquer um pode criar conteúdo falso em segundos, sobrecarregando os checadores. 
-2 
-#### A Trindade do Deepfake 
-🎭 **Face Swap: **Troca de rosto em vídeos/fotos. 👄 **Lip Sync: **Manipulação labial para falas falsas. 🎙️ **Voice Cloning: **Clonagem de voz para golpes/fraudes. 3 
-#### O Dividendo do Mentiroso 
-
-O perigo não é apenas ser enganado por um fake, mas duvidar de uma verdade.
- Criminosos usam a "desculpa da IA" para negar provas reais de seus atos. 
-
-#### 📝 Reflexão Final 
-
-Antes de encerrar, uma última provocação sobre o futuro da verdade.
+### 3. Eleições na Eslováquia (O Ataque à Democracia)
+*   **O Caso**: Dois dias antes da eleição, vazou um áudio do candidato pró-OTAN discutindo fraude eleitoral. Era clonagem de voz.
+*   **Impacto**: O áudio dominou o ciclo de notícias nas "48h de silêncio" pré-eleição. O candidato perdeu.
+*   **Lição**: Deepfakes não precisam ser perfeitos, apenas oportunos. O tempo de checagem é maior que o tempo de voto.
 
 ---
 
-## 📄 07 Reflection
-*Arquivo: `module_05/07_reflection.html`*
+## 📄 06 Detection
+*Arquivo: `module_05/06_detection.html`*
 
-Módulo 5 
-## Reflexão Final 
+Módulo 5
+## Kit de Detecção Avançada (CSI Digital)
 
-O elemento humano na era da máquina. 
+Esqueça "contar os dedos". As IAs já corrigiram isso (v5, v6...). Para detectar fakes modernos, precisamos olhar para a física e o contexto.
 
-> "A IA não tem compromisso com a verdade, apenas com a plausibilidade. Ela é uma máquina de 'parecer real'." 
+### 1. A Física da Luz (Reflexos)
+A IA é péssima em física. Olhe nos olhos da pessoa.
+*   **Reflexo Pupilar**: O reflexo da janela/luz deve ser igual em ambos os olhos. Se um olho reflete um quadrado e o outro nada, é fake.
+*   **Sombras**: A sombra do nariz condiz com a fonte de luz principal?
 
-O único antídoto duradouro não é apenas tecnológico, mas **humano **: o Pensamento Crítico. 
+### 2. Consistência de Acessórios
+A IA generativa "alucina" detalhes.
+*   **Orelhas e Joias**: Brincos diferentes em cada orelha? Óculos que se fundem com a pele? A simetria dos acessórios é o calcanhar de Aquiles.
+*   **Texto e Logotipos**: Inscrições em camisetas ou placas de rua no fundo frequentemente parecem "alienígenas" ou ilegíveis.
 
-Se uma imagem confirma todos os seus preconceitos e provoca forte emoção, **duvide **,
- mesmo que pareça perfeita. A dúvida metódica é sua melhor defesa. 
+### 3. Contexto Lógico
+*   **Inconsistência Semântica**: A imagem é hiper-realista, mas o contexto faz sentido? (Ex: O Papa andando de skate). O absurdo visual é mascarado pela qualidade técnica.
 
-#### Parabéns! 
+---
 
-Você concluiu o Módulo 5. Agora você conhece as ferramentas do futuro da desinformação e, mais
- importante,
- como se defender delas.
+## 📄 07 Solutions
+*Arquivo: `module_05/07_solutions.html`*
+
+Módulo 5
+## Soluções Tecnológicas: A Vacina Digital
+
+Não podemos depender apenas do "olhômetro". Precisamos de infraestrutura de confiança.
+
+### 1. Procedência de Conteúdo (C2PA)
+Grandes empresas (Adobe, Microsoft, Intel) criaram um padrão aberto chamado **C2PA**.
+*   **Como funciona**: A câmera assina digitalmente a foto no momento do clique. Qualquer edição posterior (Photoshop, IA) fica registrada num histórico imutável.
+*   **O ícone "CR"**: No futuro, você verá um ícone "Content Credentials" em imagens, mostrando toda a genealogia do arquivo.
+
+### 2. Assinatura Criptográfica
+Governos e imprensa começarão a assinar criptograficamente seus vídeos oficiais. Se um vídeo do Presidente não tiver a chave pública oficial do Planalto, ele deve ser tratado como suspeito por padrão.
+
+### 3. Arquitetura "Zero Trust"
+O novo paradigma da segurança da informação: **"Nunca confie, sempre verifique"**. Em vez de tentar provar o que é falso, provaremos o que é real. Todo o resto é ruído.
 
 ---
 
-## 📄 08 Conclusion
-*Arquivo: `module_05/08_conclusion.html`*
+## 📄 08 Ethics
+*Arquivo: `module_05/08_ethics.html`*
 
-🚀 Módulo Concluído! 
-## Futuro Desbloqueado 
+Módulo 5
+## O Dividendo do Mentiroso e o Lei
 
-Você completou a fase de **Futuro (IA) **. Agora você entende as ferramentas
- que moldarão a verdade nos próximos anos. 
-🏆 
-#### Conquistas do Futuro 
-✓ Identificação de Deepfakes ✓ Consciência sobre IA Generativa ✓ Kit de Detecção Visual/Auditivo ✓ Vacina contra o "Dividendo do Mentiroso" 
-### O Desafio Final 
+### O Dividendo do Mentiroso (Liar's Dividend)
+Este é o efeito colateral mais perverso da IA.
+Conforme a sociedade se conscientiza sobre os Deepfakes, figuras públicas ganham uma desculpa pronta para negar a realidade.
+*   *Político é gravado recebendo propina?* -> "É IA."
+*   *Policial é filmado cometendo abuso?* -> "É Deepfake."
+A mera existência da tecnologia corrói a força da prova em vídeo, beneficiando os mentirosos.
 
-Você já tem a teoria, a história e as ferramentas. Agora é hora de colocar tudo à prova. 
-🕵️ Próximo Módulo (Final) 
-#### Caça Fakes: O Jogo 
-
-Entre no simulador e analise casos reais em tempo contra o relógio.
- Você consegue distinguir o fato do fake sob pressão? 
-🎮 
-#### Iniciar Simulação Final 
-
-Clique em **"Finalizar" **para carregar o jogo.
+### O Vácuo Legal e Regulação
+*   **Brasil**: Discussões no PL 2630 e na reforma do Código Eleitoral. Foco em punir o uso não rotulado de IA em campanhas.
+*   **União Europeia (AI Act)**: Obriga plataformas a rotular automaticamente conteúdo gerado por IA.
+*   **O Dilema**: Como legislar sem censurar a sátira ou a arte? A linha entre "paródia" e "fraude" é tênue.
 
 ---
+
+## 📄 09 Activity
+*Arquivo: `module_05/09_activity.html`*
+
+Módulo 5
+## Laboratório de Detecção: Modo Expert
+
+Você foi treinado. Agora, teste suas habilidades.
+Você verá 5 imagens. Algumas reais, algumas geradas pela v5/v6 do Midjourney.
+
+**Sua missão**:
+1.  Ignorar sua reação emocional inicial.
+2.  Procurar falhas físicas (luz, reflexo, simetria).
+3.  Decidir: Fato ou Fake?
+
+*Nota: Esta atividade simula a pressão do feed de redes sociais.*
+
+---
+
+## 📄 10 Conclusion
+*Arquivo: `module_05/10_conclusion.html`*
+
+Módulo 5
+## O Fim da Inocência Visual
+
+Você concluiu o módulo mais desafiador do curso.
+
+Não se trata de ter medo do futuro, mas de respeito pela complexidade do que está por vir. A IA Generativa é uma ferramenta poderosa de criatividade, mas exige uma **atualização do sistema operacional humano**.
+
+O Olhar Crítico 2.0 não é cínico (que não acredita em nada), mas cético (que exige evidência proporcional).
+
+**Próximo Passo**: Você tem toda a teoria. História, Dados, Verificação e IA.
+Agora, é você contra o relógio. Vamos para o desafio final.
+
+**[ INICIAR JOGO FINAL ]**

@@ -81,13 +81,15 @@
         "locked": true,
         "pages": [
             "module_05/01_intro.html",
-            "module_05/02_deepfakes.html",
-            "module_05/03_detection.html",
-            "module_05/04_solutions.html",
-            "module_05/05_activity.html",
-            "module_05/06_summary.html",
-            "module_05/07_reflection.html",
-            "module_05/08_conclusion.html"
+            "module_05/02_how_it_works.html",
+            "module_05/03_deepfakes.html",
+            "module_05/04_psychology.html",
+            "module_05/05_real_cases.html",
+            "module_05/06_detection.html",
+            "module_05/07_solutions.html",
+            "module_05/08_ethics.html",
+            "module_05/09_activity.html",
+            "module_05/10_conclusion.html"
         ]
     },
     {
@@ -109,8 +111,7 @@
         "icon": "🔗",
         "locked": true,
         "pages": [
-            "links.html",
-            "credits.html"
+            "module_07/01_indica.html"
         ]
     }
 ]

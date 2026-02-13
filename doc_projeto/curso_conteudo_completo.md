@@ -1,4 +1,4 @@
-# Curso: Fato ou Fake
+# Curso: Olhar Crítico
 
 ## Conteúdo Completo do Curso
 

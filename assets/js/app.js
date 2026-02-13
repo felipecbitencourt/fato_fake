@@ -24,6 +24,11 @@ class App {
             progressIndicator: document.getElementById('progress-indicator')
         };
 
+        // Cache initial content (Home) if present
+        if (this.ui.contentArea.querySelector('.home-container')) {
+            this.homeContentCache = this.ui.contentArea.innerHTML;
+        }
+
         this.init();
     }
 
@@ -305,12 +310,32 @@ class App {
         });
     }
 
+
     async renderModuleContent(module) {
         if (module.type === 'game') {
             this.ui.contentArea.innerHTML = '<div id="game-container"></div>';
             const game = new GameEngine(document.getElementById('game-container'));
             await game.init();
             this.ui.progressIndicator.textContent = "Modo Jogo";
+            return;
+        }
+
+        // SPECIAL CASE: Module 00 (Home)
+        // Check if we have cached content for Home to avoid fetching
+        if (module.id === 'module_00' && this.homeContentCache) {
+            this.ui.contentArea.innerHTML = this.homeContentCache;
+
+            // Re-initialize Welcome Effects
+            if (window.WelcomeEffects) {
+                setTimeout(() => new window.WelcomeEffects(), 50);
+            }
+
+            // Execute scripts in cached content (essential for Start button)
+            this.executeScripts(this.ui.contentArea);
+
+            this.ui.progressIndicator.textContent = "";
+            this.renderSideProgress(module);
+            window.scrollTo(0, 0);
             return;
         }
 

@@ -1,4 +1,4 @@
-# 1. Visão Geral do Projeto - Fato ou Fake
+# 1. Visão Geral do Projeto - Olhar Crítico
 
 ## Objetivo
 Desenvolver uma versão SCORM 1.2 interativa e atualizada do projeto **"Olhar Crítico"** (olharcritico.org). O curso combaterá a desinformação capacitando os usuários a identificar fake news, verificar fontes e entender o impacto da IA.

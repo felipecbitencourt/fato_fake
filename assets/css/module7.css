@@ -1,0 +1,93 @@
+/* Module 7 Styles */
+.media-badge {
+    display: inline-block;
+    background: #eee;
+    color: #333;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.grid-cards-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.info-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #eee;
+    transition: transform 0.2s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+.info-card h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--primary-color, #e63946);
+    font-size: 1.1em;
+}
+
+.info-card cite {
+    display: block;
+    font-style: normal;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.tools-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.tools-list li {
+    margin-bottom: 0.8rem;
+    padding-left: 2rem;
+    position: relative;
+    line-height: 1.4;
+}
+
+.tools-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--success-color, #2a9d8f);
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.highlight-box {
+    background: #f8f9fa;
+    border-left: 4px solid var(--primary-color, #e63946);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] .info-card {
+    background: #2a2a2a;
+    border-color: #444;
+}
+
+[data-theme="dark"] .info-card cite {
+    color: #aaa;
+}
+
+[data-theme="dark"] .media-badge {
+    background: #444;
+    color: #ddd;
+}

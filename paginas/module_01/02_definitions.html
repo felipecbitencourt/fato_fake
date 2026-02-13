@@ -1,42 +1,69 @@
-<div class="content-container">
-    <!-- Page Header -->
-    <div class="page-header-section">
-        <h1>O que é a "Desordem Informacional"?</h1>
+<div class="disruptive-page">
+
+    <!-- Global Background Shapes -->
+    <div class="global-shapes" aria-hidden="true">
+        <div class="g-shape g-circle-4"></div>
+        <div class="g-shape g-circle-2"></div>
     </div>
 
-    <!-- Main Concept -->
-    <section class="content-section">
-        <div class="concept-intro">
-            <p class="lead-text">
-                Você provavelmente já ouviu o termo <strong>"Fake News"</strong>, certo? Mas sabia que
-                ele é considerado <strong>impreciso por pesquisadores</strong>? O termo simplifica demais
-                um fenômeno complexo.
-            </p>
-            <p>
-                Em 2017, os pesquisadores Claire Wardle e Hossein Derakhshan propuseram uma nova terminologia:
-                <strong>Desordem Informacional</strong>. Esse conceito reconhece que existem diferentes tipos
-                de conteúdo problemático, cada um com características e implicações distintas.
+    <!-- Hero Section -->
+    <section class="disruptive-hero" style="min-height: 40vh; padding-bottom: 0;">
+        <div class="hero-animated-bg"></div>
+        <div class="decorative-shapes" aria-hidden="true">
+            <div class="shape shape-diamond-1"></div>
+            <div class="shape shape-ring-2"></div>
+        </div>
+
+        <span class="vertical-text">Módulo 01 // Definições</span>
+
+        <div class="hero-overlay">
+            <h1 class="disruptive-title"
+                style="font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: -2px; margin-bottom: 10px;">
+                O Que é<br>
+                <span class="accent">"Desordem"?</span>
+            </h1>
+            <p class="disruptive-subtitle">
+                Superando o termo "Fake News". Entenda as nuances do caos informacional.
             </p>
         </div>
     </section>
 
-    <!-- The Three Types -->
-    <section class="content-section">
-        <h2>Os Três Pilares da Desordem Informacional</h2>
-        <p class="section-desc">
-            A desordem informacional se divide em três categorias principais, dependendo de dois fatores:
-            a <strong>falsidade do conteúdo</strong> e a <strong>intenção de causar dano</strong>.
+    <!-- Main Content -->
+    <section class="scattered-section" style="padding-top: 40px;">
+
+        <!-- Intro Panel -->
+        <div class="glass-panel">
+            <p class="section-intro-text" style="color: var(--bold-text);">
+                Você provavelmente já ouviu o termo <strong>"Fake News"</strong>, certo? Mas sabia que
+                ele é considerado <strong>impreciso por pesquisadores</strong>? O termo simplifica demais
+                um fenômeno complexo.
+            </p>
+            <p class="section-intro-text">
+                Em 2017, os pesquisadores Claire Wardle e Hossein Derakhshan propuseram uma nova terminologia:
+                <strong style="color: var(--bold-accent);">Desordem Informacional</strong>. Esse conceito reconhece que
+                existem diferentes tipos
+                de conteúdo problemático, cada um com características e implicações distintas.
+            </p>
+        </div>
+
+        <h2 style="margin-top: 60px; margin-bottom: 40px;">Os 3 Pilares</h2>
+
+        <p class="section-intro-text">
+            A desordem informacional se divide em três categorias, dependendo de dois fatores:
+            <strong>Falsidade</strong> e <strong>Intenção de Dano</strong>.
         </p>
 
-        <div class="vertical-concept-cards">
+        <!-- Concept Cards -->
+        <div class="concept-cards-container">
+
             <!-- Mis-information -->
-            <div class="concept-card" style="--accent-color: #4CAF50;">
+            <div class="concept-card">
                 <div class="concept-card-header">
-                    <span class="concept-emoji">🤔</span>
+                    <div class="concept-emoji">🤔</div>
                     <div class="concept-title">
                         <h3>Informação Falsa <span class="term-en">(Mis-information)</span></h3>
-                        <span class="concept-tag falso">Conteúdo Falso</span>
-                        <span class="concept-tag sem-dolo">Sem Intenção de Dano</span>
+                        <span class="concept-tag" style="border-color: #4CAF50; color: #4CAF50;">Conteúdo Falso</span>
+                        <span class="concept-tag" style="border-color: #00E5FF; color: #00E5FF;">Sem Dolo</span>
                     </div>
                 </div>
                 <div class="concept-card-body">
@@ -53,13 +80,14 @@
             </div>
 
             <!-- Dis-information -->
-            <div class="concept-card" style="--accent-color: #E53935;">
+            <div class="concept-card" style="border-color: var(--bold-accent);">
                 <div class="concept-card-header">
-                    <span class="concept-emoji">😈</span>
+                    <div class="concept-emoji">😈</div>
                     <div class="concept-title">
                         <h3>Desinformação <span class="term-en">(Dis-information)</span></h3>
-                        <span class="concept-tag falso">Conteúdo Falso</span>
-                        <span class="concept-tag com-dolo">Com Intenção de Dano</span>
+                        <span class="concept-tag" style="border-color: #4CAF50; color: #4CAF50;">Conteúdo Falso</span>
+                        <span class="concept-tag"
+                            style="border-color: var(--bold-accent); color: var(--bold-accent);">Com Dolo</span>
                     </div>
                 </div>
                 <div class="concept-card-body">
@@ -77,13 +105,15 @@
             </div>
 
             <!-- Mal-information -->
-            <div class="concept-card" style="--accent-color: #FF9800;">
+            <div class="concept-card" style="border-color: #FF9800;">
                 <div class="concept-card-header">
-                    <span class="concept-emoji">💣</span>
+                    <div class="concept-emoji">💣</div>
                     <div class="concept-title">
                         <h3>Informação Maliciosa <span class="term-en">(Mal-information)</span></h3>
-                        <span class="concept-tag verdadeiro">Conteúdo Verdadeiro</span>
-                        <span class="concept-tag com-dolo">Com Intenção de Dano</span>
+                        <span class="concept-tag"
+                            style="border-color: var(--bold-text); color: var(--bold-text);">Conteúdo Verdadeiro</span>
+                        <span class="concept-tag"
+                            style="border-color: var(--bold-accent); color: var(--bold-accent);">Com Dolo</span>
                     </div>
                 </div>
                 <div class="concept-card-body">
@@ -98,12 +128,11 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Visual Diagram -->
-    <section class="content-section">
-        <h2>Visualizando a Diferença</h2>
+        </div>
+
+        <!-- Diagram -->
+        <h2 style="margin-top: 80px;">Visualizando a Diferença</h2>
         <div class="diagram-box">
             <div class="diagram-grid">
                 <div class="diagram-header"></div>
@@ -121,25 +150,26 @@
                 </div>
 
                 <div class="diagram-row-label">Conteúdo Verdadeiro</div>
-                <div class="diagram-cell gray">—</div>
+                <div class="diagram-cell" style="opacity: 0.3;">—</div>
                 <div class="diagram-cell orange">
                     <strong>Informação Maliciosa</strong>
                     <span>Mal-information</span>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Key Insight -->
-    <section class="content-section highlight-box sabia">
-        <h3>💡 Por Que Isso Importa?</h3>
-        <p>
-            Ao adotar esse vocabulário mais preciso, você consegue:
-        </p>
-        <ul>
-            <li><strong>Identificar a gravidade</strong> de cada tipo de conteúdo problemático;</li>
-            <li><strong>Entender a motivação</strong> por trás de quem criou ou compartilhou;</li>
-            <li><strong>Agir de forma mais adequada</strong> — nem toda informação falsa é mal-intencionada.</li>
-        </ul>
+        <!-- Key Insight -->
+        <div class="highlight-box">
+            <h3>💡 Por Que Isso Importa?</h3>
+            <p class="section-intro-text" style="font-size: 1.15rem;">
+                Ao adotar esse vocabulário mais preciso, você consegue:
+            </p>
+            <ul style="text-align: left; max-width: 600px; margin: 0 auto; padding-left: 20px;">
+                <li><strong>Identificar a gravidade</strong> de cada tipo de conteúdo problemático;</li>
+                <li><strong>Entender a motivação</strong> por trás de quem criou ou compartilhou;</li>
+                <li><strong>Agir de forma mais adequada</strong> — nem toda informação falsa é mal-intencionada.</li>
+            </ul>
+        </div>
+
     </section>
 </div>

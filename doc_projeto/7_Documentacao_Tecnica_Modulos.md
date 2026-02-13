@@ -1,6 +1,6 @@
 # Documentação Técnica: Módulos JavaScript
 
-Este documento descreve detalhadamente a arquitetura dos módulos JavaScript utilizados no projeto "Fato ou Fake".
+Este documento descreve detalhadamente a arquitetura dos módulos JavaScript utilizados no projeto "Olhar Crítico".
 
 ## Visão Geral
 
@@ -116,7 +116,7 @@ Implementa um algoritmo robusto de busca (`findAPI`) que procura a interface SCO
 
 ## 6. GameEngine (`assets/js/modules/game-engine.js`)
 
-**Responsabilidade Principal**: Gerenciar a lógica do jogo interativo "Fato ou Fake".
+**Responsabilidade Principal**: Gerenciar a lógica do jogo interativo "Olhar Crítico".
 
 ### Fluxo
 1. Carrega dados de perguntas (`game-content.json`).
