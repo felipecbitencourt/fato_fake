@@ -97,15 +97,19 @@
         </div>
     </section>
 
-    <!-- Final CTA -->
+    <!-- Navigation -->
     <section class="content-section" style="text-align: center; padding-bottom: 100px;">
-        <p style="color: var(--bold-muted); margin-bottom: 20px;">
-            Clique abaixo para iniciar o próximo módulo.
-        </p>
-        <button class="nav-btn next-btn" onclick="APP.nextPage()"
-            style="font-size: 1.2rem; padding: 15px 40px; background: var(--bold-accent); color: var(--bold-bg);">
-            Concluir Módulo 01 🚀
-        </button>
+        <div class="navigation-container"
+            style="display: flex; justify-content: center; gap: 20px; align-items: center;">
+            <button class="nav-btn prev-btn" onclick="APP.prevPage()"
+                style="font-size: 1.1rem; padding: 15px 30px; background: transparent; border: 2px solid var(--bold-muted); color: var(--bold-text); cursor: pointer; transition: all 0.3s ease;">
+                ← Voltar
+            </button>
+            <button class="nav-btn next-btn" onclick="APP.nextPage()"
+                style="font-size: 1.2rem; padding: 15px 40px; background: var(--bold-accent); color: var(--bold-bg); border: none; cursor: pointer; box-shadow: 0 0 20px rgba(0,255,0,0.4); transition: all 0.3s ease;">
+                Concluir Módulo 01 🚀
+            </button>
+        </div>
     </section>
 
 </div>
@@ -143,6 +147,14 @@
             top: auto !important;
             right: auto !important;
             margin: 0 auto 20px !important;
+        }
+
+        .navigation-container {
+            flex-direction: column;
+        }
+
+        .nav-btn {
+            width: 100%;
         }
     }
 </style>

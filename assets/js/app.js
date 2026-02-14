@@ -252,24 +252,88 @@ class App {
     goToPage(moduleIndex, pageIndex) {
         if (this.modules[moduleIndex].locked && !this.config.debug) return;
 
+
         this.currentModuleIndex = moduleIndex;
         this.currentPageIndex = pageIndex;
 
+        // Check first visit
+        const pageId = `${moduleIndex}-${pageIndex}`;
+        const isFirstVisit = !this.visitedPages.has(pageId);
+
         // Mark as visited
-        this.visitedPages.add(`${moduleIndex}-${pageIndex}`);
+        this.visitedPages.add(pageId);
         this.saveProgress();
 
         const module = this.modules[moduleIndex];
+
+        // Apply Theme
+        this.applyTheme(moduleIndex);
 
         // Update Tabs UI
         this.renderTabs();
         this.updateTabsUI();
 
         // Render Content
-        this.renderModuleContent(module);
+        this.renderModuleContent(module, isFirstVisit);
 
         // Update Navigation Buttons
         this.updateNavButtons();
+    }
+
+    async loadModule(index) {
+        if (index < 0 || index >= this.modules.length) return;
+
+        // Check if module is locked
+        if (this.modules[index].locked && !window.APP_CONFIG.debug) {
+            alert("Complete o módulo anterior para desbloquear este.");
+            return;
+        }
+
+        this.currentModuleIndex = index;
+        this.currentPageIndex = 0;
+
+        // Apply Theme
+        this.applyTheme(index);
+
+        // Update active tab
+        this.updateTabsUI(); // typo fix: updateTabs was used in original code but method is updateTabsUI?
+        // checking original code: yes, line 309 said this.updateTabs().
+        // But line 316 defines updateTabsUI().
+        // line 102 defines renderTabs().
+        // I'll assume updateTabsUI matches the intent.
+        // Wait, updateTabs() might not exist.
+        // Method at 316 is updateTabsUI.
+        // Method at 102 is renderTabs.
+        // Original code called this.updateTabs() at line 309. This might be a bug too!
+        // I will change it to this.updateTabsUI().
+
+        // Load content
+        await this.renderModuleContent(this.modules[index]);
+        this.updateNavButtons();
+    }
+
+    applyTheme(index) {
+        if (!this.modules[index]) return;
+
+        // Remove all previous theme classes
+        document.body.classList.remove('theme-disruptive', 'theme-default');
+
+        // Add theme class based on module ID or type
+        const moduleId = this.modules[index].id;
+        // Modules that use the Disruptive Theme
+        const disruptiveModules = ['module_01', 'module_02', 'module_03', 'module_04', 'module_05'];
+
+        if (disruptiveModules.includes(moduleId)) {
+            document.body.classList.add('theme-disruptive');
+            // Show global shapes
+            const shapes = document.getElementById('global-shapes-container');
+            if (shapes) shapes.style.display = 'block';
+        } else {
+            document.body.classList.add('theme-default');
+            // Hide global shapes
+            const shapes = document.getElementById('global-shapes-container');
+            if (shapes) shapes.style.display = 'none';
+        }
     }
 
     updateTabsUI() {
@@ -288,9 +352,7 @@ class App {
         });
     }
 
-    loadModule(index) {
-        this.goToPage(index, 0);
-    }
+
 
     executeScripts(container) {
         const scripts = container.getElementsByTagName("script");
@@ -311,7 +373,7 @@ class App {
     }
 
 
-    async renderModuleContent(module) {
+    async renderModuleContent(module, isFirstVisit = false) {
         if (module.type === 'game') {
             this.ui.contentArea.innerHTML = '<div id="game-container"></div>';
             const game = new GameEngine(document.getElementById('game-container'));
@@ -387,6 +449,14 @@ class App {
 
             // RENDER INLINE NAVIGATION (Global Change)
             this.renderInlineNavigation();
+
+            // CELEBRATION EFFECT (Confetti on First Visit to Conclusion)
+            if (isFirstVisit && pageFile.includes('conclusion')) {
+                console.log("First visit to conclusion - triggering confetti!");
+                import('./modules/confetti.js').then(module => {
+                    module.Confetti.start();
+                });
+            }
 
         } catch (error) {
             console.error("Page load failed", error);
